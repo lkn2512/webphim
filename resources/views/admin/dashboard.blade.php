@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row justify-content-center mt-4">
+    {{-- <div class="row justify-content-center mt-4">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Quản lý Admin</div>
@@ -17,5 +17,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

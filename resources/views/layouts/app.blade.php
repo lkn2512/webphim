@@ -12,6 +12,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('/frontend/images/home/icon-web.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
         rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+
     <link href="{{ asset('/Admin/plugins/jqvmap/jqvmap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}"rel="stylesheet" />
     <link href="{{ asset('/Admin/plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
@@ -33,18 +36,15 @@
     <link href="{{ asset('/Admin/css/toastr.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/style-responsive.css') }}" rel="stylesheet" />
     <link href="{{ asset('/Admin/css/ionicons.min.css') }}" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
     <!-- summernote -->
     <link href="{{ asset('/Admin/plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet">
-
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     {{-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/trang-chu') }}">
                     Trang chủ
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -96,11 +96,12 @@
             </div>
         </nav>
     </div> --}}
+
     @if (Auth::user())
         <div class="wrapper">
-            <div class="preloader" id="preloader">
+            {{-- <div class="preloader" id="preloader">
                 <div class="progress-bar"></div>
-            </div>
+            </div> --}}
             @include('admin.page-ribs.header')
             @include('admin.page-ribs.sidebar-left')
             <div class="content-wrapper">
@@ -113,9 +114,7 @@
     @else
         @yield('content')
     @endif
-    <script>
-        $.widget.bridge("uibutton", $.ui.button);
-    </script>
+
 
     <script src="{{ asset('/Admin/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
