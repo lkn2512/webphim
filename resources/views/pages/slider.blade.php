@@ -1,5 +1,5 @@
 <section id="tranding" class="container">
-    <div class="slider-container">
+    <div class="row slider-container">
         <div class="swiper tranding-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide tranding-slide">
@@ -8,10 +8,9 @@
                     </div>
                     <div class="tranding-slide-content">
                         <div class="tranding-slide-content-bottom">
-                            <h2 class="food-name">
+                            <h2 class="slider-name">
                                 Thôn phệ tinh không
                             </h2>
-
                         </div>
                     </div>
                 </div>
@@ -21,7 +20,7 @@
                     </div>
                     <div class="tranding-slide-content">
                         <div class="tranding-slide-content-bottom">
-                            <h2 class="food-name">
+                            <h2 class="slider-name">
                                 Meat Ball
                             </h2>
                         </div>
@@ -33,7 +32,7 @@
                     </div>
                     <div class="tranding-slide-content">
                         <div class="tranding-slide-content-bottom">
-                            <h2 class="food-name">
+                            <h2 class="slider-name">
                                 Burger
                             </h2>
 
@@ -47,7 +46,7 @@
                     <div class="tranding-slide-content">
 
                         <div class="tranding-slide-content-bottom">
-                            <h2 class="food-name">
+                            <h2 class="slider-name">
                                 Frish Curry
                             </h2>
 

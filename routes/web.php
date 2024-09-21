@@ -7,7 +7,16 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('layout');
 // });
-Route::get('/', [IndexControler::class, 'home']);
+Route::get('/', [IndexControler::class, 'home'])->name('trang-chu');
+Route::get('/danh-muc', [IndexControler::class, 'category'])->name('category');
+Route::get('/the-loai', [IndexControler::class, 'genre']);
+Route::get('/quoc-gia', [IndexControler::class, 'country']);
+Route::get('/phim', [IndexControler::class, 'movie']);
+Route::get('/xem-phim', [IndexControler::class, 'watch']);
+Route::get('/tap-phim', [IndexControler::class, 'episode']);
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//ADMIN MANAGER
+Route::get('/trang-chu', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

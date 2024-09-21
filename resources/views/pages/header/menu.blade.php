@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('trang-chu') }}">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -16,19 +16,51 @@
                         Thể loại
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Hành động</a></li>
+                        <li><a class="dropdown-item" href="#">Hài hước</a></li>
+                        <li><a class="dropdown-item" href="#">Tình cảm</a></li>
+                        <li><a class="dropdown-item" href="#">Kinh dị</a></li>
+                        <li><a class="dropdown-item" href="#">Khoa học viễn tưởng</a></li>
+                        <li><a class="dropdown-item" href="#">Giả tưởng</a></li>
+                        <li><a class="dropdown-item" href="#">Tâm lý</a></li>
+                        <li><a class="dropdown-item" href="#">Hình sự</a></li>
+                        <li><a class="dropdown-item" href="#">Chiến tranh</a></li>
+                        <li><a class="dropdown-item" href="#">Phiêu lưu</a></li>
+                        <li><a class="dropdown-item" href="#">Tài liệu</a></li>
+                        <li><a class="dropdown-item" href="#">Hoạt hình</a></li>
+                        <li><a class="dropdown-item" href="#">Nhạc kịch</a></li>
+                        <li><a class="dropdown-item" href="#">Lịch sử</a></li>
+                        <li><a class="dropdown-item" href="#">Gia đình</a></li>
+                        <li><a class="dropdown-item" href="#">Trinh thám</a></li>
+                        <li><a class="dropdown-item" href="#">Kinh điển</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Quốc gia
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Việt Nam</a></li>
+                        <li><a class="dropdown-item" href="#">Mỹ</a></li>
+                        <li><a class="dropdown-item" href="#">Hàn Quốc</a></li>
+                        <li><a class="dropdown-item" href="#">Nhật Bản</a></li>
+                        <li><a class="dropdown-item" href="#">Trung Quốc</a></li>
+                        <li><a class="dropdown-item" href="#">Anh</a></li>
+                        <li><a class="dropdown-item" href="#">Pháp</a></li>
+                        <li><a class="dropdown-item" href="#">Đức</a></li>
+                        <li><a class="dropdown-item" href="#">Ấn Độ</a></li>
+                        <li><a class="dropdown-item" href="#">Úc</a></li>
+                        <li><a class="dropdown-item" href="#">Thái Lan</a></li>
+                        <li><a class="dropdown-item" href="#">Canada</a></li>
+                        <li><a class="dropdown-item" href="#">Tây Ban Nha</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Phim lẻ</a>
+                    <a class="nav-link " aria-current="page" href="{{ route('category') }}">Phim lẻ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Phim bộ</a>
+                    <a class="nav-link " aria-current="page" href="{{ route('category') }}">Phim bộ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="#">Phim chiếu rạp</a>

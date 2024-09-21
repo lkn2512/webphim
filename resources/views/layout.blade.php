@@ -22,7 +22,6 @@
 
 <body>
     @include('pages.header.menu')
-
     <main class="container main-container">
         @yield('content')
     </main>

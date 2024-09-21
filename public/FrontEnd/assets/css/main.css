@@ -282,7 +282,7 @@ button {
     background-color: rgba(247, 99, 0, 0.7);
     color: #fff;
     padding: 2px 5px;
-    font-size: 90%;
+    font-size: 0.8rem;
     border-radius: 5px;
     z-index: 2;
     max-width: 100%;
@@ -297,21 +297,25 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2));
-    padding: 5px 0px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0) 100%);
+    padding-inline: 10px;
+    padding-top: 50px;
+    padding-bottom: 5px;
     text-align: center;
+    border: none;
 }
 
 .card-film-body .title {
-    font-size: 90%;
+    font-size: 1rem;
     font-weight: bold;
     color: #fff;
     margin: 0;
     text-transform: capitalize;
+    line-height: 22px;
 }
 
 .card-film-body .decs {
-    font-size: 90%;
+    font-size: 0.8rem;
     color: #ddd;
     text-transform: capitalize;
 }
@@ -342,86 +346,21 @@ button {
     line-height: 1.8rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Slider*/
-
-
-/* .custom-radio {
-    display: none;
+.rank-container .rank-item .col-lg-8 {
+    padding-left: 0px;
 }
 
-.slider-container {
-    position: relative;
-    max-width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+
+/* breadcrumb */
+.breadcrumb-container {}
+
+.breadcrumb .breadcrumb-item a {
+    text-decoration: none !important;
+    color: white;
 }
 
-.card-slider {
-    position: relative;
-    width: 100%;
-    height: 300px;
+.breadcrumb .breadcrumb-item.active {
+    text-decoration: none !important;
+    color: orange
 }
-
-.card-slider-item {
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-.card-slider-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-#item-1:checked~.card-slider #song-3,
-#item-2:checked~.card-slider #song-1,
-#item-3:checked~.card-slider #song-2 {
-    transform: translateX(-40%) scale(0.8);
-    opacity: 0.4;
-    z-index: 0;
-}
-
-#item-1:checked~.card-slider #song-2,
-#item-2:checked~.card-slider #song-3,
-#item-3:checked~.card-slider #song-1 {
-    transform: translateX(40%) scale(0.8);
-    opacity: 0.4;
-    z-index: 0;
-}
-
-#item-1:checked~.card-slider #song-1,
-#item-2:checked~.card-slider #song-2,
-#item-3:checked~.card-slider #song-3 {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-    z-index: 1;
-} */
