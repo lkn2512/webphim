@@ -1,5 +1,6 @@
 .bg-dnb {
-    background: #1e293b
+    background: #1e293b;
+    color: white;
 }
 
 .flex-center-between {
@@ -33,6 +34,8 @@
     border: 1px solid #C0C0C0;
     width: 100%;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .header-right .btn-add {
@@ -42,6 +45,8 @@
     border: 1px solid #103667;
     width: 100%;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .header-right .btn-back {
@@ -51,6 +56,8 @@
     border: 1px solid #F1AF00;
     width: 100%;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .header-right .btn-back i,
@@ -84,3 +91,61 @@
 }
 
 /*breadcrumb*/
+
+/******************************
+*************BUTTON TOGGLE*************
+******************************/
+.toggle-status {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #ccc;
+    border: none;
+    outline: none;
+}
+
+.toggle-status.active {
+    background-color: #2835a7;
+}
+
+.toggle-status:hover {
+    background-color: #ccc;
+}
+
+.toggle-status.active:hover {
+    background-color: #2835a7;
+}
+
+.toggle-status:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 3px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+.toggle-status.active:before {
+    transform: translateX(26px);
+}
+
+
+/******************************
+*************TABLE*************
+******************************/
+
+.table>thead>tr>th {
+    border-right: 1px solid rgb(224, 224, 224) !important;
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+.table>tbody>tr>td {
+    vertical-align: middle;
+}

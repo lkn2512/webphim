@@ -1,5 +1,189 @@
 @extends('layouts.app')
 
 @section('content')
-    Quản lý danh mục
+    <div class="header-title row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-12 mb-3 header-left">
+            <h3 class="title-content">Quản lý danh mục phim</h3>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('home') }}">Trang chủ</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Quản lý danh mục phim
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-3 header-right">
+            <div class="row justify-content-end">
+                <div class="col-lg-3 col-md-3 col-sm-5 col-6">
+                    <a href="{{ route('category.index') }}">
+                        <button type="button" class="btn-refesh">
+                            <i class="fa-solid fa-arrows-rotate"></i>Tải lại
+                        </button>
+                    </a>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-7 col-6">
+                    <a href="{{ route('category.create') }}">
+                        <button type="button" class="btn-add">
+                            <i class="fa-solid fa-plus"></i>Thêm danh mục
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover align-middle table-bordered" id="example1">
+        @php $i = 1; @endphp
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên danh mục</th>
+                <th>Mô tả chi tiết</th>
+                {{-- <th>Phim</th> --}}
+                <th>Trạng thái</th>
+                <th>Tác vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($allCategory as $value)
+                <tr id="category-row-{{ $value->id }}">
+                    <td>{{ $i++ }}</td>
+                    <td>{{ $value->title }}</td>
+                    <td class="text-auto">{{ $value->description }}</td>
+                    {{-- <td>{{ number_format($product_counts[$value->id]) }}</td> --}}
+                    <td>
+                        <button type="button" class="toggle-status btn {{ $value->status == 1 ? 'active' : '' }}"
+                            data-id="{{ $value->id }}"
+                            data-active-url="{{ URL::to('Admin/active-category/' . $value->id) }}"
+                            data-inactive-url="{{ URL::to('Admin/unactive-category/' . $value->id) }}"
+                            data-toggle="tooltip" data-placement="top"
+                            title="{{ $value->status == 1 ? 'Hiển thị' : 'Ẩn' }}">
+                        </button>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0);" class="btn-edit" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            data-id="{{ $value->id }}" data-title="{{ $value->title }}"
+                            data-description="{{ $value->description }}" data-status="{{ $value->status }}">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn-remove" data-id="{{ $value->id }}" data-type="category"
+                            data-confirm-message="Sau khi xoá danh mục này, tất cả phim liên quan cũng sẽ bị xoá. Bạn có chắc là muốn xoá?"
+                            onclick="deleteItem(this)">
+                            <i class="fa-solid fa-xmark"></i>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa danh mục phim</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" id="categoryForm">
+                        <input type="hidden" id="categoryId" name="categoryId">
+                        @csrf
+                        <div class="form-group">
+                            <label for="inputName">Tên danh mục</label>
+                            <input type="text" id="inputName" class="form-control" name="categoryName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDescription">Mô tả danh mục</label>
+                            <textarea id="inputDescription" class="form-control" rows="4" name="categoryDescription"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputStatus">Trạng thái</label>
+                            <select id="inputStatus" class="form-control custom-select" name="categoryStatus">
+                                <option value="1">Hiển thị</option>
+                                <option value="0">Ẩn</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @push('edit-category-JS')
+        <script>
+            $(document).ready(function() {
+                $('.btn-edit').on('click', function() {
+                    // Lấy dữ liệu từ thuộc tính data
+                    const categoryTitle = $(this).data('title');
+                    const categoryDescription = $(this).data('description');
+                    const categoryStatus = $(this).data('status');
+
+                    // Điền dữ liệu vào các trường trong modal
+                    $('#inputName').val(categoryTitle);
+                    $('#inputDescription').val(categoryDescription);
+                    $('#inputStatus').val(categoryStatus);
+                });
+            });
+        </script>
+
+        {{-- Thực hiện cập nhật --}}
+        <script>
+            $(document).ready(function() {
+                $('.btn-edit').on('click', function() {
+                    const categoryId = $(this).data('id');
+
+                    $.ajax({
+                        url: `/category/${categoryId}/edit`,
+                        method: 'GET',
+                        success: function(data) {
+                            $('#categoryId').val(data.id);
+                            $('#inputName').val(data.title);
+                            $('#inputDescription').val(data.description);
+                            $('#inputStatus').val(data.status);
+                        },
+                        error: function() {
+                            alert('Không thể lấy thông tin danh mục.');
+                        }
+                    });
+                });
+
+                $('#categoryForm').on('submit', function(e) {
+                    e.preventDefault();
+                    const categoryId = $('#categoryId').val();
+
+                    $.ajax({
+                        url: `/category/${categoryId}`,
+                        method: 'PUT',
+                        data: $(this).serialize(),
+                        success: function(response) {
+                            // Lưu thông điệp vào localStorage
+                            localStorage.setItem('toastMessage', response.message);
+                            location.reload();
+                        },
+                        error: function() {
+                            alert('Có lỗi xảy ra trong quá trình cập nhật.');
+                        }
+                    });
+                });
+                // Kiểm tra localStorage sau khi trang tải xong
+                window.onload = function() {
+                    const message = localStorage.getItem('toastMessage');
+                    if (message) {
+                        iziToast.success({
+                            message: message,
+                        });
+                        // Xóa thông điệp để tránh hiển thị lại khi tải lại trang
+                        localStorage.removeItem('toastMessage');
+                    }
+                };
+            });
+        </script>
+    @endpush
 @endsection

@@ -17,8 +17,8 @@
 
     <link href="{{ asset('/Admin/plugins/jqvmap/jqvmap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}"rel="stylesheet" />
-    <link href="{{ asset('/Admin/plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/Admin/plugins/sweetalert2/sweetalert2.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('/Admin/plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('/Admin/plugins/sweetalert2/sweetalert2.css') }}" rel="stylesheet" /> --}}
     <!-- DataTables -->
     <link href="{{ asset('/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}" rel="stylesheet">
@@ -31,13 +31,16 @@
     <link href="{{ asset('/Admin/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/adminlte.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/main-style.css') }}" rel="stylesheet">
-    <link href="{{ asset('/Admin/css/sweetalert.css') }}" rel="stylesheet">
-    <link href="{{ asset('/Admin/css/morris.css') }}" rel="stylesheet">
-    <link href="{{ asset('/Admin/css/toastr.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/Admin/css/style-responsive.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/Admin/css/ionicons.min.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('/Admin/css/sweetalert.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('/Admin/css/morris.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('/Admin/css/toastr.min.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('/Admin/css/style-responsive.css') }}" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('/Admin/css/ionicons.min.css') }}" rel="stylesheet" /> --}}
     <!-- summernote -->
-    <link href="{{ asset('/Admin/plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('/Admin/plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
+
+    {{-- iziToast Notification --}}
+    <link href="{{ asset('/Admin/css/iziToast.min.css') }}" rel="stylesheet">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -104,7 +107,7 @@
             </div> --}}
             @include('admin.page-ribs.header')
             @include('admin.page-ribs.sidebar-left')
-            <div class="content-wrapper">
+            <div class="content-wrapper" style="padding-inline: 10px">
                 <div class="container-fluid">
                     @yield('content')
                 </div>
@@ -115,12 +118,11 @@
         @yield('content')
     @endif
 
-
     <script src="{{ asset('/Admin/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-    <script src="{{ asset('/Admin/plugins/sweetalert2/sweetalert2.js') }}"></script>
+    {{-- <script src="{{ asset('/Admin/plugins/sweetalert2/sweetalert2.js') }}"></script> --}}
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('/Admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -136,25 +138,168 @@
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- Summernote -->
-    <script src=" {{ asset('/Admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    {{-- <script src=" {{ asset('/Admin/plugins/summernote/summernote-bs4.min.js') }}"></script> --}}
     <!-- ChartJS -->
-    <script src="{{ asset('/Admin/plugins/chart.js/Chart.min.js') }}"></script>
+    {{-- <script src="{{ asset('/Admin/plugins/chart.js/Chart.min.js') }}"></script> --}}
     <!-- Select2 -->
     <script src="{{ asset('/Admin/plugins/select2/js/select2.full.min.js') }}"></script>
 
-    <script src="{{ asset('/Admin/js/sweetalert.min.js') }}"></script>
+    {{-- <script src="{{ asset('/Admin/js/sweetalert.min.js') }}"></script> --}}
     <script src="{{ asset('/Admin/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('/Admin/js/adminlte.js') }}"></script>
-    <script src="{{ asset('/Admin/js/pages/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('/Admin/js/pages/dashboard.js') }}"></script>
     <script src="{{ asset('/Admin/js/morris.js') }}"></script>
     <script src="{{ asset('/Admin/js/morris.min.js') }}"></script>
-    <script src="{{ asset('/Admin/js/raphael-min.js') }}"></script>
+    <script src="{{ asset('/Admin/js/raphael-min.js') }}"></script> --}}
     <script src="{{ asset('/Admin/js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('/Admin/js/toastr.min.js') }}"></script>
+    {{-- <script src="{{ asset('/Admin/js/toastr.min.js') }}"></script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    {{-- iziToast Notification --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+
+
+    {{-- Setting iziToastSettings.js --}}
+    <script>
+        iziToast.settings({
+            timeout: 3000,
+            resetOnHover: true,
+            position: 'topRight',
+            transitionIn: 'fadeInLeft',
+            transitionOut: 'fadeOutRight',
+            backgroundColor: '#006241',
+            titleColor: 'white',
+            messageColor: 'white',
+            progressBarColor: 'white',
+        });
+    </script>
+    <script>
+        @if (Session::has('success'))
+            iziToast.success({
+                message: "{{ Session::get('success') }}",
+            });
+        @endif
+
+        @if (Session::has('error'))
+            iziToast.error({
+                message: "{{ Session::get('error') }}",
+            });
+        @endif
+
+        @if (Session::has('info'))
+            iziToast.info({
+                message: "{{ Session::get('info') }}",
+            });
+        @endif
+
+        @if (Session::has('warning'))
+            iziToast.warning({
+                message: "{{ Session::get('warning') }}",
+            });
+        @endif
+    </script>
+    {{-- Setting iziToastSettings.js --}}
+
+    {{-- sử dụng data table --}}
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+    {{-- sử dụng data table --}}
+
+    {{-- status button --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('.toggle-status');
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const activeUrl = this.getAttribute('data-active-url');
+                    const inactiveUrl = this.getAttribute('data-inactive-url');
+                    const currentStatus = this.classList.contains('active') ? 1 : 0;
+                    const newStatus = currentStatus === 1 ? 0 : 1;
+                    const url = newStatus === 1 ? activeUrl : inactiveUrl;
+                    fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                this.classList.toggle('active');
+                                this.title = newStatus === 1 ? 'Hiển thị' : 'Ẩn';
+                            } else {
+                                console.error('Đã xảy ra lỗi khi cập nhật trạng thái.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Đã xảy ra lỗi:', error);
+                        });
+                });
+            });
+        });
+    </script>
+    {{-- status button --}}
+
+    {{-- Xoá dữ liệu trong table (dùng chung cho tất cả table) --}}
+    <script>
+        function deleteItem(element) {
+            var id = $(element).data('id');
+            var confirmMessage = $(element).data('confirm-message');
+            var token = $('meta[name="csrf-token"]').attr('content');
+
+            if (confirm(confirmMessage)) {
+                $.ajax({
+                    url: '/category/' + id,
+                    type: 'DELETE',
+                    data: {
+                        _token: token
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            iziToast.success({
+                                message: response.message,
+                            });
+                            $('#category-row-' + id).remove();
+                        } else {
+                            iziToast.error({
+                                message: response.message,
+                            });
+                        }
+                    },
+                    error: function(xhr) {
+                        iziToast.error({
+                            message: 'Đã xảy ra lỗi khi xoá',
+                        });
+                    }
+                });
+            }
+        }
+    </script>
+    {{-- Xoá dữ liệu trong table --}}
+
+    @stack('edit-category-JS')
 
 </body>
 

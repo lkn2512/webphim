@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.show-category');
+        $allCategory = Category::all();
+        return view('admin.category.show-category')->with(compact('allCategory'));
     }
 
     /**
@@ -28,7 +30,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        try {
+            $category = new Category();
+            $category->title = $data['categoryName'];
+            $category->description = $data['categoryDescription'];
+            $category->status = $data['categoryStatus'];
+            $category->save();
+            session()->flash('success', 'Thêm danh mục thành công!');
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            session()->flash('error', 'Thông tin không hợp lệ!');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -44,7 +58,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        return response()->json($category);
     }
 
     /**
@@ -52,7 +67,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        try {
+            $category = Category::findOrFail($id);
+            $category->title = $data['categoryName'];
+            $category->description = $data['categoryDescription'];
+            $category->status = $data['categoryStatus'];
+            $category->save();
+            return response()->json(['status' => 'success', 'message' => 'Các thay đổi đã được lưu lại']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Thông tin không hợp lệ!']);
+        }
     }
 
     /**
@@ -60,6 +85,19 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id);
+
+        if ($category) {
+            $category->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Một danh mục đã bị xoá!'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Danh mục không tồn tại!'
+            ]);
+        }
     }
 }
