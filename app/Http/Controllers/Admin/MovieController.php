@@ -25,9 +25,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        $category = Category::all();
-        $genre = Genre::all();
-        $country = Country::all();
+        $category = Category::orderBy('title')->get();
+        $genre = Genre::orderBy('title')->get();
+        $country = Country::orderBy('title')->get();
         return view('admin.movie.create-movie', compact('category', 'genre', 'country'));
     }
 
@@ -106,6 +106,47 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $movie = Movie::find($id);
+
+        if ($movie) {
+            $movie_img = $movie->image;
+            if ($movie_img && file_exists(public_path('uploads/movies/' . $movie_img))) {
+                unlink(public_path('uploads/movies/' . $movie_img));
+            }
+            $movie->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Xoá phim thành công!'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Phim không tồn tại!'
+            ]);
+        }
+    }
+
+    public function activeMovie($id)
+    {
+        try {
+            $movie = Movie::findOrFail($id);
+            $movie->status = 1;
+            $movie->save();
+            return response()->json(['status' => 'success', 'message' => 'Phim đã được kích hoạt!']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Không thể kích hoạt Phim!']);
+        }
+    }
+
+    public function unactiveMovie($id)
+    {
+        try {
+            $movie = Movie::findOrFail($id);
+            $movie->status = 0;
+            $movie->save();
+            return response()->json(['status' => 'success', 'message' => 'Phim đã bị vô hiệu hóa!']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Không thể vô hiệu hóa Phim!']);
+        }
     }
 }

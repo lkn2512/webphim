@@ -41,7 +41,6 @@
                 <th>Hỉnh ảnh</th>
                 <th>Tên phim</th>
                 <th>Slug</th>
-                <th>Mô tả chi tiết</th>
                 <th>Danh mục</th>
                 <th>Thể loại</th>
                 <th>Quốc gia</th>
@@ -57,24 +56,22 @@
                         <img class="img-movie zoom-in" src="{{ asset('uploads/movies/' . $value->image) }}" alt=""
                             data-bs-toggle="modal" data-bs-target="#imageModal" onclick="setModalImage(this)">
                     </td>
-
                     <td>{{ $value->title }}</td>
                     <td>{{ $value->slug }}</td>
-                    <td class="text-auto"></td>
                     <td>
                         @foreach ($value->categories as $cate_movie)
-                            {{ $cate_movie->title }}<br>
-                            {{-- {{ !$loop->last ? ', ' : '' }} --}}
+                            - {{ $cate_movie->title }}<br>
                         @endforeach
                     </td>
                     <td>
                         @foreach ($value->genres as $gen_movie)
-                            {{ $gen_movie->title }}<br>
+                            - {{ $gen_movie->title }}<br>
+                            {{-- {{ !$loop->last ? '- ' : '' }} --}}
                         @endforeach
                     </td>
                     <td>
                         @foreach ($value->countries as $count_movie)
-                            {{ $count_movie->title }}<br>
+                            - {{ $count_movie->title }}<br>
                         @endforeach
                     </td>
                     <td>
@@ -85,14 +82,11 @@
                         </button>
                     </td>
                     <td>
-                        <a href="javascript:void(0);" class="btn-edit" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            data-id="{{ $value->id }}" data-title="{{ $value->title }}"
-                            data-slug="{{ $value->slug }}" data-description="{{ $value->description }}"
-                            data-status="{{ $value->status }}" title="Chỉnh sửa">
+                        <a href="{{ route('movie.edit', $value->id) }}" class="btn-edit" title="Chỉnh sửa">
                             <i class="fa-solid fa-pen"></i>
                         </a>
                         <a href="javascript:void(0);" class="btn-remove" data-id="{{ $value->id }}" data-type="movie"
-                            data-confirm-message="Sau khi xoá danh mục này, tất cả phim liên quan cũng sẽ bị xoá. Bạn có chắc là muốn xoá?"onclick="deleteItem(this)"
+                            data-confirm-message="Bạn có chắc là muốn xoá phim này?"onclick="deleteItem(this)"
                             title="Xoá">
                             <i class="fa-solid fa-xmark"></i>
                         </a>

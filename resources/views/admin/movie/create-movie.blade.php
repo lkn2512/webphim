@@ -87,10 +87,14 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="inputCategory">Danh mục</label>
+                            <div class="flex-center-between">
+                                <label for="inputCategory">Danh mục</label>
+                                <a class="addNew" href="{{ route('category.create') }}">Thêm mới</a>
+                            </div>
+                            <hr>
                             <div class="row">
                                 @foreach ($category as $cate)
-                                    <div class="col-md-4 text-start mb-1">
+                                    <div class="col-lg-4 col-md-6 col-4 col-sm-4 text-start mb-1">
                                         <input type="checkbox" name="movieCategory[]" value="{{ $cate->id }}">
                                         {{ $cate->title }}
                                     </div>
@@ -98,10 +102,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputGenre">Thể loại</label>
+                            <div class="flex-center-between">
+                                <label for="inputGenre">Thể loại</label>
+                                <a class="addNew" href="{{ route('genre.create') }}">Thêm mới</a>
+                            </div>
+                            <hr>
                             <div class="row">
                                 @foreach ($genre as $gen)
-                                    <div class="col-md-3 text-start mb-1">
+                                    <div class="col-lg-3 col-md-6 col-4 col-sm-4 text-start mb-1">
                                         <input type="checkbox" name="movieGenre[]" value="{{ $gen->id }}">
                                         {{ $gen->title }}
                                     </div>
@@ -109,10 +117,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputCountry">Quốc gia</label>
+                            <div class="flex-center-between">
+                                <label for="inputCountry">Quốc gia</label>
+                                <a class="addNew" href="{{ route('country.create') }}">Thêm mới</a>
+                            </div>
+                            <hr>
                             <div class="row">
                                 @foreach ($country as $count)
-                                    <div class="col-md-3 text-start mb-1">
+                                    <div class="col-lg-3 col-md-6 col-sm-4 col-4 text-start mb-1">
                                         <input type="checkbox" name="movieCountry[]" value="{{ $count->id }}">
                                         {{ $count->title }}
                                     </div>

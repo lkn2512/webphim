@@ -9,6 +9,24 @@
     justify-content: space-between;
 }
 
+hr {
+    margin-top: 10px !important;
+    border-top: 1px solid black !important;
+}
+
+.addNew {
+    color: #201ce4;
+    border: 1px solid #201ce4;
+    padding: 2px 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.addNew:hover {
+    color: #201ce4;
+}
+
 .header-title {
     display: flex;
     align-items: center;

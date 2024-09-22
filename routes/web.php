@@ -45,3 +45,5 @@ Route::resource('episode', EpisodeController::class);
 
 /*movie - phim*/
 Route::resource('movie', MovieController::class);
+Route::get('movie/active/{id}', [MovieController::class, 'activeMovie']);
+Route::get('movie/unactive/{id}', [MovieController::class, 'unactiveMovie']);
