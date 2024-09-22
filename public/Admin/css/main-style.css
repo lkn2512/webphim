@@ -213,3 +213,9 @@ hr {
 .zoom-in:hover {
     cursor: zoom-in;
 }
+
+.editImage {
+    height: 200px;
+    width: 150px;
+    object-fit: cover;
+}

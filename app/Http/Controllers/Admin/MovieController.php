@@ -8,6 +8,7 @@ use App\Models\Country;
 use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class MovieController extends Controller
 {
@@ -90,7 +91,12 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::orderBy('title')->get();
+        $genre = Genre::orderBy('title')->get();
+        $country = Country::orderBy('title')->get();
+
+        $editMovie = Movie::with(['categories', 'genres', 'countries'])->where('id', $id)->firstOrFail();
+        return view('admin.movie.edit-movie', compact('editMovie', 'category', 'genre', 'country'));
     }
 
     /**
@@ -98,7 +104,43 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $movie = Movie::find($id);
+            // Cập nhật dữ liệu phim
+            $movie->title = $request->movieName;
+            $movie->slug = $request->movieSlug;
+            $movie->description = $request->movieDescription;
+            $movie->status = $request->movieStatus;
+
+            $get_image = $request->file('movieImage');
+            if ($get_image) {
+                // Kiểm tra loại file
+                $mime_type = $get_image->getClientMimeType();
+                if (strpos($mime_type, 'image') !== false) {
+                    // Xóa ảnh cũ nếu tồn tại
+                    $old_image_path = public_path('uploads/movies/' . $movie->image);
+                    if (File::exists($old_image_path)) {
+                        File::delete($old_image_path);
+                    }
+                    $get_name_image = $get_image->getClientOriginalName();
+                    $name_image = current(explode('.', $get_name_image));
+                    $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+                    $get_image->move(public_path('uploads/movies/'), $new_image);
+                    // Cập nhật tên ảnh mới vào cơ sở dữ liệu
+                    $movie->image = $new_image;
+                }
+            }
+            $movie->save();
+
+            // Cập nhật danh mục, thể loại, quốc gia
+            $movie->categories()->sync($request->movieCategory);
+            $movie->genres()->sync($request->movieGenre);
+            $movie->countries()->sync($request->movieCountry);
+
+            return redirect()->back()->with('success', 'Đã lưu các thay đổi');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Dữ liệu không hợp lệ');
+        }
     }
 
     /**

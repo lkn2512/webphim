@@ -31,16 +31,20 @@
     <link href="{{ asset('/Admin/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/adminlte.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/main-style.css') }}" rel="stylesheet">
+
     {{-- <link href="{{ asset('/Admin/css/sweetalert.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('/Admin/css/morris.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('/Admin/css/toastr.min.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('/Admin/css/style-responsive.css') }}" rel="stylesheet" /> --}}
     {{-- <link href="{{ asset('/Admin/css/ionicons.min.css') }}" rel="stylesheet" /> --}}
-    <!-- summernote -->
-    {{-- <link href="{{ asset('/Admin/plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
-
     {{-- iziToast Notification --}}
     <link href="{{ asset('/Admin/css/iziToast.min.css') }}" rel="stylesheet">
+
+    {{-- froala editor --}}
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" />
+
+
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -152,7 +156,6 @@
     <script src="{{ asset('/Admin/js/morris.min.js') }}"></script>
     <script src="{{ asset('/Admin/js/raphael-min.js') }}"></script> --}}
     <script src="{{ asset('/Admin/js/jquery-ui.js') }}"></script>
-    {{-- <script src="{{ asset('/Admin/js/toastr.min.js') }}"></script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -161,6 +164,8 @@
     {{-- iziToast Notification --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
 
+    {{-- froala-editor --}}
+    <script src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
 
     {{-- Setting iziToastSettings.js --}}
     <script>
@@ -362,10 +367,15 @@
     {{-- Tự động tạo slug --}}
 
     @stack('edit-category-JS')
-
     @stack('edit-genre-JS')
-
     @stack('edit-country-JS')
+
+    <script>
+        new FroalaEditor('textarea');
+    </script>
+
+
+    <script></script>
 
 </body>
 

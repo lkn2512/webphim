@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <form role="form" action="{{ route('movie.store') }}" method="post" enctype="multipart/form-data">
+    <form role="form" action="{{ route('movie.update', $editMovie->id) }}" method="POST" enctype="multipart/form-data"
+        id="movieForm">
         @csrf
+        {{-- <input type="hidden" name="_method" value="PUT"> --}}
+        @method('PUT')
         <div class="header-title row">
             <div class="col-lg-8 col-md-6 col-12 mb-3 header-left">
-                <h3 class="title-content">Thêm phim</h3>
+                <h3 class="title-content">Cập nhật phim</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="{{ route('home') }}">Trang chủ</a>
@@ -14,14 +17,14 @@
                         <a href="{{ route('movie.index') }}">Quản lý phim</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        Thêm phim
+                        Cập nhật phim
                     </li>
                 </ol>
             </div>
             <div class="col-lg-4 col-md-6 col-12 mb-3 header-right">
                 <div class="row justify-content-end">
                     <div class="col-lg-3 col-md-4 col-4">
-                        <a href="{{ route('movie.create') }}">
+                        <a href="" onclick="location.reload();">
                             <button type="button" class="btn-refesh">
                                 <i class="fa-solid fa-arrows-rotate"></i>Tải lại
                             </button>
@@ -29,7 +32,7 @@
                     </div>
                     <div class="col-lg-3 col-md-4 col-4">
                         <button type="submit" class="btn-add">
-                            <i class="fa-solid fa-plus"></i>Thêm
+                            <i class="fa-solid fa-check"></i>Lưu
                         </button>
                     </div>
                     <div class="col-lg-3 col-md-4 col-4">
@@ -56,24 +59,29 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="inputName">Tên phim</label>
-                            <input type="text" id="inputName" class="form-control auto-focus" name="movieName"
-                                data-slug-source="movie" required>
+                            <input type="text" id="inputName" class="form-control" name="movieName"
+                                data-slug-source="movie" required value="{{ $editMovie->title }}">
                         </div>
                         <div class="form-group">
-                            <label>Slug<small class="note">(tự động)</small></label>
-                            <input type="text" name="movieSlug" class="form-control" required data-slug-target="movie">
+                            <label>Slug<small class="note"> (tự động)</small></label>
+                            <input type="text" name="movieSlug" class="form-control" required data-slug-target="movie"
+                                value="{{ $editMovie->slug }}">
                         </div>
                         <div class="form-group">
                             <label>Hình ảnh</label>
-                            <input type="file" name="movieImage" class="form-control" required>
+                            <input type="file" name="movieImage" class="form-control" accept="image/*">
+                            <img class="editImage mt-3" src="{{ asset('/uploads/movies/' . $editMovie->image) }}">
                         </div>
                         <div class="form-group">
                             <label for="inputDescription">Mô tả</label>
-                            <textarea id="inputDescription" class="form-control" rows="4" name="movieDescription"></textarea>
+                            <textarea id="froala-editor" class="form-control" rows="4" name="movieDescription">
+                                {{ $editMovie->description }}
+                            </textarea>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-dnb">
@@ -94,7 +102,8 @@
                             <div class="row">
                                 @foreach ($category as $cate)
                                     <div class="col-lg-4 col-md-6 col-4 col-sm-4 text-start mb-1">
-                                        <input type="checkbox" name="movieCategory[]" value="{{ $cate->id }}">
+                                        <input type="checkbox" name="movieCategory[]" value="{{ $cate->id }}"
+                                            {{ $editMovie->first()->categories->contains($cate->id) ? 'checked' : '' }}>
                                         {{ $cate->title }}
                                     </div>
                                 @endforeach
@@ -107,10 +116,11 @@
                             </div>
                             <hr>
                             <div class="row">
-                                @foreach ($genre as $gen)
+                                @foreach ($genre as $gens)
                                     <div class="col-lg-3 col-md-6 col-4 col-sm-4 text-start mb-1">
-                                        <input type="checkbox" name="movieGenre[]" value="{{ $gen->id }}">
-                                        {{ $gen->title }}
+                                        <input type="checkbox" name="movieGenre[]" value="{{ $gens->id }}"
+                                            {{ $editMovie->first()->genres->contains($gens->id) ? 'checked' : '' }}>
+                                        {{ $gens->title }}
                                     </div>
                                 @endforeach
                             </div>
@@ -124,7 +134,8 @@
                             <div class="row">
                                 @foreach ($country as $count)
                                     <div class="col-lg-3 col-md-6 col-sm-4 col-4 text-start mb-1">
-                                        <input type="checkbox" name="movieCountry[]" value="{{ $count->id }}">
+                                        <input type="checkbox" name="movieCountry[]" value="{{ $count->id }}"
+                                            {{ $editMovie->first()->countries->contains($count->id) ? 'checked' : '' }}>
                                         {{ $count->title }}
                                     </div>
                                 @endforeach
@@ -133,8 +144,8 @@
                         <div class="form-group">
                             <label for="inputStatus">Trạng thái</label>
                             <select id="inputStatus" class="form-control custom-select" name="movieStatus">
-                                <option selected value="1">Hiển thị</option>
-                                <option value="0">Ẩn</option>
+                                <option value="1" {{ $editMovie->status == 1 ? 'selected' : '' }}>Hiển thị</option>
+                                <option value="0" {{ $editMovie->status == 0 ? 'selected' : '' }}>Ẩn</option>
                             </select>
                         </div>
                     </div>
