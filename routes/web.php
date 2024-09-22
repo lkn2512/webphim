@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('layout');
 // });
 Route::get('/', [IndexControler::class, 'home'])->name('trang-chu');
-Route::get('/danh-muc', [IndexControler::class, 'category'])->name('category');
-Route::get('/the-loai', [IndexControler::class, 'genre']);
-Route::get('/quoc-gia', [IndexControler::class, 'country']);
+Route::get('/danh-muc/{slug}', [IndexControler::class, 'category']);
+Route::get('/the-loai/{slug}', [IndexControler::class, 'genre']);
+Route::get('/quoc-gia/{slug}', [IndexControler::class, 'country']);
 Route::get('/phim', [IndexControler::class, 'movie']);
 Route::get('/xem-phim', [IndexControler::class, 'watch']);
 Route::get('/tap-phim', [IndexControler::class, 'episode']);
@@ -28,8 +28,18 @@ Auth::routes();
 //ADMIN MANAGER
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/*Category - danh mục phim*/
 Route::resource('category', CategoryController::class);
+Route::get('category/active/{id}', [CategoryController::class, 'activeCategory']);
+Route::get('category/unactive/{id}', [CategoryController::class, 'unactiveCategory']);
+/*genre - thể loại phim*/
 Route::resource('genre', GenreController::class);
+Route::get('genre/active/{id}', [GenreController::class, 'activeGenre']);
+Route::get('genre/unactive/{id}', [GenreController::class, 'unactiveGenre']);
+/*countrt - quốc gia*/
 Route::resource('country', CountryController::class);
+Route::get('country/active/{id}', [CountryController::class, 'activeCountry']);
+Route::get('country/unactive/{id}', [CountryController::class, 'unactiveCountry']);
+
 Route::resource('episode', EpisodeController::class);
 Route::resource('movie', MovieController::class);

@@ -149,3 +149,39 @@
 .table>tbody>tr>td {
     vertical-align: middle;
 }
+
+
+/* Phong cách chung cho cả hai nút */
+.btn-edit,
+.btn-remove {
+    display: inline-block;
+    margin: 5px 2px;
+    color: black;
+    background: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid rgb(95, 95, 95);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.btn-edit i,
+.btn-remove i {
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.btn-edit:hover {
+    color: #244e86;
+}
+
+.btn-remove:hover {
+    color: #962020;
+}
+
+.btn-edit:active,
+.btn-remove:active {
+    transform: scale(0.95);
+}

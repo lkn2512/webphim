@@ -234,19 +234,25 @@
                     const currentStatus = this.classList.contains('active') ? 1 : 0;
                     const newStatus = currentStatus === 1 ? 0 : 1;
                     const url = newStatus === 1 ? activeUrl : inactiveUrl;
+
                     fetch(url, {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': document.querySelector(
+                                    'meta[name="csrf-token"]').getAttribute('content')
                             }
                         })
-                        .then(response => {
-                            if (response.ok) {
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === 'success') {
                                 this.classList.toggle('active');
                                 this.title = newStatus === 1 ? 'Hiển thị' : 'Ẩn';
+                                iziToast.success({
+                                    message: 'Đã áp dụng trạng thái mới!',
+                                });
                             } else {
-                                console.error('Đã xảy ra lỗi khi cập nhật trạng thái.');
+                                console.error('Đã xảy ra lỗi:', data.message);
                             }
                         })
                         .catch(error => {
@@ -263,11 +269,12 @@
         function deleteItem(element) {
             var id = $(element).data('id');
             var confirmMessage = $(element).data('confirm-message');
+            var type = $(element).data('type');
             var token = $('meta[name="csrf-token"]').attr('content');
 
             if (confirm(confirmMessage)) {
                 $.ajax({
-                    url: '/category/' + id,
+                    url: '/' + type + '/' + id,
                     type: 'DELETE',
                     data: {
                         _token: token
@@ -277,7 +284,7 @@
                             iziToast.success({
                                 message: response.message,
                             });
-                            $('#category-row-' + id).remove();
+                            $('#' + type + '-row-' + id).remove();
                         } else {
                             iziToast.error({
                                 message: response.message,
@@ -295,7 +302,70 @@
     </script>
     {{-- Xoá dữ liệu trong table --}}
 
+    {{-- tự động đưa con trỏ chuột vào ô nhập liệu chứa class auto-focus khi trang được tải --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var inputElement = document.querySelector('.auto-focus');
+            if (inputElement) {
+                inputElement.focus();
+            }
+        });
+    </script>
+    {{-- tự động đưa con trỏ chuột vào ô nhập liệu chứa class auto-focus khi trang được tải --}}
+
+    {{-- Tự động tạo slug --}}
+    <script>
+        function removeVietnameseDiacritics(str) {
+            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+        }
+
+        function getRandomString(length) {
+            var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var result = '';
+            for (var i = 0; i < length; i++) {
+                result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+            }
+            return result;
+        }
+
+        document.querySelectorAll('[data-slug-source]').forEach(function(input) {
+            input.addEventListener('input', function() {
+                var sourceType = this.getAttribute('data-slug-source');
+                var title = this.value;
+                var slug = removeVietnameseDiacritics(title)
+                    .toLowerCase()
+                    .replace(/ /g, '-')
+                    .replace(/[^\w-]+/g, '')
+                    .replace(/--+/g, '-')
+                    .replace(/^-+/, '')
+                    .replace(/-+$/, '');
+
+                var now = new Date();
+                // var timestamp = now.getFullYear().toString().substr(-2) +
+                //     ('0' + (now.getMonth() + 1)).slice(-2) +
+                //     ('0' + now.getDate()).slice(-2) +
+                //     ('0' + now.getHours()).slice(-2) +
+                //     ('0' + now.getMinutes()).slice(-2) +
+                //     ('0' + now.getSeconds()).slice(-2);
+
+                // var randomString = getRandomString(4); // Độ dài chuỗi ngẫu nhiên
+
+                // slug += '-' + timestamp + '-' + randomString;
+
+                var targetInput = document.querySelector('[data-slug-target="' + sourceType + '"]');
+                if (targetInput) {
+                    targetInput.value = slug;
+                }
+            });
+        });
+    </script>
+    {{-- Tự động tạo slug --}}
+
     @stack('edit-category-JS')
+
+    @stack('edit-genre-JS')
+
+    @stack('edit-country-JS')
 
 </body>
 

@@ -36,7 +36,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item ">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -80,7 +80,8 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item ">
-                    <a href="{{ route('category.index') }}" class="nav-link">
+                    <a href="{{ route('category.index') }}"
+                        class="nav-link {{ Request::is('category*') ? 'active' : '' }}">
                         <i class="nav-icon fa-solid fa-layer-group"></i>
                         <p>
                             Danh mục phim
@@ -88,13 +89,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('genre.index') }}" class="nav-link">
+                    <a href="{{ route('genre.index') }}" class="nav-link {{ Request::is('genre*') ? 'active' : '' }}">
                         <i class="nav-icon fa-solid fa-bars-staggered"></i>
                         <p>Thể loại</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('country.index') }}" class="nav-link">
+                    <a href="{{ route('country.index') }}"
+                        class="nav-link {{ Request::is('country*') ? 'active' : '' }}">
                         <i class="nav-icon fa-solid fa-earth-americas"></i>
                         <p>Quốc gia</p>
                     </a>

@@ -34,6 +34,7 @@ class CategoryController extends Controller
         try {
             $category = new Category();
             $category->title = $data['categoryName'];
+            $category->slug = $data['categorySlug'];
             $category->description = $data['categoryDescription'];
             $category->status = $data['categoryStatus'];
             $category->save();
@@ -71,6 +72,7 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $category->title = $data['categoryName'];
+            $category->slug = $data['categorySlug'];
             $category->description = $data['categoryDescription'];
             $category->status = $data['categoryStatus'];
             $category->save();
@@ -98,6 +100,30 @@ class CategoryController extends Controller
                 'status' => 'error',
                 'message' => 'Danh mục không tồn tại!'
             ]);
+        }
+    }
+
+    public function activeCategory($id)
+    {
+        try {
+            $category = Category::findOrFail($id);
+            $category->status = 1; // Kích hoạt danh mục
+            $category->save();
+            return response()->json(['status' => 'success', 'message' => 'Danh mục đã được kích hoạt!']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Không thể kích hoạt danh mục!']);
+        }
+    }
+
+    public function unactiveCategory($id)
+    {
+        try {
+            $category = Category::findOrFail($id);
+            $category->status = 0; // Vô hiệu hóa danh mục
+            $category->save();
+            return response()->json(['status' => 'success', 'message' => 'Danh mục đã bị vô hiệu hóa!']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Không thể vô hiệu hóa danh mục!']);
         }
     }
 }
