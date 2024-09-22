@@ -18,7 +18,9 @@ class IndexControler extends Controller
     }
     public function category($slug)
     {
-        return view('pages.category');
+        $nameCategory = Category::where('slug', $slug)->first();
+        $IdCategory = $nameCategory->id;
+        return view('pages.category', compact('nameCategory'));
     }
     public function genre($slug)
     {
