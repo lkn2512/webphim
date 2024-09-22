@@ -74,7 +74,7 @@ class CategoryController extends Controller
             $category->description = $data['categoryDescription'];
             $category->status = $data['categoryStatus'];
             $category->save();
-            return response()->json(['status' => 'success', 'message' => 'Các thay đổi đã được lưu lại']);
+            return response()->json(['status' => 'success', 'message' => 'Cập nhật danh mục phim thành công']);
         } catch (\Throwable $th) {
             return response()->json(['status' => 'error', 'message' => 'Thông tin không hợp lệ!']);
         }
@@ -91,7 +91,7 @@ class CategoryController extends Controller
             $category->delete();
             return response()->json([
                 'status' => 'success',
-                'message' => 'Một danh mục đã bị xoá!'
+                'message' => 'Một danh mục phim đã bị xoá!'
             ]);
         } else {
             return response()->json([

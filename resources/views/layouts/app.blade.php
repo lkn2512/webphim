@@ -165,15 +165,11 @@
     {{-- Setting iziToastSettings.js --}}
     <script>
         iziToast.settings({
-            timeout: 3000,
+            timeout: 2500,
             resetOnHover: true,
-            position: 'topRight',
+            position: 'bottomRight',
             transitionIn: 'fadeInLeft',
             transitionOut: 'fadeOutRight',
-            backgroundColor: '#006241',
-            titleColor: 'white',
-            messageColor: 'white',
-            progressBarColor: 'white',
         });
     </script>
     <script>

@@ -265,7 +265,8 @@
 
 .iziToast>.iziToast-body .iziToast-message {
     margin: 0 0 10px;
-    color: rgba(0, 0, 0, .6)
+    color: black;
+    font-weight: 500;
 }
 
 .iziToast.iziToast-animateInside .iziToast-buttons-child,
@@ -523,7 +524,7 @@
     box-shadow: 0 0 0 1px rgba(255, 255, 255, .6)
 }
 
-.iziToast.iziToast-color-red {
+/* .iziToast.iziToast-color-red {
     background: rgba(255, 175, 180, .9);
     border-color: rgba(255, 175, 180, .9)
 }
@@ -546,7 +547,32 @@
 .iziToast.iziToast-color-green {
     background: rgba(166, 239, 184, .9);
     border-color: rgba(166, 239, 184, .9)
+} */
+.iziToast.iziToast-color-red {
+    background: rgba(255, 80, 80, .9);
+    border-color: rgba(255, 80, 80, .9);
 }
+
+.iziToast.iziToast-color-orange {
+    background: rgba(255, 153, 51, .9);
+    border-color: rgba(255, 153, 51, .9);
+}
+
+.iziToast.iziToast-color-yellow {
+    background: rgba(255, 204, 0, .9);
+    border-color: rgba(255, 204, 0, .9);
+}
+
+.iziToast.iziToast-color-blue {
+    background: rgba(51, 153, 255, .9);
+    border-color: rgba(51, 153, 255, .9);
+}
+
+.iziToast.iziToast-color-green {
+    background: rgba(51, 204, 51, .9);
+    border-color: rgba(51, 204, 51, .9);
+}
+
 
 .iziToast.iziToast-layout2 .iziToast-body .iziToast-message,
 .iziToast.iziToast-layout2 .iziToast-body .iziToast-texts {
