@@ -74,7 +74,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputDescription">Mô tả</label>
-                            <textarea id="froala-editor" class="form-control" rows="4" name="movieDescription">
+                            <textarea id="movieDescription" class="form-control" rows="4" name="movieDescription">
                                 {{ $editMovie->description }}
                             </textarea>
                         </div>

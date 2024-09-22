@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Quản trị viên</title>
-
-    <link rel="icon" type="image/x-icon" href="{{ asset('/frontend/images/home/icon-web.png') }}">
+    <link rel="icon" type="image/x-icon" href="">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -31,7 +28,6 @@
     <link href="{{ asset('/Admin/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/adminlte.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/main-style.css') }}" rel="stylesheet">
-
     {{-- <link href="{{ asset('/Admin/css/sweetalert.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('/Admin/css/morris.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('/Admin/css/toastr.min.css') }}" rel="stylesheet"> --}}
@@ -39,11 +35,8 @@
     {{-- <link href="{{ asset('/Admin/css/ionicons.min.css') }}" rel="stylesheet" /> --}}
     {{-- iziToast Notification --}}
     <link href="{{ asset('/Admin/css/iziToast.min.css') }}" rel="stylesheet">
-
     {{-- froala editor --}}
     <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" />
-
-
 
 </head>
 
@@ -141,8 +134,6 @@
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-    <!-- Summernote -->
-    {{-- <script src=" {{ asset('/Admin/plugins/summernote/summernote-bs4.min.js') }}"></script> --}}
     <!-- ChartJS -->
     {{-- <script src="{{ asset('/Admin/plugins/chart.js/Chart.min.js') }}"></script> --}}
     <!-- Select2 -->
@@ -370,10 +361,11 @@
     @stack('edit-genre-JS')
     @stack('edit-country-JS')
 
+    {{-- khởi tạo FroalaEditor --}}
     <script>
         new FroalaEditor('textarea');
     </script>
-
+    {{-- khởi tạo FroalaEditor --}}
 
     <script></script>
 
