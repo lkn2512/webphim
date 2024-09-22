@@ -36,10 +36,12 @@ Route::get('category/unactive/{id}', [CategoryController::class, 'unactiveCatego
 Route::resource('genre', GenreController::class);
 Route::get('genre/active/{id}', [GenreController::class, 'activeGenre']);
 Route::get('genre/unactive/{id}', [GenreController::class, 'unactiveGenre']);
-/*countrt - quốc gia*/
+/*country - quốc gia*/
 Route::resource('country', CountryController::class);
 Route::get('country/active/{id}', [CountryController::class, 'activeCountry']);
 Route::get('country/unactive/{id}', [CountryController::class, 'unactiveCountry']);
 
 Route::resource('episode', EpisodeController::class);
+
+/*movie - phim*/
 Route::resource('movie', MovieController::class);

@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_movie');
+    }
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'genre_movie');
+    }
+    public function countries()
+    {
+        return $this->belongsToMany(Country::class, 'country_movie');
+    }
 }

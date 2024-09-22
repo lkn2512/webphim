@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     use HasFactory;
+
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class, 'country_movie');
+    }
 }

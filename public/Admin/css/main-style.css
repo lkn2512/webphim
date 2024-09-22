@@ -185,3 +185,13 @@
 .btn-remove:active {
     transform: scale(0.95);
 }
+
+.img-movie {
+    height: 100px;
+    width: 70px;
+    object-fit: cover;
+}
+
+.zoom-in:hover {
+    cursor: zoom-in;
+}
