@@ -30,12 +30,12 @@ class IndexControler extends Controller
         //phim bộ
         $series_movie = Movie::whereHas('categories', function ($query) {
             $query->where('title', 'Phim bộ');
-        })->orderBy('title')->limit(12)->get();
+        })->orderBy('title')->where('status', 1)->limit(12)->get();
 
         //phim lẻ
         $single_movie = Movie::whereHas('categories', function ($query) {
             $query->where('title', 'Phim lẻ');
-        })->orderBy('title')->limit(12)->get();
+        })->orderBy('title')->where('status', 1)->limit(12)->get();
 
         return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie'));
     }

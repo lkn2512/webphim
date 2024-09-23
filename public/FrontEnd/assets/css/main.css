@@ -93,6 +93,26 @@ button {
     color: var(--first-color);
 }
 
+.dropdown-menu {
+    background: #101014 !important;
+    color: white !important;
+}
+
+.dropdown-toggle.show {
+    background: #101014 !important;
+    color: orange !important;
+}
+
+.dropdown-menu .dropdown-item {
+    color: white !important;
+}
+
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu .dropdown-item.active,
+.dropdown-menu .dropdown-item:hover {
+    color: white !important;
+    background: black !important;
+}
 
 
 /*=============== SEARCH ===============*/
