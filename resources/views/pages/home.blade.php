@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-    @foreach ($category_home as $cateHome)
+    {{-- @foreach ($category_home as $cateHome)
         @if ($cateHome->movies->count() > 0)
             <div class="row new-film mt-4">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -93,5 +93,50 @@
                 </div>
             </div>
         @endif
-    @endforeach
+    @endforeach --}}
+
+    <div class="row new-film mt-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <h1 class="title-section">
+                Phim bộ
+            </h1>
+            <div class="row">
+                @foreach ($series_movie as $ser)
+                    <div class="col-6 col-lg-2 col-md-4 col-sm-4 mb-3">
+                        <div class="card-film">
+                            <span class="episode">Tập 10</span>
+                            <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}"
+                                alt="{{ $ser->title }}" title="{{ $ser->title }}">
+                            <div class="card-film-body">
+                                <h5 class="title">{{ $ser->title }}</h5>
+                                <span class="decs">{{ $ser->sub_title }}</span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="row new-film mt-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <h1 class="title-section">
+                Phim lẻ
+            </h1>
+            <div class="row">
+                @foreach ($single_movie as $sin)
+                    <div class="col-6 col-lg-2 col-md-4 col-sm-4 mb-3">
+                        <div class="card-film">
+                            <span class="episode">Tập 10</span>
+                            <img class="img" src="{{ asset('uploads/movies/' . $sin->image) }}"
+                                alt="{{ $sin->title }}" title="{{ $sin->title }}">
+                            <div class="card-film-body">
+                                <h5 class="title">{{ $sin->title }}</h5>
+                                <span class="decs">{{ $sin->sub_title }}</span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 @endsection

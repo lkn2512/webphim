@@ -76,6 +76,7 @@ button {
     display: flex;
     align-items: center;
     column-gap: 1rem;
+    background: #101014;
 }
 
 .nav__search,
@@ -252,7 +253,6 @@ button {
 .main-container {
     margin-block: 20px;
     background: #101014;
-    border-radius: 10px;
     padding: 10px 20px;
 }
 

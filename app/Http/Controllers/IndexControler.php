@@ -17,17 +17,27 @@ class IndexControler extends Controller
         $country = Country::orderBy('title')->where('status', 1)->get();
 
         // Lấy danh mục và kèm theo các phim thuộc từng danh mục
-        $category_home = Category::whereHas('movies', function ($movieQuery) {
-            $movieQuery->where('status', 1);
-        })
-            ->with(['movies' => function ($movieQuery) {
-                $movieQuery->where('status', 1);
-            }])->orderBy('title')->limit(12)->get();
+        // $category_home = Category::whereHas('movies', function ($movieQuery) {
+        //     $movieQuery->where('status', 1);
+        // })
+        //     ->with(['movies' => function ($movieQuery) {
+        //         $movieQuery->where('status', 1);
+        //     }])->orderBy('title')->limit(12)->get();
 
         //phim mới
         $new_movie = Movie::orderBy('id', 'DESC')->where('status', 1)->limit(8)->get();
 
-        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'category_home'));
+        //phim bộ
+        $series_movie = Movie::whereHas('categories', function ($query) {
+            $query->where('title', 'Phim bộ');
+        })->orderBy('title')->limit(12)->get();
+
+        //phim lẻ
+        $single_movie = Movie::whereHas('categories', function ($query) {
+            $query->where('title', 'Phim lẻ');
+        })->orderBy('title')->limit(12)->get();
+
+        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie'));
     }
     public function category($slug)
     {
