@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Genre;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class IndexControler extends Controller
@@ -14,7 +15,19 @@ class IndexControler extends Controller
         $category = Category::orderBy('title')->where('status', 1)->get();
         $genre = Genre::orderBy('title')->where('status', 1)->get();
         $country = Country::orderBy('title')->where('status', 1)->get();
-        return view('pages.home', compact('category', 'genre', 'country'));
+
+        // Lấy danh mục và kèm theo các phim thuộc từng danh mục
+        $category_home = Category::whereHas('movies', function ($movieQuery) {
+            $movieQuery->where('status', 1);
+        })
+            ->with(['movies' => function ($movieQuery) {
+                $movieQuery->where('status', 1);
+            }])->orderBy('title')->limit(12)->get();
+
+        //phim mới
+        $new_movie = Movie::orderBy('id', 'DESC')->where('status', 1)->limit(8)->get();
+
+        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'category_home'));
     }
     public function category($slug)
     {

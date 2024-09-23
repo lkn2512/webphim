@@ -214,6 +214,11 @@ hr {
     cursor: zoom-in;
 }
 
+.img-modal-zoom {
+    width: 300px;
+    height: auto;
+}
+
 .editImage {
     height: 200px;
     width: 150px;

@@ -41,7 +41,7 @@
                 <th>Tên thể loại</th>
                 <th>slug</th>
                 <th>Mô tả chi tiết</th>
-                {{-- <th>Phim</th> --}}
+                <th>Phim</th>
                 <th>Trạng thái</th>
                 <th>Tác vụ</th>
             </tr>
@@ -53,7 +53,7 @@
                     <td>{{ $value->title }}</td>
                     <td>{{ $value->slug }}</td>
                     <td class="text-auto">{{ $value->description }}</td>
-                    {{-- <td>{{ number_format($product_counts[$value->id]) }}</td> --}}
+                    <td><span class="text-danger">{{ $value->movies_count }}</span> phim</td>
                     <td>
                         <button type="button" class="toggle-status btn {{ $value->status == 1 ? 'active' : '' }}"
                             data-id="{{ $value->id }}" data-active-url="{{ URL::to('genre/active/' . $value->id) }}"

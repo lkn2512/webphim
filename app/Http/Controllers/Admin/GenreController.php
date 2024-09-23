@@ -13,7 +13,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        $allGenre = Genre::all();
+        $allGenre = Genre::withCount('movies')->get();
         return view('admin.genre.show-genre')->with(compact('allGenre'));
     }
 

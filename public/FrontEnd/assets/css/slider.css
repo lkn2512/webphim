@@ -2,6 +2,7 @@
     margin-block: 20px;
 }
 
+
 .tranding-slide {
     width: 20rem;
     height: 25rem;
@@ -13,12 +14,12 @@
 
 @media (max-width:500px) {
     .tranding-slide {
-        width: 18rem !important;
+        width: 25rem !important;
         height: 15rem !important;
     }
 
     .tranding-slide .tranding-slide-img img {
-        width: 20rem !important;
+        width: 27rem !important;
         height: 15rem !important;
     }
 }

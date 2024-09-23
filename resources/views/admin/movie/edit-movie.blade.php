@@ -63,6 +63,11 @@
                                 data-slug-source="movie" required value="{{ $editMovie->title }}">
                         </div>
                         <div class="form-group">
+                            <label for="inputName">Phụ đề tên phim</label>
+                            <input type="text" id="inputSubTitle" class="form-control" name="movieSubTitle" required
+                                value="{{ $editMovie->sub_title }}">
+                        </div>
+                        <div class="form-group">
                             <label>Slug<small class="note"> (tự động)</small></label>
                             <input type="text" name="movieSlug" class="form-control" required data-slug-target="movie"
                                 value="{{ $editMovie->slug }}">
@@ -103,7 +108,7 @@
                                 @foreach ($category as $cate)
                                     <div class="col-lg-4 col-md-6 col-4 col-sm-4 text-start mb-1">
                                         <input type="checkbox" name="movieCategory[]" value="{{ $cate->id }}"
-                                            {{ $editMovie->first()->categories->contains($cate->id) ? 'checked' : '' }}>
+                                            {{ $editMovie->categories->contains($cate->id) ? 'checked' : '' }}>
                                         {{ $cate->title }}
                                     </div>
                                 @endforeach
@@ -119,7 +124,7 @@
                                 @foreach ($genre as $gens)
                                     <div class="col-lg-3 col-md-6 col-4 col-sm-4 text-start mb-1">
                                         <input type="checkbox" name="movieGenre[]" value="{{ $gens->id }}"
-                                            {{ $editMovie->first()->genres->contains($gens->id) ? 'checked' : '' }}>
+                                            {{ $editMovie->genres->contains($gens->id) ? 'checked' : '' }}>
                                         {{ $gens->title }}
                                     </div>
                                 @endforeach
@@ -135,7 +140,7 @@
                                 @foreach ($country as $count)
                                     <div class="col-lg-3 col-md-6 col-sm-4 col-4 text-start mb-1">
                                         <input type="checkbox" name="movieCountry[]" value="{{ $count->id }}"
-                                            {{ $editMovie->first()->countries->contains($count->id) ? 'checked' : '' }}>
+                                            {{ $editMovie->countries->contains($count->id) ? 'checked' : '' }}>
                                         {{ $count->title }}
                                     </div>
                                 @endforeach

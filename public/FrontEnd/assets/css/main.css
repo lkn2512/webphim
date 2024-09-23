@@ -7,7 +7,8 @@ html {
 }
 
 body {
-    background: linear-gradient(135deg, #000000, #37474f) !important;
+    /* background: linear-gradient(135deg, #000000, #37474f) !important; */
+    background: black;
     color: white;
 }
 
@@ -250,6 +251,9 @@ button {
 
 .main-container {
     margin-block: 20px;
+    background: #101014;
+    border-radius: 10px;
+    padding: 10px 20px;
 }
 
 
@@ -264,6 +268,7 @@ button {
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
+    height: 100%;
 }
 
 .card-film img {
@@ -307,7 +312,7 @@ button {
 
 .card-film-body .title {
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 500;
     color: #fff;
     margin: 0;
     text-transform: capitalize;

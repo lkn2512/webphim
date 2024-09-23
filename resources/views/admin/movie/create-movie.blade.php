@@ -60,6 +60,10 @@
                                 data-slug-source="movie" required>
                         </div>
                         <div class="form-group">
+                            <label for="inputName">Phụ đề tên phim</label>
+                            <input type="text" id="inputSubTitle" class="form-control" name="movieSubTitle" required>
+                        </div>
+                        <div class="form-group">
                             <label>Slug<small class="note">(tự động)</small></label>
                             <input type="text" name="movieSlug" class="form-control" required data-slug-target="movie">
                         </div>

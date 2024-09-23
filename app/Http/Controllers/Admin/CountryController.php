@@ -13,7 +13,7 @@ class countryController extends Controller
      */
     public function index()
     {
-        $allcountry = Country::all();
+        $allcountry = Country::withCount('movies')->get(); //tự động sinh ra thuộc tính moives_count
         return view('admin.country.show-country')->with(compact('allcountry'));
     }
 

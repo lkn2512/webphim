@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $allCategory = Category::all();
+        $allCategory = Category::withCount('movies')->get();
         return view('admin.category.show-category')->with(compact('allCategory'));
     }
 

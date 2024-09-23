@@ -41,6 +41,7 @@ class MovieController extends Controller
         try {
             $movie = new Movie();
             $movie->title = $data['movieName'];
+            $movie->sub_title = $data['movieSubTitle'];
             $movie->slug = $data['movieSlug'];
 
             $get_image = $request->file('movieImage');
@@ -108,6 +109,7 @@ class MovieController extends Controller
             $movie = Movie::find($id);
             // Cập nhật dữ liệu phim
             $movie->title = $request->movieName;
+            $movie->sub_title = $request->movieSubTitle;
             $movie->slug = $request->movieSlug;
             $movie->description = $request->movieDescription;
             $movie->status = $request->movieStatus;

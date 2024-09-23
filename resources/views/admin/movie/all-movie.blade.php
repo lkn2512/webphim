@@ -56,7 +56,9 @@
                         <img class="img-movie zoom-in" src="{{ asset('uploads/movies/' . $value->image) }}" alt=""
                             data-bs-toggle="modal" data-bs-target="#imageModal" onclick="setModalImage(this)">
                     </td>
-                    <td>{{ $value->title }}</td>
+                    <td>{{ $value->title }}
+                        <br>{{ $value->sub_title }}
+                    </td>
                     <td>{{ $value->slug }}</td>
                     <td>
                         @foreach ($value->categories as $cate_movie)
@@ -102,7 +104,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content "style=" margin:85px">
                 <div class="modal-body">
-                    <img id="modalImage" alt="Hình ảnh phóng to">
+                    <img id="modalImage" alt="Hình ảnh phóng to" class="img-modal-zoom">
                 </div>
             </div>
         </div>
