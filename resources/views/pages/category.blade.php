@@ -4,97 +4,83 @@
         aria-label="breadcrumb" class="breadcrumb-container">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('trang-chu') }}">Trang chủ</a></li>
-            <li class="breadcrumb-item active" aria-current="page"> {{ $nameCategory->title }}</li>
+            <li class="breadcrumb-item"><a>Danh mục</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> {{ $slugCategory->title }}</li>
         </ol>
     </nav>
-    <div class="row mt-4">
-        <div class="col-lg-9 col-md-9 col-sm-9 col-12">
-            <h1 class="title-section">
-                {{ $nameCategory->title }}
-            </h1>
-            <div class="row">
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/phim.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">Đại Chúa Tể</h5>
-                            <span class="decs">Sword Art Online</span>
+    @if ($categoryAllMovie->count() > 0)
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                <div class="category-slider">
+                    <div class="multiple-items">
+                        <div class="p-1 item">
+                            <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
+                        </div>
+                        <div class="p-1 item"> <img src="{{ asset('Frontend/image/s2.jpg') }}" alt="">
+                        </div>
+                        <div class="p-1 item">
+                            <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
+                        </div>
+                        <div class="p-1 item">
+                            <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/phim.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">Phàm nhân tu tiên</h5>
-                            <span class="decs">Sword Art Online</span>
-                        </div>
+
+                <div class="title-section row mt-4 px-3">
+                    <div class="title-left col-lg-3">
+                        <span class="title-text">{{ $slugCategory->title }} mới cập nhật</span>
+                    </div>
+                    <div class="title-right col-lg-9">
+                        <span class="view-all"></span>
                     </div>
                 </div>
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6  mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/phim.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">Đại Chúa Tể Đại thời đại</h5>
-                            <span class="decs">Sword Art Online</span>
+                <div class="row">
+                    @foreach ($categoryAllMovie as $value)
+                        <div class="col-6 col-lg-3 col-md-4 col-sm-6 mb-3">
+                            <div class="card-film">
+                                <span class="episode">Tập 10</span>
+                                <img class="img" src="{{ asset('uploads/movies/' . $value->image) }}"
+                                    alt="{{ $value->title }}" title="{{ $value->title }}">
+                                <div class="card-film-body">
+                                    <h5 class="title">{{ $value->title }}</h5>
+                                    <span class="decs">{{ $value->sub_title }}</span>
+                                </div>
+                            </div>
                         </div>
+                    @endforeach
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="title-section row px-3">
+                    <div class="title-left col-lg-6">
+                        <span class="title-text">Phim bộ ngẫu nhiên</span>
+                    </div>
+                    <div class="title-right col-lg-6">
+                        <span class="view-all"></span>
                     </div>
                 </div>
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/phim.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">Đại Chúa Tể</h5>
-                            <span class="decs">Sword Art Online</span>
+
+                <div class="rank-container">
+                    @foreach ($random_movie as $rand)
+                        <div class="row rank-item">
+                            <div class="col-3 col-lg-3 col-md-5 col-sm-3">
+                                <img class="img-fluid" src="{{ asset('uploads/movies/' . $rand->image) }}"
+                                    alt="{{ $rand->title }}" title="{{ $rand->title }}">
+                            </div>
+                            <div class="col-9 col-lg-9 col-md-7 col-sm-9 px-0">
+                                <span class="title">{{ $rand->title }}</span>
+                                <span class="sub-title">{{ $rand->sub_title }}</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6  mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/avatar.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">avatar</h5>
-                            <span class="decs">avatar</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6  mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/phim.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">Đại Chúa Tể</h5>
-                            <span class="decs">Sword Art Online</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6  mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/phim.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">Đại Chúa Tể</h5>
-                            <span class="decs">Sword Art Online</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-3 col-md-4 col-sm-6  mb-3">
-                    <div class="card-film">
-                        <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('FrontEnd/Image/phim.jpg') }}" alt="Image">
-                        <div class="card-film-body">
-                            <h5 class="title">Đại Chúa Tể</h5>
-                            <span class="decs">Sword Art Online</span>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-12"></div>
-    </div>
+    @else
+        <p>Không tìm thấy phim nào trong danh mục này. Vui lòng khám phá các danh mục khác để tìm phim yêu
+            thích của bạn!
+        </p>
+    @endif
 @endsection

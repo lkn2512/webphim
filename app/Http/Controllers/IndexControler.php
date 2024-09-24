@@ -22,14 +22,6 @@ class IndexControler extends Controller
             $query->where('status', 1);
         })->orderBy('title')->get();
 
-        // Lấy danh mục và kèm theo các phim thuộc từng danh mục
-        // $category_home = Category::whereHas('movies', function ($movieQuery) {
-        //     $movieQuery->where('status', 1);
-        // })
-        //     ->with(['movies' => function ($movieQuery) {
-        //         $movieQuery->where('status', 1);
-        //     }])->orderBy('title')->limit(12)->get();
-
         //phim mới
         $new_movie = Movie::orderBy('id', 'DESC')->where('status', 1)->limit(8)->get();
 
@@ -43,17 +35,50 @@ class IndexControler extends Controller
             $query->where('title', 'Phim lẻ');
         })->orderBy('title')->where('status', 1)->limit(12)->get();
 
-        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie'));
+        //phim hot
+        $view_movie = Movie::orderBy('id', 'DESC')->where('status', 1)->get();
+
+        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie', 'view_movie'));
     }
     public function category($slug)
     {
-        $nameCategory = Category::where('slug', $slug)->first();
-        $IdCategory = $nameCategory->id;
-        return view('pages.category', compact('nameCategory'));
+        try {
+            $slugCategory = Category::where('slug', $slug)->first();
+            if (!$slugCategory) {
+                abort(404);
+            }
+            $IdCategory = $slugCategory->id;
+
+            $categoryAllMovie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
+                $query->where('categories.id', $IdCategory);
+            })->where('status', 1)->paginate(20);
+
+            $random_movie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
+                $query->where('categories.id', $IdCategory);
+            })->where('status', 1)->inRandomOrder()->limit(6)->get();
+        } catch (\Throwable $th) {
+            abort(404);
+        }
+
+        return view('pages.category', compact('slugCategory', 'categoryAllMovie', 'random_movie'));
     }
     public function genre($slug)
     {
-        return view('pages.genre');
+        try {
+            $slugGenre = Genre::where('slug', $slug)->first();
+            if (!$slugGenre) {
+                abort(404);
+            }
+            $IdGenre = $slugGenre->id;
+
+            $GenreAllMovie = Movie::whereHas('genres', function ($query) use ($IdGenre) {
+                $query->where('genres.id', $IdGenre);
+            })->where('status', 1)->get();
+        } catch (\Throwable $th) {
+            abort(404);
+        }
+
+        return view('pages.genre', compact('slugGenre', 'GenreAllMovie'));
     }
     public function country($slug)
     {

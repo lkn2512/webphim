@@ -31,36 +31,36 @@
             <hr>
             <div class="rank-container">
                 <div class="row rank-item">
-                    <div class="col-3 col-lg-3 col-md-3">
+                    <div class="col-3 col-lg-3 col-md-5">
                         <img class="img-fluid" src="{{ asset('FrontEnd/Image/pttt.jpg') }}" alt="Image">
                     </div>
-                    <div class="col-9 col-lg-8 col-md-8">
+                    <div class="col-9 col-lg-8 col-md-7">
                         <h5 class="title">Đại chúa tể</h5>
                     </div>
                 </div>
                 <div class="row rank-item">
-                    <div class="col-3 col-lg-3 col-md-3">
+                    <div class="col-3 col-lg-3 col-md-5">
                         <img class="img-fluid" src="{{ asset('FrontEnd/Image/pttt.jpg') }}" alt="Image">
                     </div>
-                    <div class="col-9 col-lg-8 col-md-8">
+                    <div class="col-9 col-lg-8 col-md-7">
                         <h5 class="title">Đại chúa tể</h5>
                         <span class="desc"></span>
                     </div>
                 </div>
                 <div class="row rank-item">
-                    <div class="col-3 col-lg-3 col-md-3">
+                    <div class="col-3 col-lg-3 col-md-5">
                         <img class="img-fluid" src="{{ asset('FrontEnd/Image/pttt.jpg') }}" alt="Image">
                     </div>
-                    <div class="col-9 col-lg-8 col-md-8 ">
+                    <div class="col-9 col-lg-8 col-md-7 ">
                         <h5 class="title">Tam chiến thiên hạ, thiên chân vô song</h5>
                         <span class="desc"></span>
                     </div>
                 </div>
                 <div class="row rank-item">
-                    <div class="col-3 col-lg-3 col-md-3">
+                    <div class="col-3 col-lg-3 col-md-5">
                         <img class="img-fluid" src="{{ asset('FrontEnd/Image/pttt.jpg') }}" alt="Image">
                     </div>
-                    <div class="col-9 col-lg-8 col-md-8">
+                    <div class="col-9 col-lg-8 col-md-7">
                         <h5 class="title">Đại chúa tể</h5>
                         <span class="desc"></span>
                     </div>
@@ -104,66 +104,19 @@
             <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <div class="owl-carousel owl-theme">
-            <div class="item">
-                <div class="card-film">
-                    <span class="episode">Tập 10</span>
-                    <img class="img" src="{{ asset('Frontend/image/avatar.jpg') }}" alt="" title="">
-                    <div class="card-film-body">
-                        <h5 class="title"></h5>
-                        <span class="decs"></span>
+            @foreach ($view_movie as $view)
+                <div class="item">
+                    <div class="card-film">
+                        <span class="episode">Tập 10</span>
+                        <img class="img" src="{{ asset('uploads/movies/' . $view->image) }}" alt="{{ $view->title }}"
+                            title="{{ $view->title }}">
+                        <div class="card-film-body">
+                            <h5 class="title">{{ $view->title }}</h5>
+                            <span class="decs">{{ $view->sub_title }}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="card-film">
-                    <span class="episode">Tập 10</span>
-                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
-                    <div class="card-film-body">
-                        <h5 class="title"></h5>
-                        <span class="decs"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card-film">
-                    <span class="episode">Tập 10</span>
-                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
-                    <div class="card-film-body">
-                        <h5 class="title"></h5>
-                        <span class="decs"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card-film">
-                    <span class="episode">Tập 10</span>
-                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
-                    <div class="card-film-body">
-                        <h5 class="title"></h5>
-                        <span class="decs"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card-film">
-                    <span class="episode">Tập 10</span>
-                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
-                    <div class="card-film-body">
-                        <h5 class="title"></h5>
-                        <span class="decs"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card-film">
-                    <span class="episode">Tập 10</span>
-                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
-                    <div class="card-film-body">
-                        <h5 class="title"></h5>
-                        <span class="decs"></span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

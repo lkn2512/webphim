@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/css/slider.css') }}">
 
+    {{-- slick CSS --}}
+    <link rel="stylesheet" href="{{ asset('FrontEnd/assets/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('FrontEnd/assets/slick/slick-theme.css') }}">
+
 <body>
     @include('pages.header.menu')
     <main class="container main-container">
@@ -37,6 +41,8 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="{{ asset('FrontEnd/assets/slick/slick.js') }}"></script>
 
     <!-- Owl Carousel control -->
     <script>
@@ -74,6 +80,20 @@
     </script>
 
     @stack('Slider-JS')
+
+    {{-- slick control --}}
+    <script>
+        $(document).ready(function() {
+            $('.multiple-items').slick({
+                infinite: true,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 2,
+                slidesToScroll: 2
+            });
+        });
+    </script>
 
 
 </body>
