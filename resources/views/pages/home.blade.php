@@ -5,9 +5,14 @@
     {{-- Slider --}}
     <div class="row new-film mt-5">
         <div class="col-lg-8 col-md-8">
-            <h1 class="title-section">
-                Phim mới cập nhật
-            </h1>
+            <div class="title-section row px-3">
+                <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
+                    <span class="title-text">Phim bộ mới cập nhật</span>
+                </div>
+                <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
+                    <span class="view-all"></span>
+                </div>
+            </div>
             <div class="row">
                 @foreach ($new_movie as $new)
                     <div class="col-6 col-lg-3 col-md-4 col-sm-4  mb-3">
@@ -25,10 +30,14 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-4">
-            <h1 class="title-section">
-                Bảng xếp hạng
-            </h1>
-            <hr>
+            <div class="title-section row px-3">
+                <div class="title-left col-lg-5 col-md-9 col-sm-4 col-5">
+                    <span class="title-text">Bảng xếp hạng</span>
+                </div>
+                <div class="title-right col-lg-7 col-md-3 col-sm-8 col-7">
+                    <span class="view-all"></span>
+                </div>
+            </div>
             <div class="rank-container">
                 <div class="row rank-item">
                     <div class="col-3 col-lg-3 col-md-5">
@@ -96,9 +105,14 @@
     @endforeach --}}
 
     <div class="carousel-wrapper mt-4">
-        <h1 class="title-section">
-            Phim hot
-        </h1>
+        <div class="title-section row px-3">
+            <div class="title-left col-lg-1 col-md-2 col-sm-3 col-3">
+                <span class="title-text">Phim Hot</span>
+            </div>
+            <div class="title-right col-lg-11 col-md-10 col-sm-9 col-9">
+                <span class="view-all"></span>
+            </div>
+        </div>
         <div class="custom-nav">
             <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
@@ -122,9 +136,14 @@
 
     <div class="row new-film mt-4">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <h1 class="title-section">
-                Phim bộ
-            </h1>
+            <div class="title-section row px-3">
+                <div class="title-left col-lg-1 col-md-2 col-sm-3 col-3">
+                    <span class="title-text">Phim bộ</span>
+                </div>
+                <div class="title-right col-lg-11 col-md-10 col-sm-9 col-9">
+                    <span class="view-all"></span>
+                </div>
+            </div>
             <div class="row">
                 @foreach ($series_movie as $ser)
                     <div class="col-6 col-lg-2 col-md-4 col-sm-4 mb-3">
@@ -144,9 +163,14 @@
     </div>
     <div class="row new-film mt-4">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <h1 class="title-section">
-                Phim lẻ
-            </h1>
+            <div class="title-section row px-3">
+                <div class="title-left col-lg-1 col-md-2 col-sm-3 col-3">
+                    <span class="title-text">Phim lẻ</span>
+                </div>
+                <div class="title-right col-lg-11 col-md-10 col-sm-9 col-9">
+                    <span class="view-all"></span>
+                </div>
+            </div>
             <div class="row">
                 @foreach ($single_movie as $sin)
                     <div class="col-6 col-lg-2 col-md-4 col-sm-4 mb-3">

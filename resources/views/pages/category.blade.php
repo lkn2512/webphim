@@ -13,25 +13,25 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                 <div class="category-slider">
                     <div class="multiple-items">
-                        <div class="p-1 item">
+                        <div class=" item">
                             <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
                         </div>
-                        <div class="p-1 item"> <img src="{{ asset('Frontend/image/s2.jpg') }}" alt="">
+                        <div class=" item"> <img src="{{ asset('Frontend/image/s2.jpg') }}" alt="">
                         </div>
-                        <div class="p-1 item">
+                        <div class=" item">
                             <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
                         </div>
-                        <div class="p-1 item">
+                        <div class=" item">
                             <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
 
                 <div class="title-section row mt-4 px-3">
-                    <div class="title-left col-lg-3">
+                    <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
                         <span class="title-text">{{ $slugCategory->title }} mới cập nhật</span>
                     </div>
-                    <div class="title-right col-lg-9">
+                    <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
                         <span class="view-all"></span>
                     </div>
                 </div>
@@ -54,10 +54,10 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                 <div class="title-section row px-3">
-                    <div class="title-left col-lg-6">
+                    <div class="title-left col-lg-6 col-md-10 col-sm-5 col-6">
                         <span class="title-text">Phim bộ ngẫu nhiên</span>
                     </div>
-                    <div class="title-right col-lg-6">
+                    <div class="title-right col-lg-6 col-md-2 col-sm-7 col-6">
                         <span class="view-all"></span>
                     </div>
                 </div>

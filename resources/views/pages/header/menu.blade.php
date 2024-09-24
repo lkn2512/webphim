@@ -8,16 +8,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('trang-chu') }}">Trang chủ</a>
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
+                        href="{{ route('trang-chu') }}">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ Request::is('the-loai/*') ? 'show active' : '' }}"
+                        href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Thể loại
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($genre as $gen)
-                            <li><a class="dropdown-item"
+                            <li><a class="dropdown-item {{ Request::is('the-loai/' . $gen->slug) ? 'active' : '' }}"
                                     href="{{ URL::to('the-loai/' . $gen->slug) }}">{{ $gen->title }}</a></li>
                         @endforeach
                     </ul>
@@ -36,8 +37,8 @@
                 </li>
                 @foreach ($category as $cate)
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page"
-                            href="{{ URL::to('danh-muc/' . $cate->slug) }}">{{ $cate->title }}</a>
+                        <a class="nav-link {{ Request::is('danh-muc/' . $cate->slug) ? 'active' : '' }}"
+                            aria-current="page" href="{{ URL::to('danh-muc/' . $cate->slug) }}">{{ $cate->title }}</a>
                     </li>
                 @endforeach
             </ul>
