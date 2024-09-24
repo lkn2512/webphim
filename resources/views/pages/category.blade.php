@@ -4,8 +4,7 @@
         aria-label="breadcrumb" class="breadcrumb-container">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('trang-chu') }}">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a>Danh mục</a></li>
-            <li class="breadcrumb-item active" aria-current="page"> {{ $slugCategory->title }}</li>
+            <li class="breadcrumb-item" aria-current="page"> {{ $slugCategory->title }}</li>
         </ol>
     </nav>
     @if ($categoryAllMovie->count() > 0)
@@ -27,9 +26,9 @@
                     </div>
                 </div>
 
-                <div class="title-section row mt-4 px-3">
+                <div class="title-section row mt-4  ">
                     <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
-                        <span class="title-text">{{ $slugCategory->title }} mới cập nhật</span>
+                        <span class="title-text">{{ $slugCategory->title }}</span>
                     </div>
                     <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
                         <span class="view-all"></span>
@@ -49,11 +48,11 @@
                             </div>
                         </div>
                     @endforeach
-
+                    {{ $categoryAllMovie->withQueryString()->appends(Request::all())->links('pagination-custom') }}
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                <div class="title-section row px-3">
+                <div class="title-section row  ">
                     <div class="title-left col-lg-6 col-md-10 col-sm-5 col-6">
                         <span class="title-text">Phim bộ ngẫu nhiên</span>
                     </div>

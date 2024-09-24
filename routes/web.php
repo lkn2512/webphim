@@ -1,13 +1,17 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\CountryController;
-use App\Http\Controllers\Admin\EpisodeController;
-use App\Http\Controllers\Admin\GenreController;
-use App\Http\Controllers\Admin\MovieController;
+use App\Http\Controllers\Admin\CountryController as Admin_CountryController;
+use App\Http\Controllers\Admin\EpisodeController as Admin_EpisodeController;
+use App\Http\Controllers\Admin\GenreController as Admin_GenreController;
+use App\Http\Controllers\Admin\MovieController as Admin_MovieController;
+use App\Http\Controllers\Admin\CategoryController as Admin_CategoryController;
 
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\IndexControler;
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('layout');
 // });
 Route::get('/', [IndexControler::class, 'home'])->name('trang-chu');
-Route::get('/danh-muc/{slug}', [IndexControler::class, 'category']);
-Route::get('/the-loai/{slug}', [IndexControler::class, 'genre']);
-Route::get('/quoc-gia/{slug}', [IndexControler::class, 'country']);
-Route::get('/phim', [IndexControler::class, 'movie']);
+Route::get('/danh-muc/{slug}', [CategoryController::class, 'category']);
+Route::get('/the-loai/{slug}', [GenreController::class, 'genre']);
+Route::get('/quoc-gia/{slug}', [CountryController::class, 'country']);
+
+Route::get('/phim/{slug}', [MovieController::class, 'movie']);
 Route::get('/xem-phim', [IndexControler::class, 'watch']);
 Route::get('/tap-phim', [IndexControler::class, 'episode']);
 
@@ -29,21 +34,21 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /*Category - danh mục phim*/
-Route::resource('category', CategoryController::class);
-Route::get('category/active/{id}', [CategoryController::class, 'activeCategory']);
-Route::get('category/unactive/{id}', [CategoryController::class, 'unactiveCategory']);
+Route::resource('category', Admin_CategoryController::class);
+Route::get('category/active/{id}', [Admin_CategoryController::class, 'activeCategory']);
+Route::get('category/unactive/{id}', [Admin_CategoryController::class, 'unactiveCategory']);
 /*genre - thể loại phim*/
-Route::resource('genre', GenreController::class);
-Route::get('genre/active/{id}', [GenreController::class, 'activeGenre']);
-Route::get('genre/unactive/{id}', [GenreController::class, 'unactiveGenre']);
+Route::resource('genre', Admin_GenreController::class);
+Route::get('genre/active/{id}', [Admin_GenreController::class, 'activeGenre']);
+Route::get('genre/unactive/{id}', [Admin_GenreController::class, 'unactiveGenre']);
 /*country - quốc gia*/
-Route::resource('country', CountryController::class);
-Route::get('country/active/{id}', [CountryController::class, 'activeCountry']);
-Route::get('country/unactive/{id}', [CountryController::class, 'unactiveCountry']);
+Route::resource('country', Admin_CountryController::class);
+Route::get('country/active/{id}', [Admin_CountryController::class, 'activeCountry']);
+Route::get('country/unactive/{id}', [Admin_CountryController::class, 'unactiveCountry']);
 
-Route::resource('episode', EpisodeController::class);
+Route::resource('episode', Admin_EpisodeController::class);
 
 /*movie - phim*/
-Route::resource('movie', MovieController::class);
-Route::get('movie/active/{id}', [MovieController::class, 'activeMovie']);
-Route::get('movie/unactive/{id}', [MovieController::class, 'unactiveMovie']);
+Route::resource('movie', Admin_MovieController::class);
+Route::get('movie/active/{id}', [Admin_MovieController::class, 'activeMovie']);
+Route::get('movie/unactive/{id}', [Admin_MovieController::class, 'unactiveMovie']);

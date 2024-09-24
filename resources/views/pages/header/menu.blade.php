@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg nav-header" style="background: #101014">
+<nav class="navbar navbar-expand-lg " style="background: #101014">
+    {{-- nav-header --}}
     <div class="container" style="padding-inline: 20px">
         <a class="navbar-brand fw-bold text-white" href="#">KNFilm.tv</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

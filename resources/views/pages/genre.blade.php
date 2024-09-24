@@ -4,19 +4,23 @@
         aria-label="breadcrumb" class="breadcrumb-container">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('trang-chu') }}">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a>Thể loại</a></li>
-            <li class="breadcrumb-item active" aria-current="page"> {{ $slugGenre->title }}</li>
+            <li class="breadcrumb-item" aria-current="page"> {{ $slugGenre->title }}</li>
         </ol>
     </nav>
     <div class="row mt-4">
-        <div class="col-lg-9 col-md-9 col-sm-9 col-12">
-            <h1 class="title-section">
-                {{ $slugGenre->title }}
-            </h1>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="title-section row">
+                <div class="title-left col-lg-2 col-md-6 col-sm-5 col-6">
+                    <span class="title-text">{{ $slugGenre->title }}</span>
+                </div>
+                <div class="title-right col-lg-10 col-md-6 col-sm-7 col-6">
+                    <span class="view-all"></span>
+                </div>
+            </div>
             <div class="row">
                 @if ($GenreAllMovie->count() > 0)
                     @foreach ($GenreAllMovie as $value)
-                        <div class="col-4 col-lg-3 col-md-4 col-sm-6 mb-3">
+                        <div class="col-6 col-lg-2 col-md-4 col-sm-6 mb-3">
                             <div class="card-film">
                                 <span class="episode">Tập 10</span>
                                 <img class="img" src="{{ asset('uploads/movies/' . $value->image) }}"
@@ -28,6 +32,7 @@
                             </div>
                         </div>
                     @endforeach
+                    {{ $GenreAllMovie->withQueryString()->appends(Request::all())->links('pagination-custom') }}
                 @else
                     <p>Không tìm thấy phim nào thuộc thể loại này. Vui lòng khám phá các thể loại khác để tìm phim yêu thích
                         của bạn!
@@ -35,6 +40,6 @@
                 @endif
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-12"></div>
+
     </div>
 @endsection

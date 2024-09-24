@@ -23,6 +23,8 @@
     {{-- slick CSS --}}
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/slick/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/slick/slick-theme.css') }}">
+    {{-- tabs CSS --}}
+    <link rel="stylesheet" href="{{ asset('FrontEnd/assets/css/tabs.css') }}">
 
 <body>
     @include('pages.header.menu')

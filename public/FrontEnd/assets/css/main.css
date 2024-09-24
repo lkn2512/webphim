@@ -26,12 +26,12 @@ button {
 
 /* Màu nền của thanh cuộn */
 ::-webkit-scrollbar-track {
-    background: #101014;
+    background: black;
 }
 
 /* Màu của thanh cuộn */
 ::-webkit-scrollbar-thumb {
-    background-color: black;
+    background: #101014;
     border-radius: 10px;
     border: 2px solid #101014;
 }
@@ -539,4 +539,55 @@ button {
     height: 250px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+
+
+
+/*Movie detail*/
+.img-container {
+    position: relative;
+}
+
+.img-container img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border: 5px solid black;
+}
+
+.view-movie {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(255, 140, 0, 0.6), rgba(255, 140, 0, 1));
+    border-radius: 8px;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    z-index: 2;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    /* Giữ vị trí ban đầu */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.view-movie:hover {
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.detailMovie-container .name {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: orange;
+}
+
+.detailMovie-container span {
+    display: block;
+    padding-block: 10px;
+}
+
+.detailMovie-container .sub-name {
+    color: gray;
 }

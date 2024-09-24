@@ -5,7 +5,7 @@
     {{-- Slider --}}
     <div class="row new-film mt-5">
         <div class="col-lg-8 col-md-8">
-            <div class="title-section row px-3">
+            <div class="title-section row  ">
                 <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
                     <span class="title-text">Phim bộ mới cập nhật</span>
                 </div>
@@ -16,21 +16,23 @@
             <div class="row">
                 @foreach ($new_movie as $new)
                     <div class="col-6 col-lg-3 col-md-4 col-sm-4  mb-3">
-                        <div class="card-film">
-                            <span class="episode">Tập 10</span>
-                            <img class="img" src="{{ asset('uploads/movies/' . $new->image) }}" alt="{{ $new->title }}"
-                                title="{{ $new->title }}">
-                            <div class="card-film-body">
-                                <h5 class="title">{{ $new->title }}</h5>
-                                <span class="decs">{{ $new->sub_title }}</span>
+                        <a href="{{ URL::to('phim/' . $new->slug) }}">
+                            <div class="card-film">
+                                <span class="episode">Tập 10</span>
+                                <img class="img" src="{{ asset('uploads/movies/' . $new->image) }}"
+                                    alt="{{ $new->title }}" title="{{ $new->title }}">
+                                <div class="card-film-body">
+                                    <h5 class="title">{{ $new->title }}</h5>
+                                    <span class="decs">{{ $new->sub_title }}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
         </div>
         <div class="col-lg-4 col-md-4">
-            <div class="title-section row px-3">
+            <div class="title-section row">
                 <div class="title-left col-lg-5 col-md-9 col-sm-4 col-5">
                     <span class="title-text">Bảng xếp hạng</span>
                 </div>
@@ -77,35 +79,8 @@
             </div>
         </div>
     </div>
-    {{-- @foreach ($category_home as $cateHome)
-        @if ($cateHome->movies->count() > 0)
-            <div class="row new-film mt-4">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h1 class="title-section">
-                        {{ $cateHome->title }}
-                    </h1>
-                    <div class="row">
-                        @foreach ($cateHome->movies as $movie)
-                            <div class="col-6 col-lg-2 col-md-4 col-sm-4 mb-3">
-                                <div class="card-film">
-                                    <span class="episode">Tập 10</span>
-                                    <img class="img" src="{{ asset('uploads/movies/' . $movie->image) }}"
-                                        alt="{{ $movie->title }}" title="{{ $movie->title }}">
-                                    <div class="card-film-body">
-                                        <h5 class="title">{{ $movie->title }}</h5>
-                                        <span class="decs">{{ $movie->sub_title }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        @endif
-    @endforeach --}}
-
     <div class="carousel-wrapper mt-4">
-        <div class="title-section row px-3">
+        <div class="title-section row">
             <div class="title-left col-lg-1 col-md-2 col-sm-3 col-3">
                 <span class="title-text">Phim Hot</span>
             </div>
@@ -136,7 +111,7 @@
 
     <div class="row new-film mt-4">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="title-section row px-3">
+            <div class="title-section row  ">
                 <div class="title-left col-lg-1 col-md-2 col-sm-3 col-3">
                     <span class="title-text">Phim bộ</span>
                 </div>
@@ -163,7 +138,7 @@
     </div>
     <div class="row new-film mt-4">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="title-section row px-3">
+            <div class="title-section row  ">
                 <div class="title-left col-lg-1 col-md-2 col-sm-3 col-3">
                     <span class="title-text">Phim lẻ</span>
                 </div>
