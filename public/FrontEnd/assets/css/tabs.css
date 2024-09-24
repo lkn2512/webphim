@@ -1560,6 +1560,8 @@
     box-shadow: 0 2px rgba(0, 0, 0, 0.2);
     color: white;
     opacity: 0.8;
+    font-size: 0.95rem;
+
 }
 
 .pcss3t-theme-1>label:hover {
@@ -1808,4 +1810,11 @@
 .pcss3t>ul,
 .pcss3t>ul>li {
     height: 425px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.pcss3t>ul::-webkit-scrollbar,
+.pcss3t>ul>li::-webkit-scrollbar {
+    display: none;
 }

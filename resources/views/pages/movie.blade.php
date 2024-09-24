@@ -56,7 +56,7 @@
                     <label for="tab3"><i class="icon-cogs"></i>Phần</label> --}}
 
                     <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                    <label for="tab5">phần</label>
+                    <label for="tab5">phần khác</label>
 
                     <ul>
                         <li class="tab-content tab-content-first typography">
@@ -135,10 +135,12 @@
                 @foreach ($view_movie as $view)
                     <div class="row rank-item">
                         <div class="col-3 col-lg-3 col-md-5">
-                            <img class="img-fluid" src="{{ asset('FrontEnd/Image/pttt.jpg') }}" alt="Image">
+                            <img class="img-fluid" src="{{ asset('uploads/movies/' . $view->image) }}"
+                                alt="{{ $view->title }}" title="{{ $view->title }}">
                         </div>
                         <div class="col-9 col-lg-8 col-md-7">
                             <h5 class="title">{{ $view->title }}</h5>
+                            <span class="sub-title">{{ $view->sub_title }}</span>
                         </div>
                     </div>
                 @endforeach
