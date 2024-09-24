@@ -12,9 +12,15 @@ class IndexControler extends Controller
 {
     public function home()
     {
-        $category = Category::orderBy('title')->where('status', 1)->get();
-        $genre = Genre::orderBy('title')->where('status', 1)->get();
-        $country = Country::orderBy('title')->where('status', 1)->get();
+        $category = Category::whereHas('movies', function ($query) {
+            $query->where('status', 1);
+        })->orderBy('title')->get();
+        $genre = Genre::whereHas('movies', function ($query) {
+            $query->where('status', 1);
+        })->orderBy('title')->get();
+        $country = Country::whereHas('movies', function ($query) {
+            $query->where('status', 1);
+        })->orderBy('title')->get();
 
         // Lấy danh mục và kèm theo các phim thuộc từng danh mục
         // $category_home = Category::whereHas('movies', function ($movieQuery) {

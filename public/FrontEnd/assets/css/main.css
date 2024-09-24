@@ -19,6 +19,23 @@ button {
     outline: none;
 }
 
+/* Tùy chỉnh thanh cuộn */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Màu nền của thanh cuộn */
+::-webkit-scrollbar-track {
+    background: #101014;
+}
+
+/* Màu của thanh cuộn */
+::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 10px;
+    border: 2px solid #101014;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 
 .search,
@@ -96,6 +113,27 @@ button {
 .dropdown-menu {
     background: #101014 !important;
     color: white !important;
+    border: 1px solid black;
+    max-height: 400px !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Tùy chỉnh thanh cuộn */
+.dropdown-menu::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Màu nền của thanh cuộn */
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #101014;
+}
+
+/* Màu của thanh cuộn */
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 10px;
+    border: 2px solid #101014;
 }
 
 .dropdown-toggle.show {
@@ -388,4 +426,51 @@ button {
 .breadcrumb .breadcrumb-item.active {
     text-decoration: none !important;
     color: orange
+}
+
+
+
+
+/* carouse*/
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+
+.custom-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.custom-nav button {
+    background-color: rgb(211, 137, 0);
+    color: black;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+    vertical-align: middle;
+}
+
+.prev-arrow {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.next-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }

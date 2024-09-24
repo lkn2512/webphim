@@ -38,21 +38,37 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
+    <!-- Owl Carousel control -->
     <script>
         $(document).ready(function() {
-            $(".owl-carousel").owlCarousel({
-                margin: 15,
+            var owl = $(".owl-carousel");
+
+            owl.owlCarousel({
+                loop: true,
+                margin: 22,
+                autoplay: true, // Kích hoạt chế độ tự động chạy
+                autoplayTimeout: 3000, // Thời gian giữa các lần chuyển đổi (3 giây)
+                autoplayHoverPause: true, // Tạm dừng khi di chuột lên
                 responsive: {
                     0: {
-                        items: 3 // Hiển thị 1 card trên các thiết bị nhỏ (di động)
+                        items: 2
                     },
                     600: {
-                        items: 3 // Hiển thị 2 card trên các thiết bị vừa
+                        items: 3
                     },
                     1000: {
-                        items: 6 // Hiển thị tối đa 6 card trên máy tính
+                        items: 6
                     }
                 }
+            });
+
+            // Xử lý sự kiện khi nhấn nút mũi tên
+            $(".prev-arrow").click(function() {
+                owl.trigger('prev.owl.carousel');
+            });
+
+            $(".next-arrow").click(function() {
+                owl.trigger('next.owl.carousel');
             });
         });
     </script>

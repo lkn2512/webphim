@@ -24,9 +24,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->composer('pages.*', function ($view) {
-            $category = Category::orderBy('title')->where('status', 1)->get();
-            $genre = Genre::orderBy('title')->where('status', 1)->get();
-            $country = Country::orderBy('title')->where('status', 1)->get();
+            $category = Category::whereHas('movies', function ($query) {
+                $query->where('status', 1);
+            })->orderBy('title')->get();
+
+            $genre = Genre::whereHas('movies', function ($query) {
+                $query->where('status', 1);
+            })->orderBy('title')->get();
+
+            $country = Country::whereHas('movies', function ($query) {
+                $query->where('status', 1);
+            })->orderBy('title')->get();
 
             $view->with(compact('category', 'genre', 'country'));
         });

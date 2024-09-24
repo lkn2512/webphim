@@ -95,6 +95,78 @@
         @endif
     @endforeach --}}
 
+    <div class="carousel-wrapper mt-4">
+        <h1 class="title-section">
+            Phim hot
+        </h1>
+        <div class="custom-nav">
+            <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <div class="card-film">
+                    <span class="episode">Tập 10</span>
+                    <img class="img" src="{{ asset('Frontend/image/avatar.jpg') }}" alt="" title="">
+                    <div class="card-film-body">
+                        <h5 class="title"></h5>
+                        <span class="decs"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card-film">
+                    <span class="episode">Tập 10</span>
+                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
+                    <div class="card-film-body">
+                        <h5 class="title"></h5>
+                        <span class="decs"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card-film">
+                    <span class="episode">Tập 10</span>
+                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
+                    <div class="card-film-body">
+                        <h5 class="title"></h5>
+                        <span class="decs"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card-film">
+                    <span class="episode">Tập 10</span>
+                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
+                    <div class="card-film-body">
+                        <h5 class="title"></h5>
+                        <span class="decs"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card-film">
+                    <span class="episode">Tập 10</span>
+                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
+                    <div class="card-film-body">
+                        <h5 class="title"></h5>
+                        <span class="decs"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card-film">
+                    <span class="episode">Tập 10</span>
+                    <img class="img" src="{{ asset('Frontend/image/pttt.jpg') }}" alt="" title="">
+                    <div class="card-film-body">
+                        <h5 class="title"></h5>
+                        <span class="decs"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row new-film mt-4">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <h1 class="title-section">
