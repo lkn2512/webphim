@@ -134,12 +134,25 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputStatus">Trạng thái</label>
-                            <select id="inputStatus" class="form-control custom-select" name="movieStatus">
-                                <option selected value="1">Hiển thị</option>
-                                <option value="0">Ẩn</option>
-                            </select>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="inputStatus">Phiên dịch nội dung</label>
+                                <select id="inputStatus" class="form-control custom-select" name="movieTranslation">
+                                    <option value="0" selected>Không có</option>
+                                    <option value="1">Vietsub</option>
+                                    <option value="2">Thuyết minh</option>
+                                    <option value="3">Lồng tiếng</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="inputStatus">Trạng thái</label>
+                                <select id="inputStatus" class="form-control custom-select" name="movieStatus">
+                                    <option selected value="1">Hiển thị</option>
+                                    <option value="0">Ẩn</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

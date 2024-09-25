@@ -29,7 +29,9 @@ class MovieController extends Controller
         $category = Category::orderBy('title')->get();
         $genre = Genre::orderBy('title')->get();
         $country = Country::orderBy('title')->get();
-        return view('admin.movie.create-movie', compact('category', 'genre', 'country'));
+
+        $years = range(1900, date('Y')); // Lấy tất cả các năm từ 1900 đến năm hiện tại
+        return view('admin.movie.create-movie', compact('category', 'genre', 'country', 'years'));
     }
 
     /**
@@ -57,6 +59,8 @@ class MovieController extends Controller
             }
 
             $movie->description = $data['movieDescription'];
+            $movie->translation = $data['movieTranslation'];
+            $movie->release_year = $data['movieYear'];
             $movie->status = $data['movieStatus'];
             $movie->save();
 
@@ -97,7 +101,9 @@ class MovieController extends Controller
         $country = Country::orderBy('title')->get();
 
         $editMovie = Movie::with(['categories', 'genres', 'countries'])->where('id', $id)->firstOrFail();
-        return view('admin.movie.edit-movie', compact('editMovie', 'category', 'genre', 'country'));
+
+        $years = range(1900, date('Y')); // Lấy tất cả các năm từ 1900 đến năm hiện tại
+        return view('admin.movie.edit-movie', compact('editMovie', 'category', 'genre', 'country', 'years'));
     }
 
     /**
@@ -112,6 +118,8 @@ class MovieController extends Controller
             $movie->sub_title = $request->movieSubTitle;
             $movie->slug = $request->movieSlug;
             $movie->description = $request->movieDescription;
+            $movie->translation = $request->movieTranslation;
+            $movie->release_year = $request->movieYear;
             $movie->status = $request->movieStatus;
 
             $get_image = $request->file('movieImage');

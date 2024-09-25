@@ -19,6 +19,11 @@ button {
     outline: none;
 }
 
+hr {
+    padding: 0px;
+    margin: 3px 0px;
+}
+
 /* Tùy chỉnh thanh cuộn */
 ::-webkit-scrollbar {
     width: 12px;
@@ -583,11 +588,40 @@ button {
     color: orange;
 }
 
-.detailMovie-container span {
-    display: block;
+.detailMovie-container .new-episode {}
+
+.detailMovie-container .row {
     padding-block: 10px;
 }
 
 .detailMovie-container .sub-name {
     color: gray;
+}
+
+.detailMovie-container .movie-genre,
+.detailMovie-container .movie-country,
+.detailMovie-container .movie-category {}
+
+.detailMovie-container .new-episode .text,
+.detailMovie-container .movie-genre .text,
+.detailMovie-container .movie-country .text,
+.detailMovie-container .movie-category .text {
+    padding-left: 0px;
+}
+
+.detailMovie-container .new-episode .title-left,
+.detailMovie-container .movie-genre .title-left,
+.detailMovie-container .movie-country .title-left,
+.detailMovie-container .movie-category .title-left,
+.detailMovie-container .translation .title-left {
+    color: rgb(180, 180, 180);
+}
+
+.detailMovie-container .translation .text {
+    background: #184785;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
 }

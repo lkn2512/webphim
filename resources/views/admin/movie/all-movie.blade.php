@@ -43,6 +43,10 @@
                 <th>Danh mục</th>
                 <th>Thể loại</th>
                 <th>Quốc gia</th>
+                <th>Năm phát hành</th>
+                <th>Phiên dịch</th>
+                <th>Ngày thêm</th>
+                <th>Ngày cập nhật</th>
                 <th>Trạng thái</th>
                 <th>Tác vụ</th>
             </tr>
@@ -74,6 +78,26 @@
                             - {{ $count_movie->title }}<br>
                         @endforeach
                     </td>
+                    <td>
+                        @if ($value->release_year > 0)
+                            {{ $value->release_year }}
+                        @else
+                            Chưa có
+                        @endif
+                    </td>
+                    <td>
+                        @php
+                            $translations = [
+                                0 => 'Không có',
+                                1 => 'Vietsub',
+                                2 => 'Thuyết minh',
+                                3 => 'Lồng tiếng',
+                            ];
+                        @endphp
+                        {{ $translations[$value->translation] ?? 'Không có' }}
+                    </td>
+                    <td>{{ $value->created_at->format('H:i, d/m/Y') }}</td>
+                    <td>{{ $value->updated_at->format('H:i, d/m/Y') }}</td>
                     <td>
                         <button type="button" class="toggle-status btn {{ $value->status == 1 ? 'active' : '' }}"
                             data-id="{{ $value->id }}" data-active-url="{{ URL::to('movie/active/' . $value->id) }}"

@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
             $categoryAllMovie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
                 $query->where('categories.id', $IdCategory);
-            })->where('status', 1)->paginate(20);
+            })->where('status', 1)->orderBy('updated_at', 'desc')->paginate(20);
 
             $random_movie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
                 $query->where('categories.id', $IdCategory);

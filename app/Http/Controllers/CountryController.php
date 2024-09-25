@@ -19,7 +19,7 @@ class CountryController extends Controller
 
             $CountryAllMovie = Movie::whereHas('countries', function ($query) use ($IdCountry) {
                 $query->where('countries.id', $IdCountry);
-            })->where('status', 1)->paginate(30);
+            })->where('status', 1)->orderBy('updated_at', 'desc')->paginate(30);
         } catch (\Throwable $th) {
             abort(404);
         }

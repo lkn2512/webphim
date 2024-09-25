@@ -22,22 +22,51 @@
                     <div class="detailMovie-container">
                         <h5 class="name">{{ $movie_detail->title }}</h5>
                         <span class="sub-name">{{ $movie_detail->sub_title }}</span>
-                        <span class="new-episode">Tập 16</span>
-                        <span class="movie-category">
-                            @foreach ($movie_detail->categories as $category)
-                                {{ $category->title }}{{ !$loop->last ? ', ' : ' ' }}
-                            @endforeach
-                        </span>
-                        <span class="movie-country">
-                            @foreach ($movie_detail->countries as $coun)
-                                {{ $coun->title }}{{ !$loop->last ? ', ' : '' }}
-                            @endforeach
-                        </span>
-                        <span class="movie-genre">
-                            @foreach ($movie_detail->genres as $gen)
-                                {{ $gen->title }}{{ !$loop->last ? ', ' : '' }}
-                            @endforeach
-                        </span>
+                        <div class="row new-episode mt-2">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">Tập 16</span>
+                        </div>
+                        <hr>
+                        <div class="row translation" style="display: flex; align-items: center">
+                            @php
+                                $translations = [
+                                    0 => 'Không có',
+                                    1 => 'Vietsub',
+                                    2 => 'Thuyết minh',
+                                    3 => 'Lồng tiếng',
+                                ];
+                            @endphp
+                            <span class="col-lg-4 col-md-6 col-sm-6 col-6 title-left">Phiên dịch nội dung: </span>
+                            <span
+                                class="col-lg-8 col-md-6 col-sm-6 col-6 text">{{ $translations[$movie_detail->translation] ?? 'Không có' }}</span>
+                        </div>
+                        <hr>
+                        <div class="row movie-category">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Danh mục phim:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                                @foreach ($movie_detail->categories as $category)
+                                    {{ $category->title }}{{ !$loop->last ? ', ' : ' ' }}
+                                @endforeach
+                            </span>
+                        </div>
+                        <hr>
+                        <div class="row movie-country">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Thể loại phim:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                                @foreach ($movie_detail->genres as $gen)
+                                    {{ $gen->title }}{{ !$loop->last ? ', ' : '' }}
+                                @endforeach
+                            </span>
+                        </div>
+                        <hr>
+                        <div class="row movie-genre">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Quốc gia sản xuất:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                                @foreach ($movie_detail->countries as $coun)
+                                    {{ $coun->title }}{{ !$loop->last ? ', ' : '' }}
+                                @endforeach
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,27 +153,115 @@
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
             <div class="title-section row">
-                <div class="title-left col-lg-5 col-md-9 col-sm-4 col-5">
+                <div class="title-left col-lg-5 col-md-4 col-sm-4 col-5">
                     <span class="title-text">Top lượt xem</span>
                 </div>
-                <div class="title-right col-lg-7 col-md-3 col-sm-8 col-7">
+                <div class="title-right col-lg-7 col-md-8 col-sm-8 col-7">
                     <span class="view-all"></span>
                 </div>
             </div>
             <div class="rank-container">
                 @foreach ($view_movie as $view)
                     <div class="row rank-item">
-                        <div class="col-3 col-lg-3 col-md-5">
+                        <div class="col-3 col-lg-3 col-md-2">
                             <img class="img-fluid" src="{{ asset('uploads/movies/' . $view->image) }}"
                                 alt="{{ $view->title }}" title="{{ $view->title }}">
                         </div>
-                        <div class="col-9 col-lg-8 col-md-7">
+                        <div class="col-9 col-lg-8 col-md-10">
                             <h5 class="title">{{ $view->title }}</h5>
                             <span class="sub-title">{{ $view->sub_title }}</span>
                         </div>
                     </div>
                 @endforeach
             </div>
+        </div>
+    </div>
+
+    <div class="carousel-wrapper mt-3">
+        <div class="title-section row">
+            <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
+                <span class="title-text">Phim cùng danh mục</span>
+            </div>
+            <div class="title-right col-lg-10 col-md-8 col-sm-7 col-6">
+                <span class="view-all"></span>
+            </div>
+        </div>
+        <div class="custom-nav">
+            <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="owl-carousel owl-theme">
+            @foreach ($cate_movies as $cate)
+                <div class="item">
+                    <div class="card-film">
+                        <span class="episode">Tập 10</span>
+                        <img class="img" src="{{ asset('uploads/movies/' . $cate->image) }}"
+                            alt="{{ $cate->title }}" title="{{ $cate->title }}">
+                        <div class="card-film-body">
+                            <h5 class="title">{{ $cate->title }}</h5>
+                            <span class="decs">{{ $cate->sub_title }}</span>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="carousel-wrapper mt-4">
+        <div class="title-section row">
+            <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
+                <span class="title-text">Phim cùng thể loại</span>
+            </div>
+            <div class="title-right col-lg-10 col-md-8 col-sm-7 col-6">
+                <span class="view-all"></span>
+            </div>
+        </div>
+        <div class="custom-nav">
+            <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="owl-carousel owl-theme">
+            @foreach ($gen_movies as $gen)
+                <div class="item">
+                    <div class="card-film">
+                        <span class="episode">Tập 10</span>
+                        <img class="img" src="{{ asset('uploads/movies/' . $gen->image) }}"
+                            alt="{{ $gen->title }}" title="{{ $gen->title }}">
+                        <div class="card-film-body">
+                            <h5 class="title">{{ $gen->title }}</h5>
+                            <span class="decs">{{ $gen->sub_title }}</span>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="carousel-wrapper mt-4">
+        <div class="title-section row">
+            <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
+                <span class="title-text">Phim cùng quốc gia</span>
+            </div>
+            <div class="title-right col-lg-10 col-md-8 col-sm-7 col-6">
+                <span class="view-all"></span>
+            </div>
+        </div>
+        <div class="custom-nav">
+            <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="owl-carousel owl-theme">
+            @foreach ($country_movies as $count)
+                <div class="item">
+                    <div class="card-film">
+                        <span class="episode">Tập 10</span>
+                        <img class="img" src="{{ asset('uploads/movies/' . $count->image) }}"
+                            alt="{{ $count->title }}" title="{{ $count->title }}">
+                        <div class="card-film-body">
+                            <h5 class="title">{{ $count->title }}</h5>
+                            <span class="decs">{{ $count->sub_title }}</span>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

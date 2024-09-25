@@ -19,7 +19,7 @@ class GenreController extends Controller
 
             $GenreAllMovie = Movie::whereHas('genres', function ($query) use ($IdGenre) {
                 $query->where('genres.id', $IdGenre);
-            })->where('status', 1)->paginate(30);
+            })->where('status', 1)->orderBy('updated_at', 'desc')->paginate(30);
         } catch (\Throwable $th) {
             abort(404);
         }

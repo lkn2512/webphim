@@ -52,7 +52,7 @@
             var owl = $(".owl-carousel");
 
             owl.owlCarousel({
-                loop: true,
+                loop: false,
                 margin: 22,
                 autoplay: true, // Kích hoạt chế độ tự động chạy
                 autoplayTimeout: 3000, // Thời gian giữa các lần chuyển đổi (3 giây)

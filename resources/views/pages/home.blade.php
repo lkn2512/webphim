@@ -7,7 +7,7 @@
         <div class="col-lg-8 col-md-8">
             <div class="title-section row  ">
                 <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
-                    <span class="title-text">Phim bộ mới cập nhật</span>
+                    <span class="title-text">Phim mới cập nhật</span>
                 </div>
                 <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
                     <span class="view-all"></span>

@@ -23,16 +23,16 @@ class IndexControler extends Controller
         })->orderBy('title')->get();
 
         //phim mới
-        $new_movie = Movie::orderBy('id', 'DESC')->where('status', 1)->limit(8)->get();
+        $new_movie = Movie::orderBy('updated_at', 'DESC')->where('status', 1)->limit(8)->get();
 
         //phim bộ
         $series_movie = Movie::whereHas('categories', function ($query) {
-            $query->where('title', 'Phim bộ');
+            $query->where('slug', 'phim-bo');
         })->orderBy('title')->where('status', 1)->limit(12)->get();
 
         //phim lẻ
         $single_movie = Movie::whereHas('categories', function ($query) {
-            $query->where('title', 'Phim lẻ');
+            $query->where('slug', 'phim-le');
         })->orderBy('title')->where('status', 1)->limit(12)->get();
 
         //phim hot

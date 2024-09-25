@@ -146,12 +146,53 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputStatus">Trạng thái</label>
-                            <select id="inputStatus" class="form-control custom-select" name="movieStatus">
-                                <option value="1" {{ $editMovie->status == 1 ? 'selected' : '' }}>Hiển thị</option>
-                                <option value="0" {{ $editMovie->status == 0 ? 'selected' : '' }}>Ẩn</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="inputStatus">Năm phát hành</label>
+                                    <select id="inputStatus" class="form-control custom-select" name="movieYear">
+                                        @foreach ($years as $year)
+                                            <option
+                                                value="{{ $year }}"{{ $editMovie->release_year == $year ? 'selected' : '' }}>
+                                                {{ $year }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="inputStatus">Phiên dịch nội dung</label>
+                                    <select id="inputStatus" class="form-control custom-select" name="movieTranslation">
+                                        <option value="0" {{ $editMovie->translation == 0 ? 'selected' : '' }}>Không
+                                            có
+                                        </option>
+                                        <option value="1" {{ $editMovie->translation == 1 ? 'selected' : '' }}>
+                                            Vietsub
+                                        </option>
+                                        <option value="2" {{ $editMovie->translation == 2 ? 'selected' : '' }}>Thuyết
+                                            minh
+                                        </option>
+                                        <option value="3" {{ $editMovie->translation == 3 ? 'selected' : '' }}>Lồng
+                                            tiếng
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="inputStatus">Trạng thái</label>
+                                    <select id="inputStatus" class="form-control custom-select" name="movieStatus">
+                                        <option value="1" {{ $editMovie->status == 1 ? 'selected' : '' }}>Hiển thị
+                                        </option>
+                                        <option value="0" {{ $editMovie->status == 0 ? 'selected' : '' }}>Ẩn</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
