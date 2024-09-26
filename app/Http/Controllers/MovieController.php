@@ -16,6 +16,20 @@ class MovieController extends Controller
         //chi tiết phim
         $movie_detail = Movie::with(['categories', 'genres', 'countries'])->where('id', $IdMovie)->where('status', 1)->firstOrFail();
 
+        /*Lấy ra các phần liên quan*/
+        $currentTitle = $movie_detail->title;
+        $position = strpos(mb_strtolower($currentTitle), 'phần');
+        if ($position !== false) {
+            $baseTitle = trim(substr($currentTitle, 0, $position));
+        } else {
+            $baseTitle = $currentTitle;
+        }
+        $related_seasons = Movie::where('title', 'LIKE', '%' . $baseTitle . '%')
+            ->where('id', '!=', $IdMovie)
+            ->where('status', 1)
+            ->get();
+        /*Lấy ra các phần liên quan*/
+
         // Lấy danh mục của phim hiện tại
         $getCategory = $movie_detail->categories->pluck('id');
 
@@ -43,7 +57,7 @@ class MovieController extends Controller
 
         $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(6)->get();
 
-        return view('pages.movie', compact('movie_detail', 'cate_movies', 'gen_movies', 'country_movies', 'top_view'));
+        return view('pages.movie', compact('movie_detail', 'cate_movies', 'gen_movies', 'country_movies', 'top_view', 'related_seasons'));
     }
 
     // public function trackView($movie_id)
