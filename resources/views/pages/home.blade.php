@@ -84,6 +84,8 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-4">
+            @include('pages.rankings.ranking-date')
+            <div class="mt-4"></div>
             @include('pages.rankings.top-view')
         </div>
     </div>

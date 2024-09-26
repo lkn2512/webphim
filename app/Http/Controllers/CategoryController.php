@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
             $random_movie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
                 $query->where('categories.id', $IdCategory);
-            })->where('status', 1)->inRandomOrder()->limit(6)->get();
+            })->where('status', 1)->inRandomOrder()->limit(10)->get();
         } catch (\Throwable $th) {
             abort(404);
         }

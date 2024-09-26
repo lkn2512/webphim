@@ -9,12 +9,14 @@
     </nav>
     <div class="row mt-4">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="title-section row">
-                <div class="title-left col-lg-2 col-md-6 col-sm-5 col-6">
-                    <span class="title-text">{{ $slugGenre->title }}</span>
-                </div>
-                <div class="title-right col-lg-10 col-md-6 col-sm-7 col-6">
-                    <span class="view-all"></span>
+            <div class="row">
+                <div class="title-section">
+                    <div class="title-left col-lg-2 col-md-6 col-sm-5 col-6">
+                        <span class="title-text">{{ $slugGenre->title }}</span>
+                    </div>
+                    <div class="title-right col-lg-10 col-md-6 col-sm-7 col-6">
+                        <span class="view-all"></span>
+                    </div>
                 </div>
             </div>
             <div class="row">

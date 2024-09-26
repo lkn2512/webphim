@@ -43,38 +43,10 @@ class MovieController extends Controller
         })->where('id', '!=', $movie_detail->id)->where('status', 1)->inRandomOrder()->get();
 
 
-        // Bảng xếp hạng theo ngày
-        $rankings_day = Movie::with(['views' => function ($query) {
-            $query->whereDate('view_date', Carbon::today());
-        }])->get()->map(function ($movie) {
-            $movie->total_views = $movie->views->sum('view_count');
-            return $movie;
-        })->sortByDesc('total_views')->take(10);
+        $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(6)->get();
 
-        // Bảng xếp hạng theo tuần
-        $startOfWeek = Carbon::now()->startOfWeek();
-        $endOfWeek = Carbon::now()->endOfWeek();
-        $rankings_week = Movie::with(['views' => function ($query) use ($startOfWeek, $endOfWeek) {
-            $query->whereBetween('view_date', [$startOfWeek, $endOfWeek]);
-        }])->get()->map(function ($movie) {
-            $movie->total_views = $movie->views->sum('view_count');
-            return $movie;
-        })->sortByDesc('total_views')->take(10);
-
-        // Bảng xếp hạng theo tháng
-        $currentMonth = Carbon::now()->month;
-        $currentYear = Carbon::now()->year;
-        $rankings_month = Movie::with(['views' => function ($query) use ($currentMonth, $currentYear) {
-            $query->whereMonth('view_date', $currentMonth)
-                ->whereYear('view_date', $currentYear);
-        }])->get()->map(function ($movie) {
-            $movie->total_views = $movie->views->sum('view_count');
-            return $movie;
-        })->sortByDesc('total_views')->take(10);
-
-        return view('pages.movie', compact('movie_detail', 'cate_movies', 'gen_movies', 'country_movies', 'rankings_day', 'rankings_week', 'rankings_month'));
+        return view('pages.movie', compact('movie_detail', 'cate_movies', 'gen_movies', 'country_movies', 'top_view'));
     }
-
 
     // public function trackView($movie_id)
     // {

@@ -364,6 +364,21 @@ hr {
     justify-content: flex-end;
 }
 
+.title-section .title-right .content .nav .nav-item button {
+    border-radius: 0px;
+}
+
+.title-section .title-right .content .nav .nav-item button.active {
+    background: rgb(80, 80, 80);
+}
+
+.button-text {
+    transform: skew(20deg) !important;
+    color: white;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
 
 
 
@@ -464,10 +479,8 @@ hr {
 }
 
 .rank-container .rank-item .view i {
-    margin-right: 5px;
+    margin-right: 2px;
 }
-
-
 
 .rank-container .rank-item .col-lg-8 {
     padding-left: 0px;
