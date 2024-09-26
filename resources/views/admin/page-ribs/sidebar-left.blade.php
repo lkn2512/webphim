@@ -101,12 +101,13 @@
                         <p>Quốc gia</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('episode.index') }}" class="nav-link">
                         <i class="nav-icon fa-solid fa-list-ol"></i>
                         <p>Tập phim</p>
                     </a>
-                </li>
+                </li> --}}
+
                 <li class="nav-header">EXAMPLES</li>
 
                 <li class="nav-item ">

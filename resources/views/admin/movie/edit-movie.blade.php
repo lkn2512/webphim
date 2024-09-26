@@ -149,8 +149,8 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="inputStatus">Năm phát hành</label>
-                                    <select id="inputStatus" class="form-control custom-select select2" name="movieYear">
+                                    <label for="inputYear">Năm phát hành</label>
+                                    <select id="inputYear" class="form-control custom-select select2" name="movieYear">
                                         @foreach ($years as $year)
                                             <option
                                                 value="{{ $year }}"{{ $editMovie->release_year == $year ? 'selected' : '' }}>
@@ -160,7 +160,25 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-
+                                @php
+                                    $seasons = [];
+                                    for ($i = 1; $i <= 20; $i++) {
+                                        $seasons[] = 'Phần ' . $i;
+                                    }
+                                @endphp
+                                <div class="form-group">
+                                    <label for="inputSeason">Phần</label>
+                                    <select id="inputSeason" class="form-control custom-select select2"
+                                        name="movieSeason">
+                                        <option value="" disabled selected>Chọn phần</option>
+                                        @foreach ($seasons as $index => $se)
+                                            <option value="{{ $index + 1 }}"
+                                                {{ $editMovie->season == $index + 1 ? 'selected' : '' }}>
+                                                {{ $se }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="row">

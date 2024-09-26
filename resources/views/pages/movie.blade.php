@@ -107,13 +107,9 @@
                                 Tập 3
                             </a>
                         </li>
-
-                        {{-- <li class="tab-content tab-content-3 typography">
-                            <h1>Albert Einstein</h1>
-                        </li> --}}
-
                         <li class="tab-content tab-content-last typography">
                             <div class="typography">
+
                             </div>
                         </li>
                     </ul>

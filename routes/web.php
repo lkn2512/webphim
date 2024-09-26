@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\EpisodeController as Admin_EpisodeController;
 use App\Http\Controllers\Admin\GenreController as Admin_GenreController;
 use App\Http\Controllers\Admin\MovieController as Admin_MovieController;
 use App\Http\Controllers\Admin\CategoryController as Admin_CategoryController;
-
+use App\Http\Controllers\Admin\SeasonController as Admin_SeasonController;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;

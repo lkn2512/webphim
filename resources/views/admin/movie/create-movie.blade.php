@@ -134,15 +134,48 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="inputStatus">Phiên dịch nội dung</label>
-                                <select id="inputStatus" class="form-control custom-select" name="movieTranslation">
-                                    <option value="0" selected>Không có</option>
-                                    <option value="1">Vietsub</option>
-                                    <option value="2">Thuyết minh</option>
-                                    <option value="3">Lồng tiếng</option>
-                                </select>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="inputStatus">Phiên dịch nội dung</label>
+                                    <select id="inputStatus" class="form-control custom-select" name="movieTranslation">
+                                        <option value="0" selected>Không có</option>
+                                        <option value="1">Vietsub</option>
+                                        <option value="2">Thuyết minh</option>
+                                        <option value="3">Lồng tiếng</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="inputStatus">Năm phát hành</label>
+                                    <select id="inputStatus" class="form-control custom-select select2" name="movieYear">
+                                        @foreach ($years as $year)
+                                            <option value="{{ $year }}">
+                                                {{ $year }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                @php
+                                    $seasons = [];
+                                    for ($i = 1; $i <= 20; $i++) {
+                                        $seasons[] = 'Phần ' . $i;
+                                    }
+                                @endphp
+                                <div class="form-group">
+                                    <label for="inputSeason">Phần</label>
+                                    <select id="inputSeason" class="form-control custom-select select2"
+                                        name="movieSeason">
+                                        <option value="" disabled selected>Chọn phần</option>
+                                        @foreach ($seasons as $index => $se)
+                                            <option value="{{ $index + 1 }}">
+                                                {{ $se }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6">

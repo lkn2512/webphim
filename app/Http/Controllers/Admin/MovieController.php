@@ -31,6 +31,7 @@ class MovieController extends Controller
         $country = Country::orderBy('title')->get();
 
         $years = range(1900, date('Y')); // Lấy tất cả các năm từ 1900 đến năm hiện tại
+
         return view('admin.movie.create-movie', compact('category', 'genre', 'country', 'years'));
     }
 
@@ -62,6 +63,7 @@ class MovieController extends Controller
             $movie->translation = $data['movieTranslation'];
             $movie->release_year = $data['movieYear'];
             $movie->status = $data['movieStatus'];
+            $movie->season = $data['movieSeason'];
             $movie->save();
 
             // Xử lý các phân loại, thể loại, và quốc gia
@@ -120,6 +122,7 @@ class MovieController extends Controller
             $movie->description = $request->movieDescription;
             $movie->translation = $request->movieTranslation;
             $movie->release_year = $request->movieYear;
+            $movie->season = $request->movieSeason;
             $movie->status = $request->movieStatus;
 
             $get_image = $request->file('movieImage');
