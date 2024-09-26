@@ -193,8 +193,16 @@
             });
         @endif
     </script>
-    {{-- Setting iziToastSettings.js --}}
 
+    {{-- Setting iziToastSettings.js --}}
+    <script>
+        $(function() {
+            $('.select2').select2()
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+        })
+    </script>
     {{-- sử dụng data table --}}
     <script>
         $(function() {

@@ -150,7 +150,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="inputStatus">Năm phát hành</label>
-                                    <select id="inputStatus" class="form-control custom-select" name="movieYear">
+                                    <select id="inputStatus" class="form-control custom-select select2" name="movieYear">
                                         @foreach ($years as $year)
                                             <option
                                                 value="{{ $year }}"{{ $editMovie->release_year == $year ? 'selected' : '' }}>

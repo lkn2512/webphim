@@ -327,7 +327,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-inline: 10px;
+    padding-inline: 0x;
     font-weight: 500;
 }
 
@@ -358,8 +358,10 @@ hr {
     color: #fff;
 }
 
-.title-section .view-all {
+.title-section .content {
     font-size: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
 }
 
 
@@ -449,16 +451,22 @@ hr {
     font-weight: 400;
     text-transform: capitalize;
     font-size: 1rem;
-    line-height: 1.8rem;
     display: block;
 }
 
+.rank-container .rank-item .view,
 .rank-container .rank-item .sub-title {
     text-transform: capitalize;
     font-size: 0.8rem;
-    line-height: 1.8rem;
     color: #b3b3b3;
+    display: block;
+    padding-bottom: 15px;
 }
+
+.rank-container .rank-item .view i {
+    margin-right: 5px;
+}
+
 
 
 .rank-container .rank-item .col-lg-8 {
@@ -602,6 +610,7 @@ hr {
 .detailMovie-container .movie-country,
 .detailMovie-container .movie-category {}
 
+.detailMovie-container .info-different .text,
 .detailMovie-container .new-episode .text,
 .detailMovie-container .movie-genre .text,
 .detailMovie-container .movie-country .text,
@@ -609,6 +618,15 @@ hr {
     padding-left: 0px;
 }
 
+.detailMovie-container .info-different .text i,
+.detailMovie-container .new-episode .text i,
+.detailMovie-container .movie-genre .text i,
+.detailMovie-container .movie-country .text i,
+.detailMovie-container .movie-category .text i {
+    margin-right: 8px;
+}
+
+.detailMovie-container .info-different .title-left,
 .detailMovie-container .new-episode .title-left,
 .detailMovie-container .movie-genre .title-left,
 .detailMovie-container .movie-country .title-left,

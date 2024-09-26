@@ -67,6 +67,13 @@
                                 @endforeach
                             </span>
                         </div>
+                        <hr>
+                        <div class="row info-different">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Thông tin khác:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                                <i class="fa-regular fa-calendar"></i>{{ $movie_detail->release_year }}, 24 tập
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,33 +122,12 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
-            <div class="title-section row">
-                <div class="title-left col-lg-5 col-md-4 col-sm-4 col-5">
-                    <span class="title-text">Top lượt xem</span>
-                </div>
-                <div class="title-right col-lg-7 col-md-8 col-sm-8 col-7">
-                    <span class="view-all"></span>
-                </div>
-            </div>
-            <div class="rank-container">
-                @foreach ($view_movie as $view)
-                    <div class="row rank-item">
-                        <div class="col-3 col-lg-3 col-md-2">
-                            <img class="img-fluid" src="{{ asset('uploads/movies/' . $view->image) }}"
-                                alt="{{ $view->title }}" title="{{ $view->title }}">
-                        </div>
-                        <div class="col-9 col-lg-8 col-md-10">
-                            <h5 class="title">{{ $view->title }}</h5>
-                            <span class="sub-title">{{ $view->sub_title }}</span>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            @include('pages.rankings.top-view')
         </div>
     </div>
 
     <div class="carousel-wrapper">
-        <div class="title-section row">
+        <div class="title-section">
             <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
                 <span class="title-text">Phim cùng danh mục</span>
             </div>
@@ -170,7 +156,7 @@
         </div>
     </div>
     <div class="carousel-wrapper mt-4">
-        <div class="title-section row">
+        <div class="title-section">
             <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
                 <span class="title-text">Phim cùng thể loại</span>
             </div>
@@ -199,7 +185,7 @@
         </div>
     </div>
     <div class="carousel-wrapper mt-4">
-        <div class="title-section row">
+        <div class="title-section">
             <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
                 <span class="title-text">Phim cùng quốc gia</span>
             </div>

@@ -21,4 +21,8 @@ class Movie extends Model
     {
         return $this->belongsToMany(Country::class, 'country_movie');
     }
+    public function views()
+    {
+        return $this->hasMany(MovieView::class);
+    }
 }
