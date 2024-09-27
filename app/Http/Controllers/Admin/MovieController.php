@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\Genre;
 use App\Models\Movie;
+use App\Models\Series;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -17,7 +18,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $listMovie = Movie::with(['categories', 'genres', 'countries'])->orderBy('id', 'DESC')->get();
+        $listMovie = Movie::with(['categories', 'genres', 'countries', 'series'])->orderBy('id', 'DESC')->get();
         return view('admin.movie.all-movie', compact('listMovie'));
     }
 
@@ -29,10 +30,11 @@ class MovieController extends Controller
         $category = Category::orderBy('title')->get();
         $genre = Genre::orderBy('title')->get();
         $country = Country::orderBy('title')->get();
+        $series = Series::orderBy('title')->get();
 
         $years = range(1900, date('Y')); // Lấy tất cả các năm từ 1900 đến năm hiện tại
 
-        return view('admin.movie.create-movie', compact('category', 'genre', 'country', 'years'));
+        return view('admin.movie.create-movie', compact('category', 'genre', 'country', 'years', 'series'));
     }
 
     /**
@@ -100,11 +102,12 @@ class MovieController extends Controller
         $category = Category::orderBy('title')->get();
         $genre = Genre::orderBy('title')->get();
         $country = Country::orderBy('title')->get();
+        $series = Series::orderBy('title')->get();
 
-        $editMovie = Movie::with(['categories', 'genres', 'countries'])->where('id', $id)->firstOrFail();
+        $editMovie = Movie::with(['categories', 'genres', 'countries', 'series'])->where('id', $id)->firstOrFail();
 
         $years = range(1900, date('Y')); // Lấy tất cả các năm từ 1900 đến năm hiện tại
-        return view('admin.movie.edit-movie', compact('editMovie', 'category', 'genre', 'country', 'years'));
+        return view('admin.movie.edit-movie', compact('editMovie', 'category', 'genre', 'country', 'years', 'series'));
     }
 
     /**
@@ -121,6 +124,7 @@ class MovieController extends Controller
             $movie->description = $request->movieDescription;
             $movie->translation = $request->movieTranslation;
             $movie->release_year = $request->movieYear;
+            $movie->series_id = $request->movieSeries;
             $movie->status = $request->movieStatus;
 
             $get_image = $request->file('movieImage');

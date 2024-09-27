@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12 col-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dnb">
                         <h3 class="card-title">Tổng quan</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -67,7 +67,7 @@
             </div>
             <div class="col-lg-5 col-md-6 col-sm-12 col-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dnb">
                         <h3 class="card-title">Danh sách các series</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -82,6 +82,12 @@
                             @endforeach
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="other-options">
+                    <span class="title">Bạn muốn thêm mới một phim?</span>
+                    <a href="{{ route('movie.create') }}" class="link">Thêm phim</a>
                 </div>
             </div>
         </div>

@@ -14,6 +14,10 @@ hr {
     border-top: 1px solid black !important;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .addNew {
     color: #201ce4;
     border: 1px solid #201ce4;
@@ -233,4 +237,32 @@ hr {
     display: block;
     padding-bottom: 8px;
     font-weight: 500;
+}
+
+.other-options {
+    margin: 30px 0;
+    font-size: 1.1rem;
+    border-left: 4px solid #103667;
+    padding: 10px 15px;
+    background-color: #f7f9fc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.other-options .title {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.other-options .link {
+    text-decoration: none;
+    color: #103667;
+    transition: color 0.3s;
+}
+
+.other-options .link:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }

@@ -146,23 +146,19 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="inputYear">Năm phát hành</label>
-                                    <select id="inputYear" class="form-control custom-select select2" name="movieYear">
-                                        @foreach ($years as $year)
-                                            <option
-                                                value="{{ $year }}"{{ $editMovie->release_year == $year ? 'selected' : '' }}>
-                                                {{ $year }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
 
-                            </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-dnb">
+                        <h3 class="card-title">Thông tin bổ sung</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
                         </div>
+                    </div>
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -180,6 +176,38 @@
                                         <option value="3" {{ $editMovie->translation == 3 ? 'selected' : '' }}>Lồng
                                             tiếng
                                         </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="inputYear">Năm phát hành</label>
+                                    <select id="inputYear" class="form-control custom-select select2" name="movieYear">
+                                        @foreach ($years as $year)
+                                            <option
+                                                value="{{ $year }}"{{ $editMovie->release_year == $year ? 'selected' : '' }}>
+                                                {{ $year }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <div class="flex-center-between">
+                                        <label for="inputSeries">Series phim</label>
+                                        <a class="addNew" href="{{ route('series.create') }}">Thêm mới</a>
+                                    </div>
+                                    <select id="inputSeries" class="form-control custom-select select2"
+                                        name="movieSeries">
+                                        <option value="0">Không có</option>
+                                        @foreach ($series as $ser)
+                                            <option value="{{ $ser->id }}"
+                                                {{ isset($editMovie->series) && $editMovie->series->id == $ser->id ? 'selected' : '' }}>
+                                                {{ $ser->title }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@
                 <div class="col-lg-5 col-md-6 col-sm-7 col-6">
                     <a href="{{ route('series.create') }}">
                         <button type="button" class="btn-add">
-                            <i class="fa-solid fa-plus"></i>Thêm series
+                            <i class="fa-solid fa-plus"></i>Tạo series
                         </button>
                     </a>
                 </div>
@@ -50,7 +50,7 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $value->title }}</td>
                     <td>{!! $value->description !!}</td>
-                    <td><span class="text-danger"></span> phim</td>
+                    <td><span class="text-danger">{{ $value->movies_count }} phim</span></td>
                     <td>
                         <a href="javascript:void(0);" class="btn-edit" data-bs-toggle="modal" data-bs-target="#exampleModal"
                             data-id="{{ $value->id }}"
