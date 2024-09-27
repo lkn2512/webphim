@@ -63,7 +63,6 @@ class MovieController extends Controller
             $movie->translation = $data['movieTranslation'];
             $movie->release_year = $data['movieYear'];
             $movie->status = $data['movieStatus'];
-            $movie->season = $data['movieSeason'];
             $movie->save();
 
             // Xử lý các phân loại, thể loại, và quốc gia
@@ -122,7 +121,6 @@ class MovieController extends Controller
             $movie->description = $request->movieDescription;
             $movie->translation = $request->movieTranslation;
             $movie->release_year = $request->movieYear;
-            $movie->season = $request->movieSeason;
             $movie->status = $request->movieStatus;
 
             $get_image = $request->file('movieImage');

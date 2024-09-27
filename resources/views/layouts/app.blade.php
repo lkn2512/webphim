@@ -368,10 +368,11 @@
     @stack('edit-category-JS')
     @stack('edit-genre-JS')
     @stack('edit-country-JS')
+    @stack('edit-series-JS')
 
-    {{-- khởi tạo FroalaEditor --}}
+
     <script>
-        new FroalaEditor('textarea');
+        new FroalaEditor('.froala-editor');
     </script>
     {{-- khởi tạo FroalaEditor --}}
 

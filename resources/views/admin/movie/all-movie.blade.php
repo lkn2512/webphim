@@ -40,7 +40,7 @@
                 <th>STT</th>
                 <th>Hỉnh ảnh</th>
                 <th>Tên phim</th>
-                <th>Phần</th>
+                <th>series</th>
                 <th>Danh mục</th>
                 <th>Thể loại</th>
                 <th>Quốc gia</th>
@@ -63,7 +63,7 @@
                     <td>{{ $value->title }}
                         <br>{{ $value->sub_title }}
                     </td>
-                    <td>{{ $value->season }}</td>
+                    <td>series</td>
                     <td>
                         @foreach ($value->categories as $cate_movie)
                             - {{ $cate_movie->title }}<br>

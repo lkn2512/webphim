@@ -224,3 +224,13 @@ hr {
     width: 150px;
     object-fit: cover;
 }
+
+.list-view {
+    height: 100%;
+}
+
+.list-view .list-item {
+    display: block;
+    padding-bottom: 8px;
+    font-weight: 500;
+}

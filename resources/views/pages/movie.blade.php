@@ -113,26 +113,7 @@
                         </li>
                         <li class="tab-content tab-content-last typography">
                             <div class="typography row">
-                                @if ($related_seasons->isNotEmpty())
-                                    @foreach ($related_seasons as $sea)
-                                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-3">
-                                            <a href="{{ URL::to('phim/' . $sea->slug) }}">
-                                                <div class="card-film">
-                                                    <span class="episode">Phần {{ $sea->season }}</span>
-                                                    <img class="img" src="{{ asset('uploads/movies/' . $sea->image) }}"
-                                                        alt="{{ $sea->title }}" title="{{ $sea->title }}">
-                                                    <div class="card-film-body">
-                                                        <h5 class="title">{{ $sea->title }}</h5>
-                                                        <span class="decs">{{ $sea->sub_title }}</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <p class="p-2" style="font-size: 1rem">Hiện tại không có phần nào khác liên quan
-                                        đến phim này.</p>
-                                @endif
+
                             </div>
                         </li>
                     </ul>

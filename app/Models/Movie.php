@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'sub_title', 'slug', 'description', 'translation', 'release_year', 'status', 'image', 'season'];
+    protected $fillable = ['title', 'sub_title', 'series_id', 'slug', 'description', 'translation', 'release_year', 'status', 'image'];
 
     public function categories()
     {
@@ -25,5 +25,9 @@ class Movie extends Model
     public function views()
     {
         return $this->hasMany(MovieView::class);
+    }
+    public function series()
+    {
+        return $this->belongsTo(Series::class);
     }
 }

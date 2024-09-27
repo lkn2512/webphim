@@ -79,7 +79,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputDescription">Mô tả</label>
-                            <textarea id="movieDescription" class="form-control" rows="4" name="movieDescription">
+                            <textarea id="movieDescription" class="form-control froala-editor" rows="4" name="movieDescription">
                                 {{ $editMovie->description }}
                             </textarea>
                         </div>
@@ -160,25 +160,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                @php
-                                    $seasons = [];
-                                    for ($i = 1; $i <= 20; $i++) {
-                                        $seasons[] = 'Phần ' . $i;
-                                    }
-                                @endphp
-                                <div class="form-group">
-                                    <label for="inputSeason">Phần</label>
-                                    <select id="inputSeason" class="form-control custom-select select2"
-                                        name="movieSeason">
-                                        <option value="" disabled selected>Chọn phần</option>
-                                        @foreach ($seasons as $index => $se)
-                                            <option value="{{ $index + 1 }}"
-                                                {{ $editMovie->season == $index + 1 ? 'selected' : '' }}>
-                                                {{ $se }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+
                             </div>
                         </div>
                         <div class="row">

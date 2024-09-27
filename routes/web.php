@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\EpisodeController as Admin_EpisodeController;
 use App\Http\Controllers\Admin\GenreController as Admin_GenreController;
 use App\Http\Controllers\Admin\MovieController as Admin_MovieController;
 use App\Http\Controllers\Admin\CategoryController as Admin_CategoryController;
-use App\Http\Controllers\Admin\SeasonController as Admin_SeasonController;
+use App\Http\Controllers\Admin\SeriesController as Admin_SeriesController;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
@@ -47,6 +47,9 @@ Route::get('country/active/{id}', [Admin_CountryController::class, 'activeCountr
 Route::get('country/unactive/{id}', [Admin_CountryController::class, 'unactiveCountry']);
 
 Route::resource('episode', Admin_EpisodeController::class);
+
+/*series phim - loạt phim (các phần) */
+Route::resource('series', Admin_SeriesController::class);
 
 /*movie - phim*/
 Route::resource('movie', Admin_MovieController::class);

@@ -59,33 +59,9 @@
                             <input type="text" id="inputName" class="form-control auto-focus" name="movieName"
                                 data-slug-source="movie" required>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-sm-8 col-md-7 col-8">
-                                <div class="form-group">
-                                    <label for="inputName">Phụ đề tên phim</label>
-                                    <input type="text" id="inputSubTitle" class="form-control" name="movieSubTitle"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-4 col-md-5 col-4">
-                                @php
-                                    $seasons = [];
-                                    for ($i = 1; $i <= 20; $i++) {
-                                        $seasons[] = 'Phần ' . $i;
-                                    }
-                                @endphp
-                                <div class="form-group">
-                                    <label for="inputSeason">Phần</label>
-                                    <select id="inputSeason" class="form-control custom-select select2" name="movieSeason">
-                                        <option value="" disabled selected>Chọn phần</option>
-                                        @foreach ($seasons as $index => $se)
-                                            <option value="{{ $index + 1 }}">
-                                                {{ $se }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="inputName">Phụ đề tên phim</label>
+                            <input type="text" id="inputSubTitle" class="form-control" name="movieSubTitle" required>
                         </div>
                         <div class="form-group">
                             <label>Slug<small class="note">(tự động)</small></label>
@@ -97,7 +73,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputDescription">Mô tả</label>
-                            <textarea id="inputDescription" class="form-control" rows="4" name="movieDescription"></textarea>
+                            <textarea id="inputDescription" class="form-control froala-editor" rows="4" name="movieDescription"></textarea>
                         </div>
                     </div>
                 </div>
