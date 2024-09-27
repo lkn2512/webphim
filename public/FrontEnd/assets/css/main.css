@@ -656,3 +656,9 @@ hr {
     text-align: center;
     border-radius: 5px;
 }
+
+
+.note-null {
+    font-size: 1rem;
+    margin-inline: 0px;
+}

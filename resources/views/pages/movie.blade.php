@@ -113,7 +113,25 @@
                         </li>
                         <li class="tab-content tab-content-last typography">
                             <div class="typography row">
-
+                                @if ($series_movie->count() > 0)
+                                    @foreach ($series_movie as $ser)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-3">
+                                            <a href="{{ URL::to('phim/' . $ser->slug) }}">
+                                                <div class="card-film">
+                                                    {{-- <span class="episode">Phần {{ $ser->serson }}</span> --}}
+                                                    <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}"
+                                                        alt="{{ $ser->title }}" title="{{ $ser->title }}">
+                                                    <div class="card-film-body">
+                                                        <h5 class="title">{{ $ser->title }}</h5>
+                                                        <span class="decs">{{ $ser->sub_title }}</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <span class="note-null">Hiện phim này không có phần nào khác!</span>
+                                @endif
                             </div>
                         </li>
                     </ul>
