@@ -19,6 +19,13 @@ class MovieController extends Controller
     public function index()
     {
         $listMovie = Movie::with(['categories', 'genres', 'countries', 'series'])->orderBy('id', 'DESC')->get();
+
+        $path = public_path() . "/Frontend/jsonFile/";
+        if (!is_dir($path)) {
+            mkdir($path, 0777, true);
+        }
+        File::put($path . 'movies.json', json_encode($listMovie));
+
         return view('admin.movie.all-movie', compact('listMovie'));
     }
 

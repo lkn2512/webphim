@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg " style="background: #101014">
-    {{-- nav-header --}}
     <div class="container" style="padding-inline: 20px">
         <a class="navbar-brand fw-bold text-white" href="#">KNFilm.tv</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -55,14 +54,90 @@
 </nav>
 
 
-{{-- HEADER --}}
 <div class="search" id="search">
-    <form action="" class="search__form">
+    <form action="{{ route('tim-kiem') }}" class="search__form" method="GET">
         <i class="ri-search-line search__icon"></i>
-        <input type="search" placeholder="What are you looking for?" class="search__input">
+        <input type="text" placeholder="Tìm kiếm phim?" class="search__input" id="search_json" name="tu_khoa"
+            required>
+        <button type="submit" style="display: none"></button>
     </form>
     <i class="fa-regular fa-circle-xmark search__close" id="search-close"></i>
+    <ul class="list-group" id="search_result" style="display: none"></ul>
 </div>
+
+@push('search-JS')
+    <script>
+        $(document).ready(function() {
+            $('#search_json').keyup(function() {
+                $('#search_result').html('');
+                var search = $('#search_json').val();
+                if (search != '') {
+                    $('#search_result').css('display', 'inherit')
+                    var expression = new RegExp(search, "i");
+                    var jsonUrl = "{{ asset('Frontend/jsonFile/movies.json') }}";
+                    var imageBasePath = "{{ asset('uploads/movies/') }}";
+
+                    $.getJSON(jsonUrl, function(data) {
+                        $.each(data, function(key, value) {
+                            if (value.title.search(expression) != -1 || value.description
+                                .search(expression) != -1) {
+                                $('#search_result').append(
+                                    '<div class="row rank-item">' +
+                                    '<div class="col-3 col-lg-3 col-md-5">' +
+                                    '<a class="text-white text-decoration-none" href="{{ URL::to('/phim/') }}/' +
+                                    value.slug + '">' +
+                                    '<img class="img-fluid" src="' + imageBasePath +
+                                    '/' + value.image + '" alt="' + value.title +
+                                    '" title="' + value.title + '">' + '</a>' +
+                                    '</div>' + '<div class="col-9 col-lg-8 col-md-7">' +
+                                    '<h5 class="title">' + value.title + '</h5>' +
+                                    '<span class="sub-title">' + value.sub_title +
+                                    '</span>' + '</div>' + '</div>'
+
+                                );
+                            }
+                        });
+                    });
+                }
+            });
+        });
+
+        const searchResult = document.getElementById('search_result');
+
+        let isDown = false; // Biến cờ để kiểm tra xem chuột có đang được nhấn hay không
+        let startY;
+        let scrollTop;
+
+        // Thêm sự kiện khi nhấn chuột xuống
+        searchResult.addEventListener('mousedown', (e) => {
+            isDown = true;
+            searchResult.classList.add('active'); // Thêm class nếu cần hiệu ứng
+            startY = e.pageY - searchResult.offsetTop; // Lấy vị trí của chuột so với phần tử
+            scrollTop = searchResult.scrollTop; // Vị trí cuộn hiện tại
+        });
+
+        // Thêm sự kiện khi di chuột (khi đang giữ chuột)
+        searchResult.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // Chỉ xử lý khi chuột đang được giữ
+            e.preventDefault(); // Ngăn chặn các hành vi mặc định
+            const y = e.pageY - searchResult.offsetTop; // Lấy vị trí hiện tại của chuột
+            const walk = (y - startY) * 2; // Điều chỉnh tốc độ cuộn
+            searchResult.scrollTop = scrollTop - walk; // Tính toán cuộn
+        });
+
+        // Thêm sự kiện khi nhả chuột
+        searchResult.addEventListener('mouseup', () => {
+            isDown = false;
+            searchResult.classList.remove('active');
+        });
+
+        // Thêm sự kiện khi chuột ra khỏi vùng cuộn
+        searchResult.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+    </script>
+@endpush
+
 
 <!--==================== LOGIN ====================-->
 <div class="login" id="login">

@@ -71,10 +71,8 @@ class IndexControler extends Controller
         // Top lượt xem
         $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(10)->get();
 
-
         return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie', 'view_movie', 'rankings_day', 'rankings_week', 'rankings_month', 'top_view'));
     }
-
 
     public function watch()
     {
@@ -83,5 +81,16 @@ class IndexControler extends Controller
     public function episode()
     {
         return view('pages.episode');
+    }
+    public function search()
+    {
+        if (isset($_GET['tu_khoa'])) {
+            $keyWord = $_GET['tu_khoa'];
+            $movie = Movie::where('title', 'LIKE', '%' . $keyWord . '%')->orWhere('description', 'LIKE', '%' . $keyWord . '%')->orderBy('updated_at', 'DESC')->paginate(1);
+            $count_movie = $movie->count();
+        } else {
+            return redirect()->to('/');
+        }
+        return view('pages.search.search-page', compact('keyWord', 'movie', 'count_movie'));
     }
 }

@@ -54,7 +54,6 @@ hr {
     background-color: hsla(230, 75%, 15%, .1);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    /* For safari */
     padding: 8rem 1.5rem 0;
     opacity: 0;
     pointer-events: none;
@@ -67,8 +66,37 @@ hr {
     top: 2rem;
     right: 2rem;
     font-size: 1.5rem;
-    color: var(--title-color);
     cursor: pointer;
+}
+
+#search_result {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto 0;
+    max-height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+/* Ẩn thanh cuộn trên Chrome, Safari và Edge */
+#search_result::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ẩn thanh cuộn trên Firefox */
+#search_result {
+    scrollbar-width: none;
+}
+
+#search_result .rank-item {
+    margin-bottom: 12px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#search_result .rank-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -106,7 +134,6 @@ hr {
 .nav__toggle,
 .nav__close {
     font-size: 1.2rem;
-    color: var(--title-color);
     cursor: pointer;
     transition: color .4s;
 }
@@ -173,7 +200,6 @@ hr {
 
 .search__icon {
     font-size: 1.25rem;
-    color: var(--title-color);
 }
 
 .search__input {
@@ -370,6 +396,11 @@ hr {
 
 .title-section .title-right .content .nav .nav-item button.active {
     background: rgb(80, 80, 80);
+}
+
+.title-search {
+    color: orange;
+    font-size: 1.15rem;
 }
 
 .button-text {

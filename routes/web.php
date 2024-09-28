@@ -27,6 +27,8 @@ Route::get('/phim/{slug}', [MovieController::class, 'movie']);
 Route::get('/xem-phim', [IndexControler::class, 'watch']);
 Route::get('/tap-phim', [IndexControler::class, 'episode']);
 
+Route::get('/tim-kiem', [IndexControler::class, 'search'])->name('tim-kiem');
+
 
 Auth::routes();
 

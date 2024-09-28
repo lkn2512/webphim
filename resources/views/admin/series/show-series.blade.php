@@ -40,7 +40,8 @@
                 <th>STT</th>
                 <th>Tên series</th>
                 <th>Mô tả chi tiết</th>
-                <th>Số lượng phim</th>
+                <th>Số phần</th>
+                <th>Phim</th>
                 <th>Tác vụ</th>
             </tr>
         </thead>
@@ -50,7 +51,13 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $value->title }}</td>
                     <td>{!! $value->description !!}</td>
-                    <td><span class="text-danger">{{ $value->movies_count }} phim</span></td>
+                    <td>{{ $value->movies_count }} phần</td>
+                    <td>
+                        @foreach ($value->movies as $movie)
+                            {{ $movie->title }} <br>
+                        @endforeach
+                        {{-- <span class="text-danger">{{ $value->movies_count }} phần</span> --}}
+                    </td>
                     <td>
                         <a href="javascript:void(0);" class="btn-edit" data-bs-toggle="modal" data-bs-target="#exampleModal"
                             data-id="{{ $value->id }}"

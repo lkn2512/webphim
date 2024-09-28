@@ -10,14 +10,16 @@
         padding: 8px 14px;
         margin: 0 5px;
         text-decoration: none;
-        border: 1px solid #103667;
+        border: 1px solid black;
         border-radius: 5px;
         color: white;
         text-align: center;
+        background: black
     }
 
     .custom-pagination a:hover {
         background-color: #103667;
+        border: 1px solid #103667;
     }
 
     .custom-pagination .active {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Movie;
 use App\Models\Series;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ class SeriesController extends Controller
     public function index()
     {
         $allseries = Series::withCount('movies')->get();
+
         return view('admin.series.show-series')->with(compact('allseries'));
     }
 
