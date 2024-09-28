@@ -10,9 +10,6 @@
                     <li class="breadcrumb-item">
                         <a href="{{ route('home') }}">Trang chủ</a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('episode.index') }}">Quản lý tập phim</a>
-                    </li>
                     <li class="breadcrumb-item active" aria-current="page">
                         Thêm tập phim
                     </li>
@@ -20,24 +17,17 @@
             </div>
             <div class="col-lg-4 col-md-6 col-12 mb-3 header-right">
                 <div class="row justify-content-end">
-                    <div class="col-lg-3 col-md-4 col-4">
-                        <a href="{{ route('episode.create') }}">
-                            <button type="button" class="btn-refesh">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <a href="">
+                            <button type="button" class="btn-refesh" onclick="location.reload();">
                                 <i class="fa-solid fa-arrows-rotate"></i>Tải lại
                             </button>
                         </a>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                         <button type="submit" class="btn-add" id="submitBtn">
                             <i class="fa-solid fa-plus"></i>Thêm
                         </button>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-4">
-                        <a href="{{ route('episode.index') }}">
-                            <button type="button" class="btn-back">
-                                <i class="fa-solid fa-arrow-left"></i>Quay về
-                            </button>
-                        </a>
                     </div>
                 </div>
             </div>

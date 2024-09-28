@@ -24,8 +24,8 @@
             <div class="col-lg-4 col-md-6 col-12 mb-3 header-right">
                 <div class="row justify-content-end">
                     <div class="col-lg-3 col-md-4 col-4">
-                        <a href="" onclick="location.reload();">
-                            <button type="button" class="btn-refesh">
+                        <a href="">
+                            <button type="button" class="btn-refesh" onclick="location.reload();">
                                 <i class="fa-solid fa-arrows-rotate"></i>Tải lại
                             </button>
                         </a>

@@ -16,8 +16,8 @@
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-3 header-right">
             <div class="row justify-content-end">
                 <div class="col-lg-3 col-md-3 col-sm-5 col-6">
-                    <a href="{{ route('country.index') }}">
-                        <button type="button" class="btn-refesh">
+                    <a href="">
+                        <button type="button" class="btn-refesh" onclick="location.reload();">
                             <i class="fa-solid fa-arrows-rotate"></i>Tải lại
                         </button>
                     </a>

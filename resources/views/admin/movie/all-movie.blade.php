@@ -16,8 +16,8 @@
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-3 header-right">
             <div class="row justify-content-end">
                 <div class="col-lg-3 col-md-3 col-sm-5 col-6">
-                    <a href="{{ route('movie.index') }}">
-                        <button type="button" class="btn-refesh">
+                    <a href="">
+                        <button type="button" class="btn-refesh" onclick="location.reload();">
                             <i class="fa-solid fa-arrows-rotate"></i>Tải lại
                         </button>
                     </a>
@@ -40,6 +40,7 @@
                 <th>STT</th>
                 <th>Hỉnh ảnh</th>
                 <th>Tên phim</th>
+                <th>Danh sách tập</th>
                 <th>Thuộc series</th>
                 <th>Danh mục</th>
                 <th>Thể loại</th>
@@ -63,6 +64,7 @@
                     <td>{{ $value->title }}
                         <br>{{ $value->sub_title }}
                     </td>
+                    <td><a href="{{ route('episode.show', $value->id) }}">Xem</a></td>
                     <td>{{ $value->series ? $value->series->title : 'Không có' }}</td>
                     <td>
                         @foreach ($value->categories as $cate_movie)

@@ -22,9 +22,8 @@ Route::get('/', [IndexControler::class, 'home'])->name('trang-chu');
 Route::get('/danh-muc/{slug}', [CategoryController::class, 'category']);
 Route::get('/the-loai/{slug}', [GenreController::class, 'genre']);
 Route::get('/quoc-gia/{slug}', [CountryController::class, 'country']);
-
 Route::get('/phim/{slug}', [MovieController::class, 'movie']);
-Route::get('/xem-phim', [IndexControler::class, 'watch']);
+Route::get('/xem-phim/{slug}', [MovieController::class, 'watch']);
 Route::get('/tap-phim', [IndexControler::class, 'episode']);
 
 Route::get('/tim-kiem', [IndexControler::class, 'search'])->name('tim-kiem');

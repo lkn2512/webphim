@@ -79,7 +79,14 @@ class EpisodeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Lấy thông tin bộ phim theo ID
+        $movie = Movie::findOrFail($id);
+
+        // Lấy danh sách tập phim thuộc bộ phim
+        $episodes = Episode::where('movie_id', $id)->get();
+
+        // Trả về view cùng với dữ liệu phim và tập phim
+        return view('admin.episode.all-episode', compact('movie', 'episodes'));
     }
 
     /**

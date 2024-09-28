@@ -115,7 +115,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('episode.index') }}" class="nav-link">
+                    <a href="{{ route('episode.create') }}" class="nav-link">
                         <i class="nav-icon fa-solid fa-list-ol"></i>
                         <p>Tập phim</p>
                     </a>
