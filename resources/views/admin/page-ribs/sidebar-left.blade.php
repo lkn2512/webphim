@@ -101,18 +101,10 @@
                         <p>Quốc gia</p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="{{ route('episode.index') }}" class="nav-link">
-                        <i class="nav-icon fa-solid fa-list-ol"></i>
-                        <p>Tập phim</p>
-                    </a>
-                </li> --}}
-
-
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-header">Phim</li>
                 <li class="nav-item">
                     <a href="{{ route('series.index') }}" class="nav-link">
-                        <i class="nav-icon fa-solid fa-list-ol"></i>
+                        <i class="nav-icon fa-brands fa-microsoft"></i>
                         <p>Series phim</p>
                     </a>
                 </li>
@@ -120,6 +112,12 @@
                     <a href="{{ route('movie.index') }}" class="nav-link {{ Request::is('movie*') ? 'active' : '' }}">
                         <i class="nav-icon fa-solid fa-film"></i>
                         <p> Phim</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('episode.index') }}" class="nav-link">
+                        <i class="nav-icon fa-solid fa-list-ol"></i>
+                        <p>Tập phim</p>
                     </a>
                 </li>
                 <li class="nav-header">EXAMPLES</li>
