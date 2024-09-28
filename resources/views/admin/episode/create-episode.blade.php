@@ -10,6 +10,9 @@
                     <li class="breadcrumb-item">
                         <a href="{{ route('home') }}">Trang chủ</a>
                     </li>
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('episode.index') }}">Quản lý tập phim</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">
                         Thêm tập phim
                     </li>
@@ -46,7 +49,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="inputMoive">Phim</label>
-                            <select id="inputMoive" class="form-control custom-select" name="episodeMoive" required>
+                            <select id="inputMoive" class="form-control custom-select select2" name="episodeMoive" required>
                                 <option selected value="0">--Chọn phim--</option>
                                 @foreach ($listMovie as $listM)
                                     <option value="{{ $listM->id }}">{{ $listM->title }}</option>

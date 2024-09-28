@@ -370,6 +370,7 @@
     @stack('edit-country-JS')
     @stack('edit-series-JS')
     @stack('create-episode-JS')
+    @stack('movie-episode-JS')
 
     {{-- khởi tạo FroalaEditor --}}
     <script>

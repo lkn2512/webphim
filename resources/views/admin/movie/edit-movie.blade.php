@@ -160,7 +160,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
                                     <label for="inputStatus">Phiên dịch nội dung</label>
                                     <select id="inputStatus" class="form-control custom-select" name="movieTranslation">
@@ -179,7 +179,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
                                     <label for="inputYear">Năm phát hành</label>
                                     <select id="inputYear" class="form-control custom-select select2" name="movieYear">
@@ -193,7 +193,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
                                     <div class="flex-center-between">
                                         <label for="inputSeries">Series phim</label>
@@ -211,7 +211,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
                                     <label for="inputStatus">Trạng thái</label>
                                     <select id="inputStatus" class="form-control custom-select" name="movieStatus">
