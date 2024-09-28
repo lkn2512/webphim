@@ -31,56 +31,52 @@
                 @endforeach
             </div>
 
-            <div class="row mt-4">
-                <div class="title-section">
-                    <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
-                        <span class="title-text">Phim bộ</span>
-                    </div>
-                    <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
-                        <span class="view-all"></span>
-                    </div>
+            <div class="title-section mt-4">
+                <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
+                    <span class="title-text">Phim bộ</span>
                 </div>
-                <div class="row">
-                    @foreach ($series_movie as $ser)
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                            <div class="card-film">
-                                <span class="episode">Tập 10</span>
-                                <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}"
-                                    alt="{{ $ser->title }}" title="{{ $ser->title }}">
-                                <div class="card-film-body">
-                                    <h5 class="title">{{ $ser->title }}</h5>
-                                    <span class="decs">{{ $ser->sub_title }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+                <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
+                    <span class="view-all"></span>
                 </div>
             </div>
-
-            <div class="row mt-4">
-                <div class="title-section">
-                    <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
-                        <span class="title-text">Phim lẻ</span>
-                    </div>
-                    <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
-                        <span class="view-all"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    @foreach ($single_movie as $sin)
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                            <div class="card-film">
-                                <span class="episode">Tập 10</span>
-                                <img class="img" src="{{ asset('uploads/movies/' . $sin->image) }}"
-                                    alt="{{ $sin->title }}" title="{{ $sin->title }}">
-                                <div class="card-film-body">
-                                    <h5 class="title">{{ $sin->title }}</h5>
-                                    <span class="decs">{{ $sin->sub_title }}</span>
-                                </div>
+            <div class="row">
+                @foreach ($series_movie as $ser)
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                        <div class="card-film">
+                            <span class="episode">Tập 10</span>
+                            <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}" alt="{{ $ser->title }}"
+                                title="{{ $ser->title }}">
+                            <div class="card-film-body">
+                                <h5 class="title">{{ $ser->title }}</h5>
+                                <span class="decs">{{ $ser->sub_title }}</span>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="title-section mt-4">
+                <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
+                    <span class="title-text">Phim lẻ</span>
                 </div>
+                <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
+                    <span class="view-all"></span>
+                </div>
+            </div>
+            <div class="row">
+                @foreach ($single_movie as $sin)
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                        <div class="card-film">
+                            <span class="episode">Tập 10</span>
+                            <img class="img" src="{{ asset('uploads/movies/' . $sin->image) }}"
+                                alt="{{ $sin->title }}" title="{{ $sin->title }}">
+                            <div class="card-film-body">
+                                <h5 class="title">{{ $sin->title }}</h5>
+                                <span class="decs">{{ $sin->sub_title }}</span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
         <div class="col-lg-4 col-md-4">
