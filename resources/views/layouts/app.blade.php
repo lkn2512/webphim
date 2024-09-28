@@ -371,12 +371,14 @@
     @stack('edit-series-JS')
     @stack('create-episode-JS')
     @stack('movie-episode-JS')
-
+    @stack('view-movie-episode-JS')
     {{-- khởi tạo FroalaEditor --}}
     <script>
         new FroalaEditor('.froala-editor');
     </script>
     {{-- khởi tạo FroalaEditor --}}
+
+
 </body>
 
 </html>

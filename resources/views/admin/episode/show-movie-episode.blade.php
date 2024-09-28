@@ -85,46 +85,6 @@
                             <th>Tác vụ</th>
                         </tr>
                     </thead>
-                    {{-- <tbody>
-                        @foreach ($episodes as $value)
-                            <tr id="episode-row-{{ $value->id }}">
-                                <td class="editable" data-field="episode_number" data-id="{{ $value->id }}">
-                                    {{ $value->episode_number }}</td>
-                                <td class="editable" data-field="link" data-id="{{ $value->id }}"><a
-                                        href="#">{{ $value->link }}</a></td>
-                                <td class="editable" data-field="duration" data-id="{{ $value->id }}">
-                                    {{ $value->duration }}</td>
-                                <td class="editable" data-field="description" data-id="{{ $value->id }}">
-                                    {{ $value->description }}</td>
-                                <td>
-                                    <button type="button"
-                                        class="toggle-status btn {{ $value->status == 1 ? 'active' : '' }}"
-                                        data-id="{{ $value->id }}"
-                                        data-active-url="{{ URL::to('episode/active/' . $value->id) }}"
-                                        data-inactive-url="{{ URL::to('episode/unactive/' . $value->id) }}"
-                                        data-toggle="tooltip" data-placement="top"
-                                        title="{{ $value->status == 1 ? 'Hiển thị' : 'Ẩn' }}">
-                                    </button>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0);" class="btn-edit" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal" data-id="{{ $value->id }}"
-                                        data-link="{{ $value->link }}" data-episode_number="{{ $value->episode_number }}"
-                                        data-duration="{{ $value->duration }}"
-                                        data-description="{{ $value->description }}" data-status="{{ $value->status }}"
-                                        title="Chỉnh sửa">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </a>
-                                    <a href="javascript:void(0);" class="btn-remove" data-id="{{ $value->id }}"
-                                        data-type="episode"
-                                        data-confirm-message="Sau khi xoá tập này?"onclick="deleteItem(this)"
-                                        title="Xoá">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody> --}}
                     <tbody>
                         @foreach ($episodes as $value)
                             <tr id="episode-row-{{ $value->id }}">

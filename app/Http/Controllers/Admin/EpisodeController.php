@@ -78,17 +78,17 @@ class EpisodeController extends Controller
     /**
      * Display the specified resource.
      */
-    // public function show(string $id)
-    // {
-    //     // Lấy thông tin bộ phim theo ID
-    //     $movie = Movie::findOrFail($id);
+    public function show(string $id)
+    {
+        // Lấy thông tin bộ phim theo ID
+        $movie = Movie::findOrFail($id);
 
-    //     // Lấy danh sách tập phim thuộc bộ phim
-    //     $episodes = Episode::where('movie_id', $id)->get();
+        // Lấy danh sách tập phim thuộc bộ phim
+        $episodes = Episode::where('movie_id', $id)->get();
 
-    //     // Trả về view cùng với dữ liệu phim và tập phim
-    //     return view('admin.episode.movie-episode', compact('movie', 'episodes'));
-    // }
+        // Trả về view cùng với dữ liệu phim và tập phim
+        return view('admin.episode.movie-episode', compact('movie', 'episodes'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -141,11 +141,8 @@ class EpisodeController extends Controller
         }
 
         $episode->save();
-
         return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công!']);
     }
-
-
 
     /**
      * Remove the specified resource from storage.
@@ -166,7 +163,6 @@ class EpisodeController extends Controller
             ]);
         }
     }
-
 
     public function showEpisodes(Request $request)
     {

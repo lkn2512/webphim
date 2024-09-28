@@ -64,7 +64,14 @@
                     <td>{{ $value->title }}
                         <br>{{ $value->sub_title }}
                     </td>
-                    <td><a href="{{ route('episode.show', $value->id) }}">Xem</a></td>
+                    <td>
+                        <form action="{{ route('episode.showEpisodes') }}" method="POST" style="display: inline;">
+                            @csrf
+                            <input type="hidden" name="selectedMovie" value="{{ $value->id }}">
+                            <button type="submit" class="btn btn-link p-0">Xem</button>
+                        </form>
+                    </td>
+                    </td>
                     <td>{{ $value->series ? $value->series->title : 'Không có' }}</td>
                     <td>
                         @foreach ($value->categories as $cate_movie)
@@ -141,4 +148,39 @@
             modalImg.src = img.src;
         }
     </script>
+
+    @push('view-movie-episode-JS')
+        <script>
+            function sendData(selectedMovie) {
+                // Kiểm tra nếu người dùng có chắc chắn không (tùy chọn)
+                if (confirm('Bạn có chắc chắn muốn xem tập phim này?')) {
+                    fetch("{{ route('episode.showEpisodes') }}", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                selectedMovie: selectedMovie
+                            })
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Mạng lỗi');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            // Xử lý dữ liệu trả về (nếu cần)
+                            console.log(data);
+                            // Có thể chuyển hướng đến trang mới nếu cần
+                            window.location.href = data.redirect; // nếu bạn trả về URL chuyển hướng trong JSON
+                        })
+                        .catch(error => {
+                            console.error('Có lỗi:', error);
+                        });
+                }
+            }
+        </script>
+    @endpush
 @endsection
