@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Episode;
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EpisodeController extends Controller
 {
@@ -12,7 +15,7 @@ class EpisodeController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.episode.all-episode');
     }
 
     /**
@@ -20,7 +23,8 @@ class EpisodeController extends Controller
      */
     public function create()
     {
-        //
+        $listMovie = Movie::orderBy('title')->get();
+        return view('admin.episode.create-episode', compact('listMovie'));
     }
 
     /**
@@ -28,7 +32,46 @@ class EpisodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate input fields
+        $validator = Validator::make($request->all(), [
+            'episodeMoive' => 'required|exists:movies,id',
+            'episodeNumber' => 'required|numeric|min:1',
+            'episodeDuration' => 'required|string',
+            'episodeLink' => 'required|string',
+            'episodeDescription' => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+        // Kiểm tra nếu số tập đã tồn tại cho movie_id đó
+        $existingEpisode = Episode::where('movie_id', $request->episodeMoive)
+            ->where('episode_number', $request->episodeNumber)
+            ->first();
+
+        if ($existingEpisode) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Tập này đã được thêm cho phim này rồi.'
+            ], 409);
+        }
+        // Create a new episode
+        $episode = new Episode();
+        $episode->movie_id = $request->episodeMoive;
+        $episode->episode_number = $request->episodeNumber;
+        $episode->link = $request->episodeLink;
+        $episode->duration = $request->episodeDuration;
+        $episode->description = $request->episodeDescription;
+        $episode->status = $request->episodeStatus;
+        $episode->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Thêm tập phim thành công.'
+        ]);
     }
 
     /**

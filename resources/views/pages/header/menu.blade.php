@@ -57,7 +57,7 @@
 <div class="search" id="search">
     <form action="{{ route('tim-kiem') }}" class="search__form" method="GET">
         <i class="ri-search-line search__icon"></i>
-        <input type="text" placeholder="Tìm kiếm phim?" class="search__input" id="search_json" name="tu_khoa"
+        <input type="text" placeholder="Tìm kiếm phim?" class="search__input " id="search_json" name="tu_khoa"
             required>
         <button type="submit" style="display: none"></button>
     </form>

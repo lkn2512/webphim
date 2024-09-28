@@ -48,6 +48,7 @@ Route::resource('country', Admin_CountryController::class);
 Route::get('country/active/{id}', [Admin_CountryController::class, 'activeCountry']);
 Route::get('country/unactive/{id}', [Admin_CountryController::class, 'unactiveCountry']);
 
+//tập phim
 Route::resource('episode', Admin_EpisodeController::class);
 
 /*series phim - loạt phim (các phần) */

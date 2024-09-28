@@ -100,8 +100,6 @@
     </script>
     @stack('search-JS')
 
-
-
 </body>
 
 </html>

@@ -86,7 +86,7 @@ class IndexControler extends Controller
     {
         if (isset($_GET['tu_khoa'])) {
             $keyWord = $_GET['tu_khoa'];
-            $movie = Movie::where('title', 'LIKE', '%' . $keyWord . '%')->orWhere('description', 'LIKE', '%' . $keyWord . '%')->orderBy('updated_at', 'DESC')->paginate(1);
+            $movie = Movie::where('title', 'LIKE', '%' . $keyWord . '%')->orWhere('description', 'LIKE', '%' . $keyWord . '%')->orderBy('updated_at', 'DESC')->paginate(36);
             $count_movie = $movie->count();
         } else {
             return redirect()->to('/');
