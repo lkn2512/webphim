@@ -47,14 +47,15 @@
             <tr>
                 <th>STT</th>
                 <th>Tập</th>
-                <th>Slug</th>
+                <th>Link phim</th>
                 <th>Mô tả</th>
+                <th>Thời lượng</th>
                 <th>Trạng thái</th>
                 <th>Tác vụ</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($episodes as $key => $episode)
+            {{-- @foreach ($episodes as $key => $episode)
                 <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $episode->title }}</td>
@@ -81,7 +82,7 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @endforeach --}}
         </tbody>
     </table>
 @endsection
