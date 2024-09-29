@@ -24,7 +24,7 @@ class IndexControler extends Controller
         })->orderBy('title')->get();
 
         //phim mới
-        $new_movie = Movie::orderBy('updated_at', 'DESC')->where('status', 1)->limit(12)->get();
+        $new_movie = Movie::with(['latestEpisode', 'categories'])->where('status', 1)->orderBy('updated_at', 'DESC')->limit(12)->get();
 
         //phim bộ
         $series_movie = Movie::whereHas('categories', function ($query) {

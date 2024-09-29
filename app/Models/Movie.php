@@ -34,4 +34,9 @@ class Movie extends Model
     {
         return $this->hasMany(Episode::class);
     }
+    //phim mới nhất
+    public function latestEpisode()
+    {
+        return $this->hasOne(Episode::class)->latest();
+    }
 }

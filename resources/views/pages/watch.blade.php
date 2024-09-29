@@ -29,8 +29,8 @@
         </div>
         <div class="row">
             <div class="col-lg-8">
+                <h5 class="title-list">Danh sách các tập phim</h5>
                 <div class="list-container">
-                    <h5 class="title-list">Danh sách các tập phim</h5>
                     <div class="row">
                         @if ($episode_movie->count() > 0)
                             @foreach ($episode_movie as $epi)
@@ -51,8 +51,8 @@
                 </div>
             </div>
             <div class="col-lg-4">
+                <h5 class="title-list">Danh sách các phần</h5>
                 <div class="list-container">
-                    <h5 class="title-list">Danh sách các phần</h5>
                     @if ($series_movie->count() > 0)
                         <div class="row">
                             @foreach ($series_movie as $ser)

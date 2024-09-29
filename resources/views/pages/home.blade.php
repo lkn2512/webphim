@@ -18,7 +18,13 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
                         <a href="{{ URL::to('phim/' . $new->slug) }}">
                             <div class="card-film">
-                                <span class="episode">Tập 10</span>
+                                @if ($new->categories->contains('slug', 'phim-le') && $new->latestEpisode)
+                                    <span class="episode">Full</span>
+                                @elseif ($new->latestEpisode)
+                                    <span class="episode">Tập {{ $new->latestEpisode->episode_number }}</span>
+                                @else
+                                    {{-- <span class="episode">Chưa có tập nào</span> --}}
+                                @endif
                                 <img class="img" src="{{ asset('uploads/movies/' . $new->image) }}"
                                     alt="{{ $new->title }}" title="{{ $new->title }}">
                                 <div class="card-film-body">
