@@ -124,18 +124,22 @@
                             {!! $movie_detail->description !!}
                         </li>
                         <li class="tab-content tab-content-2 typography">
-                            @if ($episode_movie->count() > 0)
-                                @foreach ($episode_movie as $epi)
-                                    <a
-                                        href="{{ route('xem-phim', ['slug' => $movie_detail->slug, 'tap' => $epi->episode_number]) }}">
-                                        <button class="btn-episode ">
-                                            Tập {{ $epi->episode_number }}
-                                        </button>
-                                    </a>
-                                @endforeach
-                            @else
-                                <span class="note-null">Hiện chưa phim này chưa có tập nào</span>
-                            @endif
+                            <div class="row">
+                                @if ($episode_movie->count() > 0)
+                                    @foreach ($episode_movie as $epi)
+                                        <div class="col-lg-1 col-md-2 col-sm-2 col-2 mb-3">
+                                            <a
+                                                href="{{ route('xem-phim', ['slug' => $movie_detail->slug, 'tap' => $epi->episode_number]) }}">
+                                                <button class="btn-episode ">
+                                                    Tập {{ $epi->episode_number }}
+                                                </button>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <span class="note-null">Hiện chưa phim này chưa có tập nào</span>
+                                @endif
+                            </div>
                         </li>
                         <li class="tab-content tab-content-last typography">
                             <div class="typography row">
@@ -187,8 +191,8 @@
                 <div class="item">
                     <div class="card-film">
                         <span class="episode">Tập 10</span>
-                        <img class="img" src="{{ asset('uploads/movies/' . $cate->image) }}" alt="{{ $cate->title }}"
-                            title="{{ $cate->title }}">
+                        <img class="img" src="{{ asset('uploads/movies/' . $cate->image) }}"
+                            alt="{{ $cate->title }}" title="{{ $cate->title }}">
                         <div class="card-film-body">
                             <h5 class="title">{{ $cate->title }}</h5>
                             <span class="decs">{{ $cate->sub_title }}</span>

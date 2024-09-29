@@ -23,10 +23,57 @@
             </ol>
         </nav>
     </nav>
-    <div class="row mt-4">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-            <div class="row" style="height: 100%">
-                {!! $episode->link !!}
+    <div class="mt-4">
+        <div class="row mb-5">
+            {!! $episode->link !!}
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="list-container">
+                    <h5 class="title-list">Danh sách các tập phim</h5>
+                    <div class="row">
+                        @if ($episode_movie->count() > 0)
+                            @foreach ($episode_movie as $epi)
+                                <div class="col-lg-1 col-md-2 col-sm-2 col-2 mb-3">
+                                    <a
+                                        href="{{ route('xem-phim', ['slug' => $movie->slug, 'tap' => $epi->episode_number]) }}">
+                                        <button
+                                            class="btn-episode {{ Request::is('xem-phim/' . $movie->slug . '/tap-' . $epi->episode_number) ? 'active' : '' }}">
+                                            Tập {{ $epi->episode_number }}
+                                        </button>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                            <span class="note-null">Hiện chưa phim này chưa có tập nào</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="list-container">
+                    <h5 class="title-list">Danh sách các phần</h5>
+                    @if ($series_movie->count() > 0)
+                        <div class="row">
+                            @foreach ($series_movie as $ser)
+                                <div class="col-lg-6 col-md-4 col-sm-6 col-6 mb-3">
+                                    <a href="{{ URL::to('phim/' . $ser->slug) }}">
+                                        <div class="card-film">
+                                            <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}"
+                                                alt="{{ $ser->title }}" title="{{ $ser->title }}">
+                                            <div class="card-film-body">
+                                                <h5 class="title">{{ $ser->title }}</h5>
+                                                <span class="decs">{{ $ser->sub_title }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <span class="note-null">Hiện phim này không có phần nào khác!</span>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

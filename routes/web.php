@@ -24,8 +24,6 @@ Route::get('/the-loai/{slug}', [GenreController::class, 'genre']);
 Route::get('/quoc-gia/{slug}', [CountryController::class, 'country']);
 
 Route::get('/phim/{slug}', [MovieController::class, 'movie']);
-// Route::get('/xem-phim/{slug}', [MovieController::class, 'watch']);
-// Route::get('xem-phim/{slug}/{tap}', [MovieController::class, 'watchEpisode'])->name('xem-phim');
 Route::get('xem-phim/{slug}/tap-{tap}', [MovieController::class, 'watchEpisode'])->name('xem-phim');
 
 Route::get('/tap-phim', [IndexControler::class, 'episode']);

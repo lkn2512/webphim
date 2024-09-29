@@ -10,11 +10,11 @@
         padding: 8px 14px;
         margin: 0 5px;
         text-decoration: none;
-        border: 1px solid black;
+        border: 1px solid rgb(50, 50, 50);
         border-radius: 5px;
         color: white;
         text-align: center;
-        background: black
+        background: rgb(50, 50, 50);
     }
 
     .custom-pagination a:hover {

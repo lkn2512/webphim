@@ -10,24 +10,23 @@ class CategoryController extends Controller
 {
     public function category($slug)
     {
-        try {
-            $slugCategory = Category::where('slug', $slug)->first();
-            if (!$slugCategory) {
-                abort(404);
-            }
-            $IdCategory = $slugCategory->id;
-
-            $categoryAllMovie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
-                $query->where('categories.id', $IdCategory);
-            })->where('status', 1)->orderBy('updated_at', 'desc')->paginate(20);
-
-            $random_movie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
-                $query->where('categories.id', $IdCategory);
-            })->where('status', 1)->inRandomOrder()->limit(10)->get();
-        } catch (\Throwable $th) {
+        $slugCategory = Category::where('slug', $slug)->first();
+        if (!$slugCategory) {
             abort(404);
         }
+        $IdCategory = $slugCategory->id;
+        $titleCategory = $slugCategory->title;
 
-        return view('pages.category', compact('slugCategory', 'categoryAllMovie', 'random_movie'));
+        $categoryAllMovie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
+            $query->where('categories.id', $IdCategory);
+        })->where('status', 1)->orderBy('updated_at', 'desc')->paginate(1);
+
+        $bxh_movie = Movie::whereHas('categories', function ($query) use ($IdCategory) {
+            $query->where('categories.id', $IdCategory);
+        })->whereHas('views', function ($query) {
+            $query->where('view_count', '>', 0);
+        })->withSum('views', 'view_count')->where('status', 1)->orderBy('views_sum_view_count', 'desc')->paginate(10);
+
+        return view('pages.category', compact('slugCategory', 'titleCategory', 'categoryAllMovie', 'bxh_movie'));
     }
 }

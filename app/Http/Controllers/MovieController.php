@@ -65,6 +65,12 @@ class MovieController extends Controller
 
         $episode = $movie->episodes()->where('episode_number', $tap)->firstOrFail();
 
+        //Các tập phim
+        $episode_movie = Episode::where('movie_id', $movie_id)->where('status', 1)->orderBy('episode_number', 'desc')->get();
+
+        //Các phần liên quan
+        $series_movie = Movie::with('series')->where('series_id', $movie->series_id)->where('id', '!=', $movie->id)->Where('series_id', '>', 0)->orderBy('title')->get();
+
         //tăng view
         $today = Carbon::today();
         $movieView = MovieView::where('movie_id', $movie_id)
@@ -81,25 +87,6 @@ class MovieController extends Controller
             ]);
         }
 
-        return view('pages.watch', compact('movie', 'episode'));
+        return view('pages.watch', compact('movie', 'episode', 'episode_movie', 'series_movie'));
     }
-
-
-    // public function trackView($movie_id)
-    // {
-    //     $today = Carbon::today();
-    //     $movieView = MovieView::where('movie_id', $movie_id)
-    //         ->where('view_date', $today)
-    //         ->first();
-
-    //     if ($movieView) {
-    //         $movieView->increment('view_count');
-    //     } else {
-    //         MovieView::create([
-    //             'movie_id' => $movie_id,
-    //             'view_date' => $today,
-    //             'view_count' => 1
-    //         ]);
-    //     }
-    // }
 }

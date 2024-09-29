@@ -28,10 +28,10 @@
 
                 <div class="row mt-4">
                     <div class="title-section">
-                        <div class="title-left col-lg-4 col-md-6 col-sm-5 col-6">
+                        <div class="title-left col-lg-4 col-md-7 col-sm-6 col-7">
                             <span class="title-text">{{ $slugCategory->title }} mới cập nhật</span>
                         </div>
-                        <div class="title-right col-lg-8 col-md-6 col-sm-7 col-6">
+                        <div class="title-right col-lg-8 col-md-5 col-sm-6 col-5">
                             <span class="view-all"></span>
                         </div>
                     </div>
@@ -57,7 +57,9 @@
                 <div class="row">
                     <div class="title-section">
                         <div class="title-left col-lg-6 col-md-10 col-sm-5 col-6">
-                            <span class="title-text">Phim bộ ngẫu nhiên</span>
+                            <span class="title-text">
+                                BXH {{ $titleCategory }}
+                            </span>
                         </div>
                         <div class="title-right col-lg-6 col-md-2 col-sm-7 col-6">
                             <span class="view-all"></span>
@@ -66,7 +68,7 @@
                 </div>
 
                 <div class="rank-container">
-                    @foreach ($random_movie as $rand)
+                    @foreach ($bxh_movie as $rand)
                         <div class="row rank-item">
                             <div class="col-3 col-lg-3 col-md-5 col-sm-3">
                                 <img class="img-fluid" src="{{ asset('uploads/movies/' . $rand->image) }}"
@@ -75,6 +77,10 @@
                             <div class="col-9 col-lg-9 col-md-7 col-sm-9 px-0">
                                 <span class="title">{{ $rand->title }}</span>
                                 <span class="sub-title">{{ $rand->sub_title }}</span>
+                                <span class="view">
+                                    <i class="fa-regular fa-eye"></i>
+                                    {{ number_format($rand->views_sum_view_count) }} lượt xem
+                                </span>
                             </div>
                         </div>
                     @endforeach

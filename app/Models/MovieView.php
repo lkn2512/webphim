@@ -9,6 +9,7 @@ class MovieView extends Model
 {
     use HasFactory;
     protected $fillable = ['movie_id', 'view_date', 'view_count',];
+
     public function movie()
     {
         return $this->belongsTo(Movie::class);
