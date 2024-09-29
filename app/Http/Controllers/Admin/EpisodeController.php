@@ -63,8 +63,8 @@ class EpisodeController extends Controller
         $episode = new Episode();
         $episode->movie_id = $request->episodeMoive;
         $episode->episode_number = $request->episodeNumber;
-        $episode->iframe = $request->episodeNumber;
-        $episode->link = '<iframe width="100%" height="500" src="' . $request->episodeLink . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        $episode->link = $request->episodeLink;
+        $episode->iframe = '<iframe width="100%" height="500" src="' . $request->episodeLink . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         $episode->duration = $request->episodeDuration;
         $episode->description = $request->episodeDescription;
         $episode->status = $request->episodeStatus;
