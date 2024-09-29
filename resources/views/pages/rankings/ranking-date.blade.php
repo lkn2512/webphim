@@ -31,60 +31,66 @@
         <div class="tab-pane fade show active" id="day" role="tabpanel" aria-labelledby="day-tab" tabindex="0">
             @foreach ($rankings_day as $rank_day)
                 @if ($rank_day->total_views > 0)
-                    <div class="row rank-item">
-                        <div class="col-3 col-lg-3 col-md-5">
-                            <img class="img-fluid" src="{{ asset('uploads/movies/' . $rank_day->image) }}"
-                                alt="{{ $rank_day->title }}" title="{{ $rank_day->title }}">
+                    <a href="{{ URL::to('phim/' . $rank_day->slug) }}" class="text-white">
+                        <div class="row rank-item">
+                            <div class="col-3 col-lg-3 col-md-5">
+                                <img class="img-fluid" src="{{ asset('uploads/movies/' . $rank_day->image) }}"
+                                    alt="{{ $rank_day->title }}" title="{{ $rank_day->title }}">
+                            </div>
+                            <div class="col-9 col-lg-8 col-md-7">
+                                <h5 class="title">{{ $rank_day->title }}</h5>
+                                <span class="sub-title">{{ $rank_day->sub_title }}</span>
+                                <span class="view">
+                                    <i class="fa-regular fa-eye"></i>
+                                    {{ number_format($rank_day->total_views) }} lượt xem
+                                </span>
+                            </div>
                         </div>
-                        <div class="col-9 col-lg-8 col-md-7">
-                            <h5 class="title">{{ $rank_day->title }}</h5>
-                            <span class="sub-title">{{ $rank_day->sub_title }}</span>
-                            <span class="view">
-                                <i class="fa-regular fa-eye"></i>
-                                {{ number_format($rank_day->total_views) }} lượt xem
-                            </span>
-                        </div>
-                    </div>
+                    </a>
                 @endif
             @endforeach
         </div>
         <div class="tab-pane fade" id="week" role="tabpanel" aria-labelledby="week-tab" tabindex="0">
             @foreach ($rankings_week as $rank_week)
                 @if ($rank_week->total_views > 0)
-                    <div class="row rank-item">
-                        <div class="col-3 col-lg-3 col-md-5">
-                            <img class="img-fluid" src="{{ asset('uploads/movies/' . $rank_week->image) }}"
-                                alt="{{ $rank_week->title }}" title="{{ $rank_week->title }}">
+                    <a href="{{ URL::to('phim/' . $rank_week->slug) }}" class="text-white">
+                        <div class="row rank-item">
+                            <div class="col-3 col-lg-3 col-md-5">
+                                <img class="img-fluid" src="{{ asset('uploads/movies/' . $rank_week->image) }}"
+                                    alt="{{ $rank_week->title }}" title="{{ $rank_week->title }}">
+                            </div>
+                            <div class="col-9 col-lg-8 col-md-7">
+                                <h5 class="title">{{ $rank_week->title }}</h5>
+                                <span class="sub-title">{{ $rank_week->sub_title }}</span>
+                                <span class="view">
+                                    <i class="fa-regular fa-eye"></i>
+                                    {{ number_format($rank_week->total_views) }} lượt xem
+                                </span>
+                            </div>
                         </div>
-                        <div class="col-9 col-lg-8 col-md-7">
-                            <h5 class="title">{{ $rank_week->title }}</h5>
-                            <span class="sub-title">{{ $rank_week->sub_title }}</span>
-                            <span class="view">
-                                <i class="fa-regular fa-eye"></i>
-                                {{ number_format($rank_week->total_views) }} lượt xem
-                            </span>
-                        </div>
-                    </div>
+                    </a>
                 @endif
             @endforeach
         </div>
         <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab" tabindex="0">
             @foreach ($rankings_month as $rank_mont)
                 @if ($rank_mont->total_views > 0)
-                    <div class="row rank-item">
-                        <div class="col-3 col-lg-3 col-md-5">
-                            <img class="img-fluid" src="{{ asset('uploads/movies/' . $rank_mont->image) }}"
-                                alt="{{ $rank_mont->title }}" title="{{ $rank_mont->title }}">
+                    <a href="{{ URL::to('phim/' . $rank_mont->slug) }}" class="text-white">
+                        <div class="row rank-item">
+                            <div class="col-3 col-lg-3 col-md-5">
+                                <img class="img-fluid" src="{{ asset('uploads/movies/' . $rank_mont->image) }}"
+                                    alt="{{ $rank_mont->title }}" title="{{ $rank_mont->title }}">
+                            </div>
+                            <div class="col-9 col-lg-8 col-md-7">
+                                <h5 class="title">{{ $rank_mont->title }}</h5>
+                                <span class="sub-title">{{ $rank_mont->sub_title }}</span>
+                                <span class="view">
+                                    <i class="fa-regular fa-eye"></i>
+                                    {{ number_format($rank_mont->total_views) }} lượt xem
+                                </span>
+                            </div>
                         </div>
-                        <div class="col-9 col-lg-8 col-md-7">
-                            <h5 class="title">{{ $rank_mont->title }}</h5>
-                            <span class="sub-title">{{ $rank_mont->sub_title }}</span>
-                            <span class="view">
-                                <i class="fa-regular fa-eye"></i>
-                                {{ number_format($rank_mont->total_views) }} lượt xem
-                            </span>
-                        </div>
-                    </div>
+                    </a>
                 @endif
             @endforeach
         </div>

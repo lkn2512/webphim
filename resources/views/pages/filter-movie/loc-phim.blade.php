@@ -11,8 +11,8 @@
         <form action="{{ URL::to('loc-phim/ket-qua') }}" method="GET">
             <div class="row">
                 <div class="col-lg-2 col-md-3 col-sm-4 col-4 mb-2">
-                    <select class="form-select select-filter" name="sap-xep">
-                        <option value="">Sắp xếp</option>
+                    <select class="form-select select-filter " name="sap-xep">
+                        <option value="">--Sắp xếp--</option>
                         <option value="date" {{ request('sap-xep') == 'date' ? 'selected' : '' }}>Ngày đăng</option>
                         <option value="year_release" {{ request('sap-xep') == 'year_release' ? 'selected' : '' }}>Năm SX
                         </option>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-4 mb-2">
                     <select class="form-select select-filter " name="danh-muc">
-                        <option value="">Danh mục</option>
+                        <option value="">--Danh mục--</option>
                         @foreach ($category as $cate)
                             <option value="{{ $cate->id }}" {{ request('danh-muc') == $cate->id ? 'selected' : '' }}>
                                 {{ $cate->title }}</option>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-4 mb-2">
                     <select class="form-select select-filter" name="the-loai">
-                        <option value="">Thể loại</option>
+                        <option value="">--Thể loại--</option>
                         @foreach ($genre as $gen)
                             <option value="{{ $gen->id }}" {{ request('the-loai') == $gen->id ? 'selected' : '' }}>
                                 {{ $gen->title }}</option>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-4 mb-2">
                     <select class="form-select select-filter" name="quoc-gia">
-                        <option value="">Quốc gia</option>
+                        <option value="">--Quốc gia--</option>
                         @foreach ($country as $count)
                             <option value="{{ $count->id }}" {{ request('quoc-gia') == $count->id ? 'selected' : '' }}>
                                 {{ $count->title }}</option>
@@ -54,7 +54,7 @@
                         $years = range(1900, date('Y'));
                     @endphp
                     <select class="form-select select-filter" name="nam">
-                        <option value="">Năm</option>
+                        <option value="">--Năm SX--</option>
                         @foreach ($years as $year)
                             <option value="{{ $year }}" {{ request('nam') == $year ? 'selected' : '' }}>
                                 {{ $year }}</option>

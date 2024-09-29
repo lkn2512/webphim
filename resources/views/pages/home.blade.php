@@ -23,7 +23,7 @@
                                 @elseif ($new->latestEpisode)
                                     <span class="episode">Tập {{ $new->latestEpisode->episode_number }}</span>
                                 @else
-                                    {{-- <span class="episode">Chưa có tập nào</span> --}}
+                                    <span class="episode">Đang cập nhật</span>
                                 @endif
                                 <img class="img" src="{{ asset('uploads/movies/' . $new->image) }}"
                                     alt="{{ $new->title }}" title="{{ $new->title }}">
@@ -48,15 +48,23 @@
             <div class="row">
                 @foreach ($series_movie as $ser)
                     <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                        <div class="card-film">
-                            <span class="episode">Tập 10</span>
-                            <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}" alt="{{ $ser->title }}"
-                                title="{{ $ser->title }}">
-                            <div class="card-film-body">
-                                <h5 class="title">{{ $ser->title }}</h5>
-                                <span class="decs">{{ $ser->sub_title }}</span>
+                        <a href="{{ URL::to('phim/' . $ser->slug) }}">
+                            <div class="card-film">
+                                @if ($ser->categories->contains('slug', 'phim-le') && $ser->latestEpisode)
+                                    <span class="episode">Full</span>
+                                @elseif ($ser->latestEpisode)
+                                    <span class="episode">Tập {{ $ser->latestEpisode->episode_number }}</span>
+                                @else
+                                    <span class="episode">Đang cập nhật</span>
+                                @endif
+                                <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}"
+                                    alt="{{ $ser->title }}" title="{{ $ser->title }}">
+                                <div class="card-film-body">
+                                    <h5 class="title">{{ $ser->title }}</h5>
+                                    <span class="decs">{{ $ser->sub_title }}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -72,15 +80,23 @@
             <div class="row">
                 @foreach ($single_movie as $sin)
                     <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                        <div class="card-film">
-                            <span class="episode">Tập 10</span>
-                            <img class="img" src="{{ asset('uploads/movies/' . $sin->image) }}"
-                                alt="{{ $sin->title }}" title="{{ $sin->title }}">
-                            <div class="card-film-body">
-                                <h5 class="title">{{ $sin->title }}</h5>
-                                <span class="decs">{{ $sin->sub_title }}</span>
+                        <a href="{{ URL::to('phim/' . $sin->slug) }}">
+                            <div class="card-film">
+                                @if ($sin->categories->contains('slug', 'phim-le') && $sin->latestEpisode)
+                                    <span class="episode">Full</span>
+                                @elseif ($sin->latestEpisode)
+                                    <span class="episode">Tập {{ $sin->latestEpisode->episode_number }}</span>
+                                @else
+                                    <span class="episode">Đang cập nhật</span>
+                                @endif
+                                <img class="img" src="{{ asset('uploads/movies/' . $sin->image) }}"
+                                    alt="{{ $sin->title }}" title="{{ $sin->title }}">
+                                <div class="card-film-body">
+                                    <h5 class="title">{{ $sin->title }}</h5>
+                                    <span class="decs">{{ $sin->sub_title }}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>

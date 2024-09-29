@@ -188,13 +188,21 @@
                 @foreach ($cate_movies as $cate)
                     <div class="item">
                         <div class="card-film">
-                            <span class="episode">Tập 10</span>
-                            <img class="img" src="{{ asset('uploads/movies/' . $cate->image) }}"
-                                alt="{{ $cate->title }}" title="{{ $cate->title }}">
-                            <div class="card-film-body">
-                                <h5 class="title">{{ $cate->title }}</h5>
-                                <span class="decs">{{ $cate->sub_title }}</span>
-                            </div>
+                            <a href="{{ URL::to('phim/' . $cate->slug) }}">
+                                @if ($cate->categories->contains('slug', 'phim-le') && $cate->latestEpisode)
+                                    <span class="episode">Full</span>
+                                @elseif ($cate->latestEpisode)
+                                    <span class="episode">Tập {{ $cate->latestEpisode->episode_number }}</span>
+                                @else
+                                    <span class="episode">Đang cập nhật</span>
+                                @endif
+                                <img class="img" src="{{ asset('uploads/movies/' . $cate->image) }}"
+                                    alt="{{ $cate->title }}" title="{{ $cate->title }}">
+                                <div class="card-film-body">
+                                    <h5 class="title">{{ $cate->title }}</h5>
+                                    <span class="decs">{{ $cate->sub_title }}</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach
@@ -219,13 +227,21 @@
                 @foreach ($gen_movies as $gen)
                     <div class="item">
                         <div class="card-film">
-                            <span class="episode">Tập 10</span>
-                            <img class="img" src="{{ asset('uploads/movies/' . $gen->image) }}"
-                                alt="{{ $gen->title }}" title="{{ $gen->title }}">
-                            <div class="card-film-body">
-                                <h5 class="title">{{ $gen->title }}</h5>
-                                <span class="decs">{{ $gen->sub_title }}</span>
-                            </div>
+                            <a href="{{ URL::to('phim/' . $gen->slug) }}">
+                                @if ($gen->categories->contains('slug', 'phim-le') && $gen->latestEpisode)
+                                    <span class="episode">Full</span>
+                                @elseif ($gen->latestEpisode)
+                                    <span class="episode">Tập {{ $gen->latestEpisode->episode_number }}</span>
+                                @else
+                                    <span class="episode">Đang cập nhật</span>
+                                @endif
+                                <img class="img" src="{{ asset('uploads/movies/' . $gen->image) }}"
+                                    alt="{{ $gen->title }}" title="{{ $gen->title }}">
+                                <div class="card-film-body">
+                                    <h5 class="title">{{ $gen->title }}</h5>
+                                    <span class="decs">{{ $gen->sub_title }}</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach
