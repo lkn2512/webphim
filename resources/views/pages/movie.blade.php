@@ -94,22 +94,18 @@
 
                     <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
                     <label for="tab5">Phần khác</label>
-
                     <ul>
                         <li class="tab-content tab-content-first typography">
                             {!! $movie_detail->description !!}
                         </li>
-
                         <li class="tab-content tab-content-2 typography">
-                            <a href="">
-                                Tập 1
-                            </a>
-                            <a href="">
-                                Tập 2
-                            </a>
-                            <a href="">
-                                Tập 3
-                            </a>
+                            @foreach ($episode_movie as $epi)
+                                <a href="{{ $epi->link }}">
+                                    <button class="btn-episode ">
+                                        Tập {{ $epi->episode_number }}
+                                    </button>
+                                </a>
+                            @endforeach
                         </li>
                         <li class="tab-content tab-content-last typography">
                             <div class="typography row">
@@ -136,7 +132,6 @@
                         </li>
                     </ul>
                 </div>
-                <!--/ tabs -->
             </div>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">

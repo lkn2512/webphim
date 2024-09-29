@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Episode;
 use App\Models\Movie;
 use App\Models\Series;
 use Illuminate\Http\Request;
@@ -20,6 +21,9 @@ class MovieController extends Controller
 
             //Các phần liên quan
             $series_movie = Movie::with('series')->where('series_id', $movie_detail->series_id)->where('id', '!=', $movie_detail->id)->Where('series_id', '>', 0)->orderBy('title')->get();
+
+            //Các tập phim
+            $episode_movie = Episode::where('movie_id', $IdMovie)->orderBy('episode_number')->get();
 
             // Lấy danh mục của phim hiện tại
             $getCategory = $movie_detail->categories->pluck('id');
@@ -45,10 +49,9 @@ class MovieController extends Controller
                 $query->whereIn('countries.id', $getCountry);
             })->where('id', '!=', $movie_detail->id)->where('status', 1)->inRandomOrder()->get();
 
-
             $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(6)->get();
 
-            return view('pages.movie', compact('movie_detail', 'series_movie', 'cate_movies', 'gen_movies', 'country_movies', 'top_view'));
+            return view('pages.movie', compact('movie_detail', 'series_movie', 'cate_movies', 'gen_movies', 'country_movies', 'top_view', 'episode_movie'));
         } catch (\Throwable $th) {
             abort(404);
         }

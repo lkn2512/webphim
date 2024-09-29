@@ -693,3 +693,18 @@ hr {
     font-size: 1rem;
     margin-inline: 0px;
 }
+
+.btn-episode {
+    background: #0a2344;
+    color: white;
+    margin: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 70px;
+    height: 40px;
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none !important;
+}
