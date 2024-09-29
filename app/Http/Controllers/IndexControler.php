@@ -95,11 +95,11 @@ class IndexControler extends Controller
 
     public function filter_movie()
     {
-        $sap_xep = $_GET['sap-xep'];
-        $the_loai = $_GET['the-loai'];
-        $danh_muc = $_GET['danh-muc'];
-        $quoc_gia = $_GET['quoc-gia'];
-        $nam = $_GET['nam'];
+        $sap_xep = request('sap-xep', '');
+        $the_loai = request('the-loai', '');
+        $danh_muc = request('danh-muc', '');
+        $quoc_gia = request('quoc-gia', '');
+        $nam = request('nam', '');
 
         if ($sap_xep == '' && $the_loai == '' && $quoc_gia == '' && $nam == '') {
             return redirect()->back();
@@ -145,7 +145,7 @@ class IndexControler extends Controller
             }
 
             $movies = $query->paginate(30);
-            return view('pages.filter-movie.loc-phim', compact('movies'));
+            return view('pages.filter-movie.loc-phim', compact('movies', 'sap_xep', 'the_loai', 'danh_muc', 'quoc_gia', 'nam'));
         }
     }
 }
