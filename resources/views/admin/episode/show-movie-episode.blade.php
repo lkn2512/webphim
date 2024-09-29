@@ -21,7 +21,14 @@
         </div>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-3 header-right">
             <div class="row justify-content-end">
-                <div class="col-lg-5 col-md-6 col-sm-7 col-6">
+                <div class="col-lg-4 col-md-4 col-sm-5 col-6">
+                    <a href="{{ route('episode.index') }}">
+                        <button type="button" class="btn-refesh">
+                            <i class="fa-solid fa-arrow-rotate-left"></i>Xoá lựa chọn
+                        </button>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-5 col-6">
                     <a href="{{ route('episode.create') }}">
                         <button type="button" class="btn-add">
                             <i class="fa-solid fa-plus"></i>Thêm tập
@@ -35,7 +42,7 @@
         @csrf
         <div class="card">
             <div class="card-header bg-dnb">
-                <h3 class="card-title">Phim</h3>
+                <h3 class="card-title">Danh sách phim</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -46,9 +53,8 @@
                 <div class="row">
                     <div class="col-lg-10 col-md-10 col-sm-8 col-8">
                         <div class="form-group">
-                            <select id="inputMovie" class="form-control custom-select select2" name="selectedMovie"
-                                required>
-                                <option selected>-- Chọn phim --</option>
+                            <select id="inputMovie" class="form-control  select2" name="selectedMovie" required>
+                                <option selected disabled>-- Chọn phim --</option>
                                 @foreach ($listMovie as $listM)
                                     <option value="{{ $listM->id }}"
                                         {{ old('selectedMovie', $selectedMovie ?? '') == $listM->id ? 'selected' : '' }}>
@@ -70,7 +76,10 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="mb-3 fw-bold">Danh sách tập phim</h5>
+            <div class="flex-center-between">
+                <h5 class="mb-3 fw-bold">Danh sách tập phim</h5>
+                <span class="note">Có thể chỉnh sửa trực tiếp</span>
+            </div>
             @if ($episodes->isEmpty())
                 <span>Hiện không có tập phim nào.</span>
             @else

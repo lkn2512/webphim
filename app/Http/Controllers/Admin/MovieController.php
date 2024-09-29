@@ -18,7 +18,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $listMovie = Movie::with(['categories', 'genres', 'countries', 'series'])->orderBy('id', 'DESC')->get();
+        $listMovie = Movie::with(['categories', 'genres', 'countries', 'series'])->withCount('episodes')->orderBy('id', 'DESC')->get();
 
         $path = public_path() . "/Frontend/jsonFile/";
         if (!is_dir($path)) {

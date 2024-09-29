@@ -50,7 +50,8 @@ Route::get('country/unactive/{id}', [Admin_CountryController::class, 'unactiveCo
 //tập phim
 Route::resource('episode', Admin_EpisodeController::class);
 Route::post('/episode/show-episodes', [Admin_EpisodeController::class, 'showEpisodes'])->name('episode.showEpisodes');
-
+Route::get('episode/active/{id}', [Admin_EpisodeController::class, 'activeEpisode']);
+Route::get('episode/unactive/{id}', [Admin_EpisodeController::class, 'unactiveEpisode']);
 
 /*series phim - loạt phim (các phần) */
 Route::resource('series', Admin_SeriesController::class);

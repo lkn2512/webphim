@@ -172,6 +172,11 @@ hr {
     vertical-align: middle;
 }
 
+.note {
+    opacity: 1;
+    color: orangered;
+}
+
 
 /* Phong cách chung cho cả hai nút */
 .btn-edit,

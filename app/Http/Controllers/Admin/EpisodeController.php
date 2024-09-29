@@ -78,17 +78,7 @@ class EpisodeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        // Lấy thông tin bộ phim theo ID
-        $movie = Movie::findOrFail($id);
-
-        // Lấy danh sách tập phim thuộc bộ phim
-        $episodes = Episode::where('movie_id', $id)->get();
-
-        // Trả về view cùng với dữ liệu phim và tập phim
-        return view('admin.episode.movie-episode', compact('movie', 'episodes'));
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -178,5 +168,28 @@ class EpisodeController extends Controller
             'selectedMovie' => $movieId, // Truyền phim đã chọn
             'listMovie' => Movie::orderBy('title')->get() // Danh sách phim để hiển thị lại
         ]);
+    }
+    public function activeEpisode($id)
+    {
+        try {
+            $episode = Episode::findOrFail($id);
+            $episode->status = 1;
+            $episode->save();
+            return response()->json(['status' => 'success', 'message' => 'Tập phim đã được kích hoạt!']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Không thể kích hoạt tập phim!']);
+        }
+    }
+
+    public function unactiveEpisode($id)
+    {
+        try {
+            $episode = Episode::findOrFail($id);
+            $episode->status = 0;
+            $episode->save();
+            return response()->json(['status' => 'success', 'message' => 'Tập phim đã bị vô hiệu hóa!']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Không thể vô hiệu hóa tập phim!']);
+        }
     }
 }

@@ -11,6 +11,9 @@
                         <a href="{{ route('home') }}">Trang chủ</a>
                     </li>
                     <li class="breadcrumb-item">
+                        <a href="{{ route('movie.index') }}">Phim</a>
+                    </li>
+                    <li class="breadcrumb-item">
                         <a href="{{ route('episode.index') }}">Quản lý tập phim</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">

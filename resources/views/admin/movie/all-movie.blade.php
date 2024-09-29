@@ -40,7 +40,7 @@
                 <th>STT</th>
                 <th>Hỉnh ảnh</th>
                 <th>Tên phim</th>
-                <th>Danh sách tập</th>
+                <th>Tổng tập</th>
                 <th>Thuộc series</th>
                 <th>Danh mục</th>
                 <th>Thể loại</th>
@@ -68,7 +68,7 @@
                         <form action="{{ route('episode.showEpisodes') }}" method="POST" style="display: inline;">
                             @csrf
                             <input type="hidden" name="selectedMovie" value="{{ $value->id }}">
-                            <button type="submit" class="btn btn-link p-0">Xem</button>
+                            <button type="submit" class="btn btn-link p-0">{{ $value->episodes_count }} tập</button>
                         </form>
                     </td>
                     </td>

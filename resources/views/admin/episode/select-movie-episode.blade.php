@@ -40,7 +40,7 @@
         @csrf
         <div class="card">
             <div class="card-header bg-dnb">
-                <h3 class="card-title">Phim</h3>
+                <h3 class="card-title">Danh sách phim</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -51,9 +51,8 @@
                 <div class="row">
                     <div class="col-lg-10 col-md-8 col-sm-8 col-8">
                         <div class="form-group">
-                            <select id="inputMovie" class="form-control custom-select select2" name="selectedMovie"
-                                required>
-                                <option selected>-- Chọn phim --</option>
+                            <select id="inputMovie" class="form-control select2" name="selectedMovie" required>
+                                <option selected disabled>-- Chọn phim --</option>
                                 @foreach ($listMovie as $listM)
                                     <option value="{{ $listM->id }}"
                                         {{ old('selectedMovie', $selectedMovie ?? '') == $listM->id ? 'selected' : '' }}>
