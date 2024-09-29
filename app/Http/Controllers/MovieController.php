@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Episode;
 use App\Models\Movie;
 use App\Models\MovieView;
-use App\Models\Series;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -25,7 +24,7 @@ class MovieController extends Controller
             $series_movie = Movie::with('series')->where('series_id', $movie_detail->series_id)->where('id', '!=', $movie_detail->id)->Where('series_id', '>', 0)->orderBy('title')->get();
 
             //Các tập phim
-            $episode_movie = Episode::where('movie_id', $IdMovie)->orderBy('episode_number', 'desc')->get();
+            $episode_movie = Episode::where('movie_id', $IdMovie)->where('status', 1)->orderBy('episode_number', 'desc')->get();
 
             // Lấy danh mục của phim hiện tại
             $getCategory = $movie_detail->categories->pluck('id');
