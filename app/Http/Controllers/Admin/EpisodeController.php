@@ -63,7 +63,8 @@ class EpisodeController extends Controller
         $episode = new Episode();
         $episode->movie_id = $request->episodeMoive;
         $episode->episode_number = $request->episodeNumber;
-        $episode->link = $request->episodeLink;
+        $episode->iframe = $request->episodeNumber;
+        $episode->link = '<iframe width="100%" height="500" src="' . $request->episodeLink . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         $episode->duration = $request->episodeDuration;
         $episode->description = $request->episodeDescription;
         $episode->status = $request->episodeStatus;
@@ -97,7 +98,7 @@ class EpisodeController extends Controller
             'episode_number' => 'sometimes|numeric|min:1',
             'link' => 'sometimes|string',
             'duration' => 'sometimes|string',
-            'description' => 'sometimes|string',
+            'description' => 'sometimes',
         ]);
 
         // Nếu có cập nhật episode_number, kiểm tra trùng lặp với movie_id hiện tại
@@ -121,7 +122,9 @@ class EpisodeController extends Controller
 
         // Cập nhật các trường dữ liệu còn lại
         if ($request->has('link')) {
+
             $episode->link = $request->link;
+            $episode->iframe = '<iframe width="100%" height="500" src="' . $request->link . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         }
         if ($request->has('duration')) {
             $episode->duration = $request->duration;

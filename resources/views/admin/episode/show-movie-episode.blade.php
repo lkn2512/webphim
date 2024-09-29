@@ -101,7 +101,7 @@
                                     {{ $value->episode_number }}
                                 </td>
                                 <td class="editable" data-field="link" data-id="{{ $value->id }}">
-                                    <a href="#">{{ $value->link }}</a>
+                                    {{ $value->link }}
                                 </td>
                                 <td class="editable" data-field="duration" data-id="{{ $value->id }}">
                                     {{ $value->duration }}

@@ -25,7 +25,7 @@
     </nav>
     <div class="mt-4">
         <div class="row mb-5">
-            {!! $episode->link !!}
+            {!! $episode->iframe !!}
         </div>
         <div class="row">
             <div class="col-lg-8">
