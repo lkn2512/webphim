@@ -99,7 +99,8 @@
                         <div class="row info-different">
                             <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Thông tin khác:</span>
                             <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
-                                <i class="fa-regular fa-calendar"></i>{{ $movie_detail->release_year }}, 24 tập
+                                <i class="fa-regular fa-calendar"></i>{{ $movie_detail->release_year }},
+                                {{ $movie_detail->episodes_count }} tập
                             </span>
                         </div>
                     </div>

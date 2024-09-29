@@ -18,7 +18,7 @@ class MovieController extends Controller
             $IdMovie = $slugMovie->id;
 
             //chi tiết phim
-            $movie_detail = Movie::with(['categories', 'genres', 'countries'])->where('id', $IdMovie)->where('status', 1)->firstOrFail();
+            $movie_detail = Movie::with(['categories', 'genres', 'countries', 'episodes'])->where('id', $IdMovie)->where('status', 1)->withCount('episodes')->firstOrFail();
 
             //Các phần liên quan
             $series_movie = Movie::with('series')->where('series_id', $movie_detail->series_id)->where('id', '!=', $movie_detail->id)->Where('series_id', '>', 0)->orderBy('title')->get();
