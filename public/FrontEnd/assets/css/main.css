@@ -524,12 +524,12 @@ hr {
 
 .breadcrumb .breadcrumb-item a {
     text-decoration: none !important;
-    color: white;
+    color: #6faeff;
 }
 
 .breadcrumb .breadcrumb-item.active {
     text-decoration: none !important;
-    color: orange
+    color: rgb(160, 160, 160)
 }
 
 

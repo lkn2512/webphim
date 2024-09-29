@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Episode;
 use App\Models\Movie;
+use App\Models\MovieView;
 use App\Models\Series;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -23,7 +25,7 @@ class MovieController extends Controller
             $series_movie = Movie::with('series')->where('series_id', $movie_detail->series_id)->where('id', '!=', $movie_detail->id)->Where('series_id', '>', 0)->orderBy('title')->get();
 
             //Các tập phim
-            $episode_movie = Episode::where('movie_id', $IdMovie)->orderBy('episode_number')->get();
+            $episode_movie = Episode::where('movie_id', $IdMovie)->orderBy('episode_number', 'desc')->get();
 
             // Lấy danh mục của phim hiện tại
             $getCategory = $movie_detail->categories->pluck('id');
@@ -56,6 +58,33 @@ class MovieController extends Controller
             abort(404);
         }
     }
+
+    public function watchEpisode($slug, $tap)
+    {
+        $movie = Movie::where('slug', $slug)->where('status', 1)->firstOrFail();
+        $movie_id = $movie->id;
+
+        $episode = $movie->episodes()->where('episode_number', $tap)->firstOrFail();
+
+        //tăng view
+        $today = Carbon::today();
+        $movieView = MovieView::where('movie_id', $movie_id)
+            ->where('view_date', $today)
+            ->first();
+
+        if ($movieView) {
+            $movieView->increment('view_count');
+        } else {
+            MovieView::create([
+                'movie_id' => $movie_id,
+                'view_date' => $today,
+                'view_count' => 1
+            ]);
+        }
+
+        return view('pages.watch', compact('movie', 'episode'));
+    }
+
 
     // public function trackView($movie_id)
     // {

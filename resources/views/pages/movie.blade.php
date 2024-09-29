@@ -4,20 +4,38 @@
         aria-label="breadcrumb" class="breadcrumb-container">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('trang-chu') }}">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a>Phim</a></li>
-            <li class="breadcrumb-item" aria-current="page"> {{ $movie_detail->title }}</li>
+            @foreach ($movie_detail->categories as $category)
+                <li class="breadcrumb-item">
+                    <a href="{{ URL::to('danh-muc/' . $category->slug) }}">{{ $category->title }}</a>
+                </li>
+            @endforeach
+            @foreach ($movie_detail->genres as $genre)
+                <li class="breadcrumb-item">
+                    <a href="{{ URL::to('the-loai/' . $genre->slug) }}">{{ $genre->title }}</a>
+                </li>
+            @endforeach
+            <li class="breadcrumb-item active" aria-current="page"> {{ $movie_detail->title }}</li>
         </ol>
     </nav>
     <div class="row mt-4">
         <div class="col-lg-8 col-md-12 col-sm-12 col-12 mb-3">
             <div class="row">
                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 text-center mb-3">
+                    @php
+                        // Lấy tập mới nhất của phim
+                        $latestEpisode = $movie_detail->episodes->sortByDesc('episode_number')->first();
+                    @endphp
                     <div class="img-container">
                         <img class="img-fluid" src="{{ asset('uploads/movies/' . $movie_detail->image) }}"
                             alt="{{ $movie_detail->title }}" title="{{ $movie_detail->title }}">
                         @foreach ($movie_detail->categories as $category)
                             @if ($movie_detail->categories->where('slug', 'trailer')->isEmpty())
-                                <a href="" class="view-movie"><i class="fa-solid fa-play"></i>&ensp;Xem phim</a>
+                                @if ($latestEpisode)
+                                    <a href="{{ route('xem-phim', ['slug' => $movie_detail->slug, 'tap' => $latestEpisode->episode_number]) }}"
+                                        class="view-movie">
+                                        <i class="fa-solid fa-play"></i>&ensp;Xem phim
+                                    </a>
+                                @endif
                             @endif
                         @endforeach
                     </div>
@@ -28,7 +46,13 @@
                         <span class="sub-name">{{ $movie_detail->sub_title }}</span>
                         <div class="row new-episode mt-2">
                             <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
-                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">Tập 16</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                                @if ($latestEpisode)
+                                    Tập {{ $latestEpisode->episode_number }}
+                                @else
+                                    Không có
+                                @endif
+                            </span>
                         </div>
                         <hr>
                         <div class="row translation" style="display: flex; align-items: center">
@@ -99,13 +123,18 @@
                             {!! $movie_detail->description !!}
                         </li>
                         <li class="tab-content tab-content-2 typography">
-                            @foreach ($episode_movie as $epi)
-                                <a href="{{ $epi->link }}">
-                                    <button class="btn-episode ">
-                                        Tập {{ $epi->episode_number }}
-                                    </button>
-                                </a>
-                            @endforeach
+                            @if ($episode_movie->count() > 0)
+                                @foreach ($episode_movie as $epi)
+                                    <a
+                                        href="{{ route('xem-phim', ['slug' => $movie_detail->slug, 'tap' => $epi->episode_number]) }}">
+                                        <button class="btn-episode ">
+                                            Tập {{ $epi->episode_number }}
+                                        </button>
+                                    </a>
+                                @endforeach
+                            @else
+                                <span class="note-null">Hiện chưa phim này chưa có tập nào</span>
+                            @endif
                         </li>
                         <li class="tab-content tab-content-last typography">
                             <div class="typography row">
