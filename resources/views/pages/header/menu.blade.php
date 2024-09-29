@@ -41,6 +41,10 @@
                             aria-current="page" href="{{ URL::to('danh-muc/' . $cate->slug) }}">{{ $cate->title }}</a>
                     </li>
                 @endforeach
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('loc-phim*') ? 'active' : '' }}" aria-current="page"
+                        href="{{ URL::to('loc-phim') }}">Lọc phim</a>
+                </li>
             </ul>
             <nav class="nav-header">
                 <a href="#" class="nav__logo"></a>

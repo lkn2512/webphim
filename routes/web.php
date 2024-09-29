@@ -30,6 +30,9 @@ Route::get('/tap-phim', [IndexControler::class, 'episode']);
 
 Route::get('/tim-kiem', [IndexControler::class, 'search'])->name('tim-kiem');
 
+Route::get('/loc-phim', [IndexControler::class, 'loc_phim_page']);
+Route::get('/loc-phim/ket-qua', [IndexControler::class, 'filter_movie']);
+
 
 Auth::routes();
 

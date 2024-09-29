@@ -74,23 +74,78 @@ class IndexControler extends Controller
         return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie', 'view_movie', 'rankings_day', 'rankings_week', 'rankings_month', 'top_view'));
     }
 
-    public function watch()
-    {
-        return view('pages.watch');
-    }
-    public function episode()
-    {
-        return view('pages.episode');
-    }
+
     public function search()
     {
         if (isset($_GET['tu_khoa'])) {
             $keyWord = $_GET['tu_khoa'];
-            $movie = Movie::where('title', 'LIKE', '%' . $keyWord . '%')->orWhere('description', 'LIKE', '%' . $keyWord . '%')->orderBy('updated_at', 'DESC')->paginate(36);
+            $movie = Movie::where('title', 'LIKE', '%' . $keyWord . '%')->orWhere('description', 'LIKE', '%' . $keyWord . '%')->orderBy('updated_at', 'DESC')->paginate(30);
             $count_movie = $movie->count();
         } else {
             return redirect()->to('/');
         }
         return view('pages.search.search-page', compact('keyWord', 'movie', 'count_movie'));
+    }
+
+    public function loc_phim_page()
+    {
+        $movies = Movie::where('status', 1)->paginate(30);
+        return view('pages.filter-movie.loc-phim', compact('movies'));
+    }
+
+    public function filter_movie()
+    {
+        $sap_xep = $_GET['sap-xep'];
+        $the_loai = $_GET['the-loai'];
+        $danh_muc = $_GET['danh-muc'];
+        $quoc_gia = $_GET['quoc-gia'];
+        $nam = $_GET['nam'];
+
+        if ($sap_xep == '' && $the_loai == '' && $quoc_gia == '' && $nam == '') {
+            return redirect()->back();
+        } else {
+            // Khởi tạo query phim với trạng thái là '1' (phim đang hiển thị)
+            $query = Movie::where('status', 1);
+            if (!empty($the_loai)) {
+                $query->whereHas('genres', function ($q) use ($the_loai) {
+                    $q->where('genres.id', $the_loai);
+                });
+            }
+            if (!empty($danh_muc)) {
+                $query->whereHas('categories', function ($q) use ($danh_muc) {
+                    $q->where('categories.id', $danh_muc);
+                });
+            }
+            if (!empty($quoc_gia)) {
+                $query->whereHas('countries', function ($q) use ($quoc_gia) {
+                    $q->where('countries.id', $quoc_gia);
+                });
+            }
+            if (!empty($nam)) {
+                $query->whereYear('release_year', $nam);
+            }
+
+            if (!empty($sap_xep)) {
+                switch ($sap_xep) {
+                    case 'date':
+                        $query->orderBy('updated_at', 'DESC');
+                        break;
+                    case 'year_release':
+                        $query->orderBy('release_year', 'DESC');
+                        break;
+                    case 'name_a_z':
+                        $query->orderBy('title', 'ASC');
+                        break;
+                    case 'watch_views':
+                        $query->withSum('views', 'view_count')->orderBy('views_sum_view_count', 'DESC');
+                        break;
+                    default:
+                        $query->orderBy('updated_at', 'DESC');
+                }
+            }
+
+            $movies = $query->paginate(30);
+            return view('pages.filter-movie.loc-phim', compact('movies'));
+        }
     }
 }

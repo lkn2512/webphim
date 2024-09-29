@@ -64,7 +64,7 @@ class EpisodeController extends Controller
         $episode->movie_id = $request->episodeMoive;
         $episode->episode_number = $request->episodeNumber;
         $episode->link = $request->episodeLink;
-        $episode->iframe = '<iframe width="100%" height="500" src="' . $request->episodeLink . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        $episode->iframe = '<iframe width="100%" height="570" src="' . $request->episodeLink . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         $episode->duration = $request->episodeDuration;
         $episode->description = $request->episodeDescription;
         $episode->status = $request->episodeStatus;
@@ -124,7 +124,7 @@ class EpisodeController extends Controller
         if ($request->has('link')) {
 
             $episode->link = $request->link;
-            $episode->iframe = '<iframe width="100%" height="500" src="' . $request->link . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+            $episode->iframe = '<iframe width="100%" height="570" src="' . $request->link . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         }
         if ($request->has('duration')) {
             $episode->duration = $request->duration;

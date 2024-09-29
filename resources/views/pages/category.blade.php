@@ -25,7 +25,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row mt-4">
                     <div class="title-section">
                         <div class="title-left col-lg-4 col-md-7 col-sm-6 col-7">
