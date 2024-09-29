@@ -75,18 +75,17 @@
                     <td>{{ $value->series ? $value->series->title : 'Không có' }}</td>
                     <td>
                         @foreach ($value->categories as $cate_movie)
-                            - {{ $cate_movie->title }}<br>
+                            {{ $cate_movie->title }}{{ !$loop->last ? ', ' : '' }}
                         @endforeach
                     </td>
                     <td>
                         @foreach ($value->genres as $gen_movie)
-                            - {{ $gen_movie->title }}<br>
-                            {{-- {{ !$loop->last ? '- ' : '' }} --}}
+                            {{ $gen_movie->title }}{{ !$loop->last ? ', ' : '' }}
                         @endforeach
                     </td>
                     <td>
                         @foreach ($value->countries as $count_movie)
-                            - {{ $count_movie->title }}<br>
+                            {{ $count_movie->title }}{{ !$loop->last ? ', ' : '' }}
                         @endforeach
                     </td>
                     <td>
