@@ -457,7 +457,7 @@ hr {
     padding-top: 50px;
     padding-bottom: 5px;
     text-align: center;
-    border: none;
+    text-transform: capitalize;
 }
 
 .card-film-body .title {
@@ -465,14 +465,13 @@ hr {
     font-weight: 500;
     color: #fff;
     margin: 0;
-    text-transform: capitalize;
     line-height: 22px;
 }
 
 .card-film-body .decs {
     font-size: 0.8rem;
-    color: #ddd;
-    text-transform: capitalize;
+    color: #bebebe;
+    line-height: 0px;
 }
 
 
