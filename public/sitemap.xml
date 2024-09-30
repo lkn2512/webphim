@@ -1,256 +1,256 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://localhost</loc>
+        <loc>http://127.0.0.1:8000</loc>
     
             </url>
     <url>
-        <loc>http://localhost/danh-muc/phim-bo</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/danh-muc/phim-bo</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/danh-muc/phim-chieu-rap</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/danh-muc/phim-chieu-rap</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/danh-muc/phim-hoat-hinh</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/danh-muc/phim-hoat-hinh</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/danh-muc/phim-le</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/danh-muc/phim-le</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/danh-muc/trailer</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/danh-muc/trailer</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/3d</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/3d</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/anime</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/anime</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/bi-an</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/bi-an</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/chinh-kich</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/chinh-kich</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/co-trang</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/co-trang</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/gia-dinh</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/gia-dinh</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/hanh-dong</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/hanh-dong</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/hien-dai</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/hien-dai</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/huyen-huyen</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/huyen-huyen</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/khoa-hoc-vien-tuong</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/khoa-hoc-vien-tuong</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/kinh-di</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/kinh-di</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/lang-man</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/lang-man</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/ngon-tinh</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/ngon-tinh</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/phieu-luu</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/phieu-luu</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/tam-ly</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/tam-ly</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/than-thoai</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/than-thoai</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/tien-hiep</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/tien-hiep</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/the-loai/tu-tien</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/the-loai/tu-tien</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/quoc-gia/anh</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/quoc-gia/anh</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/quoc-gia/han-quoc</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/quoc-gia/han-quoc</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/quoc-gia/nhat-ban</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/quoc-gia/nhat-ban</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/quoc-gia/trung-quoc</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/quoc-gia/trung-quoc</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/thon-phe-tinh-khong</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/thon-phe-tinh-khong</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/chuyen-tau-sinh-tu</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/chuyen-tau-sinh-tu</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/harry-potter-va-hon-da-phu-thuy</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/harry-potter-va-hon-da-phu-thuy</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/pham-nhan-tu-tien-phan-2</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/pham-nhan-tu-tien-phan-2</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/khi-anh-chay-ve-phia-em</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/khi-anh-chay-ve-phia-em</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/cat-roi-ky-uc-phan-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/cat-roi-ky-uc-phan-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/cua-hang-sat-thu</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/cua-hang-sat-thu</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/alienoid-da-chieu-hon-chien-phan-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/alienoid-da-chieu-hon-chien-phan-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/tien-nghich</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/tien-nghich</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/pham-nhan-tu-tien-phan-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/pham-nhan-tu-tien-phan-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/pham-nhan-tu-tien-phan-3</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/pham-nhan-tu-tien-phan-3</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/phim/wistoria-truong-va-kiem-phan-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/phim/wistoria-truong-va-kiem-phan-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/harry-potter-va-hon-da-phu-thuy/tap-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-hon-da-phu-thuy/tap-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/alienoid-da-chieu-hon-chien-phan-1/tap-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/alienoid-da-chieu-hon-chien-phan-1/tap-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/pham-nhan-tu-tien-phan-1/tap-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-1/tap-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/pham-nhan-tu-tien-phan-3/tap-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/tap-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/pham-nhan-tu-tien-phan-3/tap-2</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/tap-2</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/pham-nhan-tu-tien-phan-3/tap-3</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/tap-3</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/wistoria-truong-va-kiem-phan-1/tap-1</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/tap-1</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/wistoria-truong-va-kiem-phan-1/tap-2</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/tap-2</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/wistoria-truong-va-kiem-phan-1/tap-3</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/tap-3</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/xem-phim/wistoria-truong-va-kiem-phan-1/tap-4</loc>
-        <lastmod>2024-09-30T20:04:42+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/tap-4</loc>
+        <lastmod>2024-09-30T20:32:42+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/loc-phim</loc>
+        <loc>http://127.0.0.1:8000/loc-phim</loc>
     
             </url>
 </urlset>

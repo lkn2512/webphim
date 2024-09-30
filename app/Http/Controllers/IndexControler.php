@@ -24,17 +24,17 @@ class IndexControler extends Controller
         })->orderBy('title')->get();
 
         //phim mới
-        $new_movie = Movie::with(['latestEpisode', 'categories'])->where('status', 1)->orderBy('updated_at', 'DESC')->limit(12)->get();
+        $new_movie = Movie::with(['latestEpisode', 'categories'])->where('status', 1)->orderBy('updated_at', 'DESC')->limit(16)->get();
 
         //phim bộ
         $series_movie = Movie::whereHas('categories', function ($query) {
             $query->where('slug', 'phim-bo');
-        })->where('status', 1)->orderBy('updated_at', 'desc')->limit(12)->get();
+        })->where('status', 1)->orderBy('updated_at', 'desc')->limit(16)->get();
 
         //phim lẻ
         $single_movie = Movie::whereHas('categories', function ($query) {
             $query->where('slug', 'phim-le');
-        })->where('status', 1)->orderBy('updated_at', 'desc')->limit(12)->get();
+        })->where('status', 1)->orderBy('updated_at', 'desc')->limit(16)->get();
 
         //phim hot
         $view_movie = Movie::orderBy('id', 'DESC')->where('status', 1)->get();

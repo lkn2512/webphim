@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 //sitemap
 Route::get('/sitemap', [SitemapController::class, 'index']);
 
+
 Route::get('/', [IndexControler::class, 'home'])->name('trang-chu');
 Route::get('/danh-muc/{slug}', [CategoryController::class, 'category']);
 Route::get('/the-loai/{slug}', [GenreController::class, 'genre']);
