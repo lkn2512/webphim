@@ -53,10 +53,10 @@
                     @php
                         $years = range(1900, date('Y'));
                     @endphp
-                    <select class="form-select select-filter" name="nam">
+                    <select class="form-select select-filter" name="namSX">
                         <option value="">--Năm SX--</option>
                         @foreach ($years as $year)
-                            <option value="{{ $year }}" {{ request('nam') == $year ? 'selected' : '' }}>
+                            <option value="{{ $year }}" {{ request('namSX') == $year ? 'selected' : '' }}>
                                 {{ $year }}</option>
                         @endforeach
                     </select>

@@ -99,9 +99,9 @@ class IndexControler extends Controller
         $the_loai = request('the-loai', '');
         $danh_muc = request('danh-muc', '');
         $quoc_gia = request('quoc-gia', '');
-        $nam = request('nam', '');
+        $namSX = request('namSX', '');
 
-        if ($sap_xep == '' && $the_loai == '' && $quoc_gia == '' && $nam == '') {
+        if ($sap_xep == '' && $the_loai == '' && $quoc_gia == '' && $namSX == '') {
             return redirect()->back();
         } else {
             // Khởi tạo query phim với trạng thái là '1' (phim đang hiển thị)
@@ -121,8 +121,8 @@ class IndexControler extends Controller
                     $q->where('countries.id', $quoc_gia);
                 });
             }
-            if (!empty($nam)) {
-                $query->whereYear('release_year', $nam);
+            if (!empty($namSX)) {
+                $query->where('release_year', $namSX);
             }
 
             if (!empty($sap_xep)) {
@@ -145,7 +145,7 @@ class IndexControler extends Controller
             }
 
             $movies = $query->paginate(30);
-            return view('pages.filter-movie.loc-phim', compact('movies', 'sap_xep', 'the_loai', 'danh_muc', 'quoc_gia', 'nam'));
+            return view('pages.filter-movie.loc-phim', compact('movies', 'sap_xep', 'the_loai', 'danh_muc', 'quoc_gia', 'namSX'));
         }
     }
 }

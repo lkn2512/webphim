@@ -12,12 +12,17 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\IndexControler;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('layout');
 // });
+
+//sitemap
+Route::get('/sitemap', [SitemapController::class, 'index']);
+
 Route::get('/', [IndexControler::class, 'home'])->name('trang-chu');
 Route::get('/danh-muc/{slug}', [CategoryController::class, 'category']);
 Route::get('/the-loai/{slug}', [GenreController::class, 'genre']);
