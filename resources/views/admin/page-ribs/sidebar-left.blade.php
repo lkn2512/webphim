@@ -121,13 +121,13 @@
                         <p>Tập phim</p>
                     </a>
                 </li>
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-header">Website</li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                    <a href="{{ route('information.index') }}"
+                        class="nav-link {{ Request::is('information*') ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-info"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right">2</span>
+                            Thông tin
                         </p>
                     </a>
                 </li>

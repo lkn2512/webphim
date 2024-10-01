@@ -377,6 +377,7 @@ hr {
     background-color: rgb(24, 24, 24);
     transform: skew(-20deg);
     height: 35px;
+
 }
 
 .title-section .title-left .title-text {
@@ -410,6 +411,55 @@ hr {
     transition: color 0.3s;
 }
 
+.title-right .view-all {
+    float: right;
+    padding-inline: 15px;
+    transform: skew(20deg);
+    position: relative;
+}
+
+.title-right .view-all {
+    float: right;
+    padding-inline: 15px;
+    transform: skew(20deg);
+    position: relative;
+}
+
+.title-right .view-all .text {
+    font-weight: 400;
+    color: #559af5;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.title-right .view-all::after {
+    content: '\2192';
+    font-size: 20px;
+    color: #559af5;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.title-right .view-all:hover::after {
+    opacity: 1;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.title-right .view-all:hover .text {
+    transform: translateX(-20px);
+}
+
+.title-right .view-all::after {
+    opacity: 0;
+    right: -10px;
+    transition: opacity 0.3s ease, right 0.3s ease;
+}
 
 
 

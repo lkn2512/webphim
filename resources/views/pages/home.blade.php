@@ -10,7 +10,7 @@
                     <span class="title-text">Phim mới cập nhật</span>
                 </div>
                 <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
-                    <span class="view-all"></span>
+                    <span class="view-all"><a class="text" href="">Xem thêm</a></span>
                 </div>
             </div>
             <div class="row">
@@ -41,7 +41,8 @@
                     <span class="title-text">Phim bộ</span>
                 </div>
                 <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
-                    <span class="view-all"></span>
+                    <span class="view-all"><a class="text" href="{{ URL::to('danh-muc/phim-bo') }}">Xem
+                            thêm</a></span>
                 </div>
             </div>
             <div class="row">
@@ -73,7 +74,8 @@
                     <span class="title-text">Phim lẻ</span>
                 </div>
                 <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
-                    <span class="view-all"></span>
+                    <span class="view-all"><a class="text" href="{{ URL::to('danh-muc/phim-le') }}">Xem
+                            thêm</a></span>
                 </div>
             </div>
             <div class="row">

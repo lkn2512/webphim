@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\GenreController as Admin_GenreController;
 use App\Http\Controllers\Admin\MovieController as Admin_MovieController;
 use App\Http\Controllers\Admin\CategoryController as Admin_CategoryController;
 use App\Http\Controllers\Admin\SeriesController as Admin_SeriesController;
+use App\Http\Controllers\Admin\InformationController as Admin_InformationController;
+
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
@@ -71,3 +73,5 @@ Route::resource('series', Admin_SeriesController::class);
 Route::resource('movie', Admin_MovieController::class);
 Route::get('movie/active/{id}', [Admin_MovieController::class, 'activeMovie']);
 Route::get('movie/unactive/{id}', [Admin_MovieController::class, 'unactiveMovie']);
+
+Route::resource('information', Admin_InformationController::class);
