@@ -1806,7 +1806,8 @@
 /**/
 .pcss3t>ul,
 .pcss3t>ul>li {
-    height: 427px;
+    height: 400px;
+    max-height: 400px;
     overflow-y: scroll;
     scrollbar-width: none;
 }

@@ -50,7 +50,7 @@ class MovieController extends Controller
                 $query->whereIn('countries.id', $getCountry);
             })->where('id', '!=', $movie_detail->id)->where('status', 1)->inRandomOrder()->get();
 
-            $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(6)->get();
+            $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(10)->get();
 
             return view('pages.movie', compact('movie_detail', 'series_movie', 'cate_movies', 'gen_movies', 'country_movies', 'top_view', 'episode_movie'));
         } catch (\Throwable $th) {

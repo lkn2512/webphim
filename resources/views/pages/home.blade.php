@@ -36,7 +36,6 @@
                     </div>
                 @endforeach
             </div>
-
             <div class="title-section mt-4">
                 <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
                     <span class="title-text">Phim bộ</span>
@@ -102,9 +101,9 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-4">
-            @include('pages.rankings.ranking-date')
-            <div class="mt-4"></div>
             @include('pages.rankings.top-view')
+            <div class="mt-4"></div>
+            @include('pages.rankings.ranking-date')
         </div>
     </div>
     {{-- <div class="carousel-wrapper mt-4">

@@ -46,8 +46,7 @@
                             <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
                             <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
                                 @if ($latestEpisode)
-                                    Tập {{ $latestEpisode->episode_number }}&ensp;-&ensp;<i
-                                        class="fa-regular fa-clock"></i>{{ $latestEpisode->duration }}
+                                    Tập {{ $latestEpisode->episode_number }}, {{ $latestEpisode->duration }}
                                 @else
                                     Không có
                                 @endif
@@ -166,119 +165,121 @@
                     </ul>
                 </div>
             </div>
+
+            @if ($cate_movies->count() > 0)
+                <div class="carousel-wrapper mt-4">
+                    <div class="title-section">
+                        <div class="title-left col-lg-3 col-md-4 col-sm-5 col-6">
+                            <span class="title-text">Phim cùng danh mục</span>
+                        </div>
+                        <div class="title-right col-lg-9 col-md-8 col-sm-7 col-6">
+                            <span class="view-all"></span>
+                        </div>
+                    </div>
+                    <div class="custom-nav">
+                        <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        @foreach ($cate_movies as $cate)
+                            <div class="item">
+                                <div class="card-film">
+                                    <a href="{{ URL::to('phim/' . $cate->slug) }}">
+                                        @if ($cate->categories->contains('slug', 'phim-le') && $cate->latestEpisode)
+                                            <span class="episode">Full</span>
+                                        @elseif ($cate->latestEpisode)
+                                            <span class="episode">Tập
+                                                {{ $cate->latestEpisode->episode_number }}</span>
+                                        @else
+                                            <span class="episode">Đang cập nhật</span>
+                                        @endif
+                                        <img class="img" src="{{ asset('uploads/movies/' . $cate->image) }}"
+                                            alt="{{ $cate->title }}" title="{{ $cate->title }}">
+                                        <div class="card-film-body">
+                                            <h5 class="title">{{ $cate->title }}</h5>
+                                            <span class="decs">{{ $cate->sub_title }}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+            @if ($gen_movies->count() > 0)
+                <div class="carousel-wrapper mt-4">
+                    <div class="title-section">
+                        <div class="title-left col-lg-3 col-md-4 col-sm-5 col-6">
+                            <span class="title-text">Phim cùng thể loại</span>
+                        </div>
+                        <div class="title-right col-lg-9 col-md-8 col-sm-7 col-6">
+                            <span class="view-all"></span>
+                        </div>
+                    </div>
+                    <div class="custom-nav">
+                        <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        @foreach ($gen_movies as $gen)
+                            <div class="item">
+                                <div class="card-film">
+                                    <a href="{{ URL::to('phim/' . $gen->slug) }}">
+                                        @if ($gen->categories->contains('slug', 'phim-le') && $gen->latestEpisode)
+                                            <span class="episode">Full</span>
+                                        @elseif ($gen->latestEpisode)
+                                            <span class="episode">Tập {{ $gen->latestEpisode->episode_number }}</span>
+                                        @else
+                                            <span class="episode">Đang cập nhật</span>
+                                        @endif
+                                        <img class="img" src="{{ asset('uploads/movies/' . $gen->image) }}"
+                                            alt="{{ $gen->title }}" title="{{ $gen->title }}">
+                                        <div class="card-film-body">
+                                            <h5 class="title">{{ $gen->title }}</h5>
+                                            <span class="decs">{{ $gen->sub_title }}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+            @if ($country_movies->count() > 0)
+                <div class="carousel-wrapper mt-4">
+                    <div class="title-section">
+                        <div class="title-left col-lg-3 col-md-4 col-sm-5 col-6">
+                            <span class="title-text">Phim cùng quốc gia</span>
+                        </div>
+                        <div class="title-right col-lg-9 col-md-8 col-sm-7 col-6">
+                            <span class="view-all"></span>
+                        </div>
+                    </div>
+                    <div class="custom-nav">
+                        <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        @foreach ($country_movies as $count)
+                            <div class="item">
+                                <div class="card-film">
+                                    <span class="episode">Tập 10</span>
+                                    <img class="img" src="{{ asset('uploads/movies/' . $count->image) }}"
+                                        alt="{{ $count->title }}" title="{{ $count->title }}">
+                                    <div class="card-film-body">
+                                        <h5 class="title">{{ $count->title }}</h5>
+                                        <span class="decs">{{ $count->sub_title }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
             @include('pages.rankings.top-view')
         </div>
     </div>
-    @if ($cate_movies->count() > 0)
-        <div class="carousel-wrapper">
-            <div class="title-section">
-                <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
-                    <span class="title-text">Phim cùng danh mục</span>
-                </div>
-                <div class="title-right col-lg-10 col-md-8 col-sm-7 col-6">
-                    <span class="view-all"></span>
-                </div>
-            </div>
-            <div class="custom-nav">
-                <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-            <div class="owl-carousel owl-theme">
-                @foreach ($cate_movies as $cate)
-                    <div class="item">
-                        <div class="card-film">
-                            <a href="{{ URL::to('phim/' . $cate->slug) }}">
-                                @if ($cate->categories->contains('slug', 'phim-le') && $cate->latestEpisode)
-                                    <span class="episode">Full</span>
-                                @elseif ($cate->latestEpisode)
-                                    <span class="episode">Tập
-                                        {{ $cate->latestEpisode->episode_number }}</span>
-                                @else
-                                    <span class="episode">Đang cập nhật</span>
-                                @endif
-                                <img class="img" src="{{ asset('uploads/movies/' . $cate->image) }}"
-                                    alt="{{ $cate->title }}" title="{{ $cate->title }}">
-                                <div class="card-film-body">
-                                    <h5 class="title">{{ $cate->title }}</h5>
-                                    <span class="decs">{{ $cate->sub_title }}</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endif
-    @if ($gen_movies->count() > 0)
-        <div class="carousel-wrapper mt-4">
-            <div class="title-section">
-                <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
-                    <span class="title-text">Phim cùng thể loại</span>
-                </div>
-                <div class="title-right col-lg-10 col-md-8 col-sm-7 col-6">
-                    <span class="view-all"></span>
-                </div>
-            </div>
-            <div class="custom-nav">
-                <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-            <div class="owl-carousel owl-theme">
-                @foreach ($gen_movies as $gen)
-                    <div class="item">
-                        <div class="card-film">
-                            <a href="{{ URL::to('phim/' . $gen->slug) }}">
-                                @if ($gen->categories->contains('slug', 'phim-le') && $gen->latestEpisode)
-                                    <span class="episode">Full</span>
-                                @elseif ($gen->latestEpisode)
-                                    <span class="episode">Tập {{ $gen->latestEpisode->episode_number }}</span>
-                                @else
-                                    <span class="episode">Đang cập nhật</span>
-                                @endif
-                                <img class="img" src="{{ asset('uploads/movies/' . $gen->image) }}"
-                                    alt="{{ $gen->title }}" title="{{ $gen->title }}">
-                                <div class="card-film-body">
-                                    <h5 class="title">{{ $gen->title }}</h5>
-                                    <span class="decs">{{ $gen->sub_title }}</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endif
-    @if ($country_movies->count() > 0)
-        <div class="carousel-wrapper mt-4">
-            <div class="title-section">
-                <div class="title-left col-lg-2 col-md-4 col-sm-5 col-6">
-                    <span class="title-text">Phim cùng quốc gia</span>
-                </div>
-                <div class="title-right col-lg-10 col-md-8 col-sm-7 col-6">
-                    <span class="view-all"></span>
-                </div>
-            </div>
-            <div class="custom-nav">
-                <button class="prev-arrow"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="next-arrow"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-            <div class="owl-carousel owl-theme">
-                @foreach ($country_movies as $count)
-                    <div class="item">
-                        <div class="card-film">
-                            <span class="episode">Tập 10</span>
-                            <img class="img" src="{{ asset('uploads/movies/' . $count->image) }}"
-                                alt="{{ $count->title }}" title="{{ $count->title }}">
-                            <div class="card-film-body">
-                                <h5 class="title">{{ $count->title }}</h5>
-                                <span class="decs">{{ $count->sub_title }}</span>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endif
+
 @endsection
