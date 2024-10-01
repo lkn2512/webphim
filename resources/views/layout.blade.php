@@ -31,7 +31,7 @@
     <main class="container main-container">
         @yield('content')
     </main>
-
+    @include('pages.footer.footer')
     <!--header JS-->
     <script src="{{ asset('FrontEnd/assets/js/header.js') }}"></script>
     {{-- bootstrap-5 JS --}}

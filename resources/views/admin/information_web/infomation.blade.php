@@ -54,6 +54,14 @@
                                 value="{{ $information->title }}">
                         </div>
                         <div class="form-group">
+                            <label for="inputName">Copyright</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <input type="text" class="form-control" aria-label="Username" name="infoCopyright"
+                                    aria-describedby="basic-addon1" required value="{{ $information->copyright }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="inputDescription">Mô tả website</label>
                             <textarea id="inputDescription" class="form-control" rows="4" name="infoDescription"> {{ $information->description }}</textarea>
                         </div>

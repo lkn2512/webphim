@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Genre;
+use App\Models\Information_web;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -36,7 +37,9 @@ class AppServiceProvider extends ServiceProvider
                 $query->where('status', 1);
             })->orderBy('title')->get();
 
-            $view->with(compact('category', 'genre', 'country'));
+            $info_web = Information_web::first();
+
+            $view->with(compact('category', 'genre', 'country', 'info_web'));
         });
     }
 }

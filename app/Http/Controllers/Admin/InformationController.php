@@ -60,6 +60,7 @@ class InformationController extends Controller
         // Cập nhật dữ liệu phim
         $information->title = $request->infoTitle;
         $information->description = $request->infoDescription;
+        $information->copyright = $request->infoCopyright;
 
         $get_image = $request->file('informationImage');
         if ($get_image) {

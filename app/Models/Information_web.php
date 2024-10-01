@@ -9,5 +9,5 @@ class Information_web extends Model
 {
     use HasFactory;
     protected $table = 'infomation_web';
-    protected $fillable = ['title', 'logo', 'description'];
+    protected $fillable = ['title', 'copyright', 'logo', 'description'];
 }

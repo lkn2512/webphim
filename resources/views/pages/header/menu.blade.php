@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg " style="background: #101014">
     <div class="container" style="padding-inline: 20px">
-        <a class="navbar-brand fw-bold text-white" href="#">KNFilm.tv</a>
+        <a class="navbar-brand fw-bold text-white" href="{{ route('trang-chu') }}"><img class="img-logo"
+                src="{{ asset('uploads/informations_web/' . $info_web->logo) }}" alt="Logo website"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,7 +39,8 @@
                 @foreach ($category as $cate)
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('danh-muc/' . $cate->slug) ? 'active' : '' }}"
-                            aria-current="page" href="{{ URL::to('danh-muc/' . $cate->slug) }}">{{ $cate->title }}</a>
+                            aria-current="page"
+                            href="{{ URL::to('danh-muc/' . $cate->slug) }}">{{ $cate->title }}</a>
                     </li>
                 @endforeach
                 <li class="nav-item">
