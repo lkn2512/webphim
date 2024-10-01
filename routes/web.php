@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('layout');
 // });
 
-//sitemap
+//tạo sitemap
 Route::get('/sitemap', [SitemapController::class, 'index']);
 
 

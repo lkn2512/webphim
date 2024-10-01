@@ -46,7 +46,8 @@
                             <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
                             <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
                                 @if ($latestEpisode)
-                                    Tập {{ $latestEpisode->episode_number }}
+                                    Tập {{ $latestEpisode->episode_number }}&ensp;-&ensp;<i
+                                        class="fa-regular fa-clock"></i>{{ $latestEpisode->duration }}
                                 @else
                                     Không có
                                 @endif
@@ -192,7 +193,8 @@
                                 @if ($cate->categories->contains('slug', 'phim-le') && $cate->latestEpisode)
                                     <span class="episode">Full</span>
                                 @elseif ($cate->latestEpisode)
-                                    <span class="episode">Tập {{ $cate->latestEpisode->episode_number }}</span>
+                                    <span class="episode">Tập
+                                        {{ $cate->latestEpisode->episode_number }}</span>
                                 @else
                                     <span class="episode">Đang cập nhật</span>
                                 @endif

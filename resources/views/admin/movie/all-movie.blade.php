@@ -62,7 +62,7 @@
                             data-bs-toggle="modal" data-bs-target="#imageModal" onclick="setModalImage(this)">
                     </td>
                     <td>{{ $value->title }}
-                        <br>{{ $value->sub_title }}
+                        {{-- <br>{{ $value->sub_title }} --}}
                     </td>
                     <td>
                         <form action="{{ route('episode.showEpisodes') }}" method="POST" style="display: inline;">
