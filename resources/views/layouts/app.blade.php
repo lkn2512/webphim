@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Quản trị viên</title>
-    <link rel="icon" type="image/x-icon" href="">
+    <link rel="shortcut icon" href="{{ asset('Frontend/image/logo.png') }}">
+    {{-- <link rel="icon" type="image/x-icon" href=""> --}}
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">

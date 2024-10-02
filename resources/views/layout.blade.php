@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $meta_title }}</title>
-    <link rel="shortcut icon" href="{{ asset('uploads/informations_web/' . $info_web->logo) }}">
+    <link rel="shortcut icon" href="{{ asset('Frontend/image/logo.png') }}">
 
     <meta name="revisit-after" content="1 days">
     <meta name="robots" content="index, follow">
