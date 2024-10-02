@@ -45,11 +45,13 @@
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/css/tabs.css') }}">
 
 <body>
-    @include('pages.header.menu')
-    <main class="container main-container">
-        @yield('content')
-    </main>
-    @include('pages.footer.footer')
+    <div class="wrapper">
+        @include('pages.header.menu')
+        <main class="container main-container">
+            @yield('content')
+        </main>
+        @include('pages.footer.footer')
+    </div>
     <!--header JS-->
     <script src="{{ asset('FrontEnd/assets/js/header.js') }}"></script>
     {{-- bootstrap-5 JS --}}
