@@ -19,7 +19,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{ URL::to('phim/' . $movie->slug) }}">{{ $movie->title }}</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Tập {{ $episode->episode_number }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $episode->episode_display }}</li>
             </ol>
         </nav>
     </nav>
@@ -35,11 +35,10 @@
                         @if ($episode_movie->count() > 0)
                             @foreach ($episode_movie as $epi)
                                 <div class="col-lg-1 col-md-2 col-sm-2 col-2 mb-3">
-                                    <a
-                                        href="{{ route('xem-phim', ['slug' => $movie->slug, 'tap' => $epi->episode_number]) }}">
+                                    <a href="{{ URL::to('xem-phim/' . $movie->slug . '/' . $epi->episode_display) }}">
                                         <button
-                                            class="btn-episode {{ Request::is('xem-phim/' . $movie->slug . '/tap-' . $epi->episode_number) ? 'active' : '' }}">
-                                            Tập {{ $epi->episode_number }}
+                                            class="btn-episode {{ Request::is('xem-phim/' . $movie->slug . '/tap-' . $epi->episode_display) ? 'active' : '' }}">
+                                            {{ $epi->episode_display }}
                                         </button>
                                     </a>
                                 </div>

@@ -18,10 +18,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
                         <a href="{{ URL::to('phim/' . $new->slug) }}">
                             <div class="card-film">
-                                @if ($new->categories->contains('slug', 'phim-le') && $new->latestEpisode)
-                                    <span class="episode">Full</span>
-                                @elseif ($new->latestEpisode)
-                                    <span class="episode">Tập {{ $new->latestEpisode->episode_number }}</span>
+                                @if ($new->latestEpisode)
+                                    <span class="episode">{{ $new->latestEpisode->episode_display }}</span>
                                 @else
                                     <span class="episode">Đang cập nhật</span>
                                 @endif
@@ -50,10 +48,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
                         <a href="{{ URL::to('phim/' . $ser->slug) }}">
                             <div class="card-film">
-                                @if ($ser->categories->contains('slug', 'phim-le') && $ser->latestEpisode)
-                                    <span class="episode">Full</span>
-                                @elseif ($ser->latestEpisode)
-                                    <span class="episode">Tập {{ $ser->latestEpisode->episode_number }}</span>
+                                @if ($ser->latestEpisode)
+                                    <span class="episode">{{ $ser->latestEpisode->episode_display }}</span>
                                 @else
                                     <span class="episode">Đang cập nhật</span>
                                 @endif
@@ -83,10 +79,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
                         <a href="{{ URL::to('phim/' . $sin->slug) }}">
                             <div class="card-film">
-                                @if ($sin->categories->contains('slug', 'phim-le') && $sin->latestEpisode)
-                                    <span class="episode">Full</span>
-                                @elseif ($sin->latestEpisode)
-                                    <span class="episode">Tập {{ $sin->latestEpisode->episode_number }}</span>
+                                @if ($sin->latestEpisode)
+                                    <span class="episode">{{ $sin->latestEpisode->episode_display }}</span>
                                 @else
                                     <span class="episode">Đang cập nhật</span>
                                 @endif

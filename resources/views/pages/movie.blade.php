@@ -30,7 +30,7 @@
                             alt="{{ $movie_detail->title }}" title="{{ $movie_detail->title }}">
                         @if ($movie_detail->categories->where('slug', 'trailer')->isEmpty())
                             @if ($latestEpisode)
-                                <a href="{{ route('xem-phim', ['slug' => $movie_detail->slug, 'tap' => $latestEpisode->episode_number]) }}"
+                                <a href="{{ URL::to('xem-phim/' . $movie_detail->slug . '/' . $latestEpisode->episode_display) }}"
                                     class="view-movie">
                                     <i class="fa-solid fa-play"></i>&ensp;Xem phim
                                 </a>
@@ -46,9 +46,14 @@
                             <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
                             <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
                                 @if ($latestEpisode)
-                                    Tập {{ $latestEpisode->episode_number }}, {{ $latestEpisode->duration }}
+                                    {{-- @if ($movie_detail->categories->where('slug', 'phim-le')->isEmpty())
+                                        Tập {{ $latestEpisode->episode_number }} - {{ $latestEpisode->duration }}
+                                    @else
+                                        Full - {{ $latestEpisode->duration }}
+                                    @endif --}}
+                                    {{ $latestEpisode->episode_display }}
                                 @else
-                                    Không có
+                                    Phim này hiện đang được cập nhật
                                 @endif
                             </span>
                         </div>
@@ -112,9 +117,6 @@
                     <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
                     <label for="tab2">Tập phim</label>
 
-                    {{-- <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                    <label for="tab3"><i class="icon-cogs"></i>Phần</label> --}}
-
                     <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
                     <label for="tab5">Phần khác</label>
                     <ul>
@@ -127,9 +129,9 @@
                                     @foreach ($episode_movie as $epi)
                                         <div class="col-lg-1 col-md-2 col-sm-2 col-2 mb-3">
                                             <a
-                                                href="{{ route('xem-phim', ['slug' => $movie_detail->slug, 'tap' => $epi->episode_number]) }}">
+                                                href="{{ URL::to('xem-phim/' . $movie_detail->slug . '/' . $epi->episode_display) }}">
                                                 <button class="btn-episode ">
-                                                    Tập {{ $epi->episode_number }}
+                                                    {{ $epi->episode_display }}
                                                 </button>
                                             </a>
                                         </div>
@@ -146,7 +148,6 @@
                                         <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-3">
                                             <a href="{{ URL::to('phim/' . $ser->slug) }}">
                                                 <div class="card-film">
-                                                    {{-- <span class="episode">Phần {{ $ser->serson }}</span> --}}
                                                     <img class="img" src="{{ asset('uploads/movies/' . $ser->image) }}"
                                                         alt="{{ $ser->title }}" title="{{ $ser->title }}">
                                                     <div class="card-film-body">

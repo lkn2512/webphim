@@ -31,15 +31,60 @@ class EpisodeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request)
+    // {
+    //     // Validate input fields
+    //     $validator = Validator::make($request->all(), [
+    //         'episodeMoive' => 'required|exists:movies,id',
+    //         'episodeNumber' => 'required|numeric|min:1',
+    //         'episodeDuration' => 'required|string',
+    //         'episodeLink' => 'required|string',
+    //         'episodeDescription' => 'nullable|string',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'status' => 'error',
+    //             'errors' => $validator->errors()
+    //         ], 422);
+    //     }
+    //     // Kiểm tra nếu số tập đã tồn tại cho movie_id đó
+    //     $existingEpisode = Episode::where('movie_id', $request->episodeMoive)
+    //         ->where('episode_number', $request->episodeNumber)
+    //         ->first();
+
+    //     if ($existingEpisode) {
+    //         return response()->json([
+    //             'status' => 'error',
+    //             'message' => 'Tập phim này đã tồn tại. Bạn không thể thêm lại!'
+    //         ], 409);
+    //     }
+    //     // Create a new episode
+    //     $episode = new Episode();
+    //     $episode->movie_id = $request->episodeMoive;
+    //     $episode->episode_number = $request->episodeNumber;
+    //     $episode->link = $request->episodeLink;
+    //     $episode->iframe = '<iframe width="100%" height="570" src="' . $request->episodeLink . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+    //     $episode->duration = $request->episodeDuration;
+    //     $episode->description = $request->episodeDescription;
+    //     $episode->status = $request->episodeStatus;
+    //     $episode->save();
+
+    //     return response()->json([
+    //         'status' => 'success',
+    //         'message' => 'Thêm tập phim thành công.'
+    //     ]);
+    // }
     public function store(Request $request)
     {
         // Validate input fields
         $validator = Validator::make($request->all(), [
             'episodeMoive' => 'required|exists:movies,id',
-            'episodeNumber' => 'required|numeric|min:1',
+            'episodeNumber' => 'required|string',
             'episodeDuration' => 'required|string',
             'episodeLink' => 'required|string',
             'episodeDescription' => 'nullable|string',
+            'episodeStatus' => 'required|boolean',  // Thêm xác thực trạng thái tập phim nếu cần
         ]);
 
         if ($validator->fails()) {
@@ -48,21 +93,45 @@ class EpisodeController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-        // Kiểm tra nếu số tập đã tồn tại cho movie_id đó
-        $existingEpisode = Episode::where('movie_id', $request->episodeMoive)
-            ->where('episode_number', $request->episodeNumber)
-            ->first();
 
-        if ($existingEpisode) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Tập phim này đã tồn tại. Bạn không thể thêm lại!'
-            ], 409);
+        // Lấy thông tin phim từ bảng movies
+        $movie = Movie::findOrFail($request->episodeMoive);
+
+        // Kiểm tra xem phim có phải là phim lẻ hay không
+        if ($movie->isPhimle()) {
+            // Nếu là phim lẻ, kiểm tra nếu đã tồn tại 1 tập
+            $existingEpisode = Episode::where('movie_id', $movie->id)->first();
+
+            if ($existingEpisode) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Phim lẻ chỉ có thể có 1 tập. Bạn không thể thêm tập mới!'
+                ], 409);
+            }
+
+            // Nếu chưa có tập nào, thêm tập với số tập là "1" (hoặc 'Full' nếu muốn)
+            $episodeNumber = 1; // Hoặc gán 'Full' nếu muốn hiển thị khác
+        } else {
+            // Kiểm tra nếu số tập đã tồn tại cho phim bộ
+            $existingEpisode = Episode::where('movie_id', $movie->id)
+                ->where('episode_number', $request->episodeNumber)
+                ->first();
+
+            if ($existingEpisode) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Tập phim này đã tồn tại. Bạn không thể thêm lại!'
+                ], 409);
+            }
+
+            // Nếu là phim bộ, sử dụng số tập được cung cấp từ request
+            $episodeNumber = $request->episodeNumber;
         }
+
         // Create a new episode
         $episode = new Episode();
         $episode->movie_id = $request->episodeMoive;
-        $episode->episode_number = $request->episodeNumber;
+        $episode->episode_number = $episodeNumber; // Sử dụng số tập đã được quyết định ở trên
         $episode->link = $request->episodeLink;
         $episode->iframe = '<iframe width="100%" height="570" src="' . $request->episodeLink . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         $episode->duration = $request->episodeDuration;
@@ -75,6 +144,7 @@ class EpisodeController extends Controller
             'message' => 'Thêm tập phim thành công.'
         ]);
     }
+
 
     /**
      * Display the specified resource.
@@ -95,7 +165,7 @@ class EpisodeController extends Controller
 
         // Xác thực dữ liệu
         $request->validate([
-            'episode_number' => 'sometimes|numeric|min:1',
+            'episode_number' => 'sometimes|string',
             'link' => 'sometimes|string',
             'duration' => 'sometimes|string',
             'description' => 'sometimes',
@@ -136,6 +206,66 @@ class EpisodeController extends Controller
         $episode->save();
         return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công!']);
     }
+    // public function update(Request $request, string $id)
+    // {
+    //     // Lấy thông tin tập phim dựa trên ID
+    //     $episode = Episode::findOrFail($id);
+
+    //     // Lấy thông tin phim từ tập phim
+    //     $movie = $episode->movie;
+
+    //     // Xác thực dữ liệu
+    //     $request->validate([
+    //         'episode_number' => 'sometimes|numeric|min:1',
+    //         'link' => 'sometimes|string',
+    //         'duration' => 'sometimes|string',
+    //         'description' => 'sometimes',
+    //     ]);
+
+    //     // Kiểm tra loại phim lẻ hay phim bộ
+    //     if ($movie->isPhimle()) {
+    //         // Nếu là phim lẻ, chỉ có 1 tập và đặt số tập là "Full" hoặc 1
+    //         $episode->episode_number = 1; // Hoặc 'Full' tuỳ vào logic của bạn
+    //     } else {
+    //         // Nếu là phim bộ, kiểm tra và cập nhật số tập
+    //         if ($request->has('episode_number')) {
+    //             // Lấy movie_id của tập hiện tại
+    //             $currentMovieId = $episode->movie_id;
+
+    //             // Kiểm tra trùng lặp số tập trong cùng movie_id
+    //             $duplicateEpisode = Episode::where('episode_number', $request->episode_number)
+    //                 ->where('movie_id', $currentMovieId)
+    //                 ->where('id', '!=', $id) // loại bỏ tập hiện tại khỏi kiểm tra
+    //                 ->first();
+
+    //             if ($duplicateEpisode) {
+    //                 return response()->json(['status' => 'error', 'message' => 'Tập phim này đã tồn tại. Bạn không thể thêm lại!'], 409);
+    //             }
+
+    //             // Cập nhật số tập nếu không trùng lặp
+    //             $episode->episode_number = $request->episode_number;
+    //         }
+    //     }
+
+    //     // Cập nhật các trường dữ liệu còn lại
+    //     if ($request->has('link')) {
+    //         $episode->link = $request->link;
+    //         $episode->iframe = '<iframe width="100%" height="570" src="' . $request->link . '" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+    //     }
+
+    //     if ($request->has('duration')) {
+    //         $episode->duration = $request->duration;
+    //     }
+
+    //     if ($request->has('description')) {
+    //         $episode->description = $request->description;
+    //     }
+
+    //     // Lưu các thay đổi
+    //     $episode->save();
+
+    //     return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công!']);
+    // }
 
     /**
      * Remove the specified resource from storage.

@@ -39,4 +39,17 @@ class Movie extends Model
     {
         return $this->hasOne(Episode::class)->latest();
     }
+
+
+    // Hàm kiểm tra phim lẻ
+    public function isPhimle()
+    {
+        return $this->categories->contains('slug', 'phim-le');
+    }
+
+    // Hàm kiểm tra phim bộ
+    public function isPhimbo()
+    {
+        return $this->categories->contains('slug', 'phim-bo');
+    }
 }

@@ -77,8 +77,13 @@
     <div class="card">
         <div class="card-body">
             <div class="flex-center-between">
-                <h5 class="mb-3 fw-bold">Danh sách tập phim</h5>
+                <h5 class="fw-bold">Danh sách tập phim</h5>
                 <span class="note">Có thể chỉnh sửa trực tiếp</span>
+            </div>
+            <div class="note-container">
+                <h2 class="note-title">Ghi Chú</h2>
+                <li>- Nếu là phim lẻ, ghi là "Full"</li>
+                <li>- Nếu là phim bộ, ghi là "Tập + số". Ví dụ: Tập 2</li>
             </div>
             @if ($episodes->isEmpty())
                 <span>Hiện không có tập phim nào.</span>
