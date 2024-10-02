@@ -4,7 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ</title>
+    <title>{{ $meta_title }}</title>
+    <link rel="shortcut icon" href="{{ asset('uploads/informations_web/' . $info_web->logo) }}">
+
+    <meta name="revisit-after" content="1 days">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="{{ $meta_description }}">
+    <meta name="author" content="Lê Kim Ngọc">
+    <!-- Open Graph Meta Tags for social media sharing -->
+    <meta property="og:title" content="{{ $meta_title }}">
+    <meta property="og:description" content="{{ $meta_description }}">
+    <meta property="og:image" content="{{ $meta_image }}">
+    <meta property="og:url" content="{{ $meta_url }}">
+    <meta property="og:type" content="Website">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="card">
+    <meta name="twitter:title" content="{{ $meta_title }}">
+    <meta name="twitter:description" content="{{ $meta_description }}">
+    <meta name="twitter:image" content="{{ $meta_image }}">
+
+    <link rel="canonical" href="{{ Request::url() }}">
 
     {{-- bootstrap-5 CSS --}}
     <link rel="stylesheet" href="{{ asset('FrontEnd/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
@@ -19,7 +38,6 @@
     <!-- Slider carosel CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/css/slider.css') }}">
-
     {{-- slick CSS --}}
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/slick/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/slick/slick-theme.css') }}">

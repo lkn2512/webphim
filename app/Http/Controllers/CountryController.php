@@ -24,6 +24,11 @@ class CountryController extends Controller
             abort(404);
         }
 
-        return view('pages.Country', compact('slugCountry', 'CountryAllMovie'));
+        $meta_title = $slugCountry->title;
+        $meta_description = $slugCountry->description;
+        $meta_image = '';
+        $meta_url = url('quoc-gia/' . $slug);
+
+        return view('pages.Country', compact('slugCountry', 'CountryAllMovie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 }

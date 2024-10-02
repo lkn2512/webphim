@@ -27,6 +27,11 @@ class CategoryController extends Controller
             $query->where('view_count', '>', 0);
         })->withSum('views', 'view_count')->where('status', 1)->orderBy('views_sum_view_count', 'desc')->paginate(10);
 
-        return view('pages.category', compact('slugCategory', 'titleCategory', 'categoryAllMovie', 'bxh_movie'));
+        $meta_title = $slugCategory->title;
+        $meta_description = $slugCategory->description;
+        $meta_image = '';
+        $meta_url = url('danh-muc/' . $slug);
+
+        return view('pages.category', compact('slugCategory', 'titleCategory', 'categoryAllMovie', 'bxh_movie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 }

@@ -52,7 +52,12 @@ class MovieController extends Controller
 
             $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(10)->get();
 
-            return view('pages.movie', compact('movie_detail', 'series_movie', 'cate_movies', 'gen_movies', 'country_movies', 'top_view', 'episode_movie'));
+            $meta_title = $slugMovie->title;
+            $meta_description = $slugMovie->description;
+            $meta_image =  url(asset('uploads/movies/' . $movie_detail->image));
+            $meta_url = url('phim/' . $slug);
+
+            return view('pages.movie', compact('movie_detail', 'series_movie', 'cate_movies', 'gen_movies', 'country_movies', 'top_view', 'episode_movie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
         } catch (\Throwable $th) {
             abort(404);
         }
@@ -87,6 +92,11 @@ class MovieController extends Controller
             ]);
         }
 
-        return view('pages.watch', compact('movie', 'episode', 'episode_movie', 'series_movie'));
+        $meta_title = 'Xem phim ' . $movie->title . ' ' . $episode->episode_number;
+        $meta_description = $movie->description;
+        $meta_image =  url(asset('uploads/movies/' . $movie->image));
+        $meta_url = url('phim/' . $slug);
+
+        return view('pages.watch', compact('movie', 'episode', 'episode_movie', 'series_movie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 }

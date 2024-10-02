@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Genre;
+use App\Models\Information_web;
 use App\Models\Movie;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,6 +14,12 @@ class IndexControler extends Controller
 {
     public function home()
     {
+        $information = Information_web::first();
+        $meta_title = $information->title;
+        $meta_description = $information->description;
+        $meta_image = url(asset('uploads/informations_web/' . $information->logo));
+        $meta_url = url(route('trang-chu'));
+
         $category = Category::whereHas('movies', function ($query) {
             $query->where('status', 1);
         })->orderBy('title')->get();
@@ -71,7 +78,7 @@ class IndexControler extends Controller
         // Top lượt xem
         $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(10)->get();
 
-        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie', 'view_movie', 'rankings_day', 'rankings_week', 'rankings_month', 'top_view'));
+        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie', 'view_movie', 'rankings_day', 'rankings_week', 'rankings_month', 'top_view', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 
 
@@ -84,13 +91,25 @@ class IndexControler extends Controller
         } else {
             return redirect()->to('/');
         }
-        return view('pages.search.search-page', compact('keyWord', 'movie', 'count_movie'));
+
+        $meta_title = 'Tìm kiếm phim: ' . $keyWord;
+        $meta_description = 'Tìm kiếm phim: ' . $keyWord;
+        $meta_image =  '';
+        $meta_url = url('tim-kiem?tu_khoa=' . $keyWord);
+
+        return view('pages.search.search-page', compact('keyWord', 'movie', 'count_movie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 
     public function loc_phim_page()
     {
         $movies = Movie::where('status', 1)->paginate(30);
-        return view('pages.filter-movie.loc-phim', compact('movies'));
+
+        $meta_title = 'Lọc phim';
+        $meta_description = 'Lọc phim';
+        $meta_image =  '';
+        $meta_url = url('loc-phim');
+
+        return view('pages.filter-movie.loc-phim', compact('movies', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 
     public function filter_movie()
@@ -145,7 +164,13 @@ class IndexControler extends Controller
             }
 
             $movies = $query->paginate(30);
-            return view('pages.filter-movie.loc-phim', compact('movies', 'sap_xep', 'the_loai', 'danh_muc', 'quoc_gia', 'namSX'));
+
+            $meta_title = 'Kết quả lọc';
+            $meta_description = 'Kết quả lọc: sap-xep=' . $sap_xep . '&danh-muc=' . $danh_muc . '&the-loai=' . $the_loai . '&quoc-gia=' . $quoc_gia . '&namSX=' . $namSX;
+            $meta_image =  '';
+            $meta_url = url('loc-phim/ket-qua?sap-xep=' . $sap_xep . '&danh-muc=' . $danh_muc . '&the-loai=' . $the_loai . '&quoc-gia=' . $quoc_gia . '&namSX=' . $namSX);
+
+            return view('pages.filter-movie.loc-phim', compact('movies', 'sap_xep', 'the_loai', 'danh_muc', 'quoc_gia', 'namSX', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
         }
     }
 }

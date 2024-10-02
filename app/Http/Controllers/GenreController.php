@@ -24,6 +24,11 @@ class GenreController extends Controller
             abort(404);
         }
 
-        return view('pages.genre', compact('slugGenre', 'GenreAllMovie'));
+        $meta_title = $slugGenre->title;
+        $meta_description = $slugGenre->description;
+        $meta_image = '';
+        $meta_url = url('the-loai/' . $slug);
+
+        return view('pages.genre', compact('slugGenre', 'GenreAllMovie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 }
