@@ -51,7 +51,7 @@
                                     @else
                                         Full - {{ $latestEpisode->duration }}
                                     @endif --}}
-                                    {{ $latestEpisode->episode_display }}
+                                    {{ $latestEpisode->episode_display }} - {{ $latestEpisode->duration }}
                                 @else
                                     Phim này hiện đang được cập nhật
                                 @endif
@@ -186,11 +186,8 @@
                             <div class="item">
                                 <div class="card-film">
                                     <a href="{{ URL::to('phim/' . $cate->slug) }}">
-                                        @if ($cate->categories->contains('slug', 'phim-le') && $cate->latestEpisode)
-                                            <span class="episode">Full</span>
-                                        @elseif ($cate->latestEpisode)
-                                            <span class="episode">Tập
-                                                {{ $cate->latestEpisode->episode_number }}</span>
+                                        @if ($cate->latestEpisode)
+                                            <span class="episode">{{ $cate->latestEpisode->episode_display }}</span>
                                         @else
                                             <span class="episode">Đang cập nhật</span>
                                         @endif
@@ -226,10 +223,8 @@
                             <div class="item">
                                 <div class="card-film">
                                     <a href="{{ URL::to('phim/' . $gen->slug) }}">
-                                        @if ($gen->categories->contains('slug', 'phim-le') && $gen->latestEpisode)
-                                            <span class="episode">Full</span>
-                                        @elseif ($gen->latestEpisode)
-                                            <span class="episode">Tập {{ $gen->latestEpisode->episode_number }}</span>
+                                        @if ($gen->latestEpisode)
+                                            <span class="episode">{{ $gen->latestEpisode->episode_display }}</span>
                                         @else
                                             <span class="episode">Đang cập nhật</span>
                                         @endif
@@ -264,13 +259,19 @@
                         @foreach ($country_movies as $count)
                             <div class="item">
                                 <div class="card-film">
-                                    <span class="episode">Tập 10</span>
-                                    <img class="img" src="{{ asset('uploads/movies/' . $count->image) }}"
-                                        alt="{{ $count->title }}" title="{{ $count->title }}">
-                                    <div class="card-film-body">
-                                        <h5 class="title">{{ $count->title }}</h5>
-                                        <span class="decs">{{ $count->sub_title }}</span>
-                                    </div>
+                                    <a href="{{ URL::to('phim/' . $count->slug) }}">
+                                        @if ($count->latestEpisode)
+                                            <span class="episode">{{ $count->latestEpisode->episode_display }}</span>
+                                        @else
+                                            <span class="episode">Đang cập nhật</span>
+                                        @endif
+                                        <img class="img" src="{{ asset('uploads/movies/' . $count->image) }}"
+                                            alt="{{ $count->title }}" title="{{ $count->title }}">
+                                        <div class="card-film-body">
+                                            <h5 class="title">{{ $count->title }}</h5>
+                                            <span class="decs">{{ $count->sub_title }}</span>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

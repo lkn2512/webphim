@@ -39,13 +39,19 @@
                     @foreach ($categoryAllMovie as $value)
                         <div class="col-6 col-lg-3 col-md-4 col-sm-6 mb-3">
                             <div class="card-film">
-                                <span class="episode">Tập 10</span>
-                                <img class="img" src="{{ asset('uploads/movies/' . $value->image) }}"
-                                    alt="{{ $value->title }}" title="{{ $value->title }}">
-                                <div class="card-film-body">
-                                    <h5 class="title">{{ $value->title }}</h5>
-                                    <span class="decs">{{ $value->sub_title }}</span>
-                                </div>
+                                <a href="{{ URL::to('phim/' . $value->slug) }}">
+                                    @if ($value->latestEpisode)
+                                        <span class="episode">{{ $value->latestEpisode->episode_display }}</span>
+                                    @else
+                                        <span class="episode">Đang cập nhật</span>
+                                    @endif
+                                    <img class="img" src="{{ asset('uploads/movies/' . $value->image) }}"
+                                        alt="{{ $value->title }}" title="{{ $value->title }}">
+                                    <div class="card-film-body">
+                                        <h5 class="title">{{ $value->title }}</h5>
+                                        <span class="decs">{{ $value->sub_title }}</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -68,20 +74,22 @@
 
                 <div class="rank-container">
                     @foreach ($bxh_movie as $rand)
-                        <div class="row rank-item">
-                            <div class="col-3 col-lg-3 col-md-5 col-sm-3">
-                                <img class="img-fluid" src="{{ asset('uploads/movies/' . $rand->image) }}"
-                                    alt="{{ $rand->title }}" title="{{ $rand->title }}">
+                        <a href="{{ URL::to('phim/' . $rand->slug) }}">
+                            <div class="row rank-item">
+                                <div class="col-3 col-lg-3 col-md-5 col-sm-3">
+                                    <img class="img-fluid" src="{{ asset('uploads/movies/' . $rand->image) }}"
+                                        alt="{{ $rand->title }}" title="{{ $rand->title }}">
+                                </div>
+                                <div class="col-9 col-lg-9 col-md-7 col-sm-9 px-0">
+                                    <span class="title">{{ $rand->title }}</span>
+                                    <span class="sub-title">{{ $rand->sub_title }}</span>
+                                    <span class="view">
+                                        <i class="fa-regular fa-eye"></i>
+                                        {{ number_format($rand->views_sum_view_count) }} lượt xem
+                                    </span>
+                                </div>
                             </div>
-                            <div class="col-9 col-lg-9 col-md-7 col-sm-9 px-0">
-                                <span class="title">{{ $rand->title }}</span>
-                                <span class="sub-title">{{ $rand->sub_title }}</span>
-                                <span class="view">
-                                    <i class="fa-regular fa-eye"></i>
-                                    {{ number_format($rand->views_sum_view_count) }} lượt xem
-                                </span>
-                            </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>

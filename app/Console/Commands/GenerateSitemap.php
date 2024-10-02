@@ -93,7 +93,7 @@ class GenerateSitemap extends Command
             $movieSlug = $movie->slug;
             // Lặp qua các tập phim của từng bộ phim
             foreach ($movie->episodes as $episode) {
-                $url = route('xem-phim', ['slug' => $movieSlug, 'tap' => $episode->episode_number]);
+                $url = url('xem-phim/' . $movieSlug . '/' . $episode->episode_display);
                 $sitemap->add(
                     Url::create($url)
                         ->setLastModificationDate(now())

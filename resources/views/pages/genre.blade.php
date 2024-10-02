@@ -24,13 +24,19 @@
                     @foreach ($GenreAllMovie as $value)
                         <div class="col-6 col-lg-2 col-md-4 col-sm-6 mb-3">
                             <div class="card-film">
-                                <span class="episode">Tập 10</span>
-                                <img class="img" src="{{ asset('uploads/movies/' . $value->image) }}"
-                                    alt="{{ $value->title }}" title="{{ $value->title }}">
-                                <div class="card-film-body">
-                                    <h5 class="title">{{ $value->title }}</h5>
-                                    <span class="decs">{{ $value->sub_title }}</span>
-                                </div>
+                                <a href="{{ URL::to('phim/' . $value->slug) }}">
+                                    @if ($value->latestEpisode)
+                                        <span class="episode">{{ $value->latestEpisode->episode_display }}</span>
+                                    @else
+                                        <span class="episode">Đang cập nhật</span>
+                                    @endif
+                                    <img class="img" src="{{ asset('uploads/movies/' . $value->image) }}"
+                                        alt="{{ $value->title }}" title="{{ $value->title }}">
+                                    <div class="card-film-body">
+                                        <h5 class="title">{{ $value->title }}</h5>
+                                        <span class="decs">{{ $value->sub_title }}</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
