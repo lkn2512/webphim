@@ -38,11 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="note-container">
-            <h2 class="note-title">Ghi Chú</h2>
-            <li>- Nếu là phim lẻ, ghi là "Full"</li>
-            <li>- Nếu là phim bộ, ghi là "Tập + số". Ví dụ: Tập 2</li>
-        </div>
+
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="card">
@@ -109,6 +105,11 @@
             </div>
         </div>
     </form>
+    <div class="note-container">
+        <h2 class="note-title">Ghi Chú</h2>
+        <li>- Nếu là phim lẻ, ghi là "Full"</li>
+        <li>- Nếu là phim bộ, ghi là "Tập + số". Ví dụ: Tập 2</li>
+    </div>
 
     @push('create-episode-JS')
         <script>

@@ -15,8 +15,6 @@
 
     <link href="{{ asset('/Admin/plugins/jqvmap/jqvmap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}"rel="stylesheet" />
-    {{-- <link href="{{ asset('/Admin/plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet" /> --}}
-    {{-- <link href="{{ asset('/Admin/plugins/sweetalert2/sweetalert2.css') }}" rel="stylesheet" /> --}}
     <!-- DataTables -->
     <link href="{{ asset('/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}" rel="stylesheet">
@@ -29,11 +27,6 @@
     <link href="{{ asset('/Admin/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/adminlte.css') }}" rel="stylesheet">
     <link href="{{ asset('/Admin/css/main-style.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('/Admin/css/sweetalert.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('/Admin/css/morris.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('/Admin/css/toastr.min.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('/Admin/css/style-responsive.css') }}" rel="stylesheet" /> --}}
-    {{-- <link href="{{ asset('/Admin/css/ionicons.min.css') }}" rel="stylesheet" /> --}}
     {{-- iziToast Notification --}}
     <link href="{{ asset('/Admin/css/iziToast.min.css') }}" rel="stylesheet">
     {{-- froala editor --}}
@@ -98,7 +91,7 @@
         </nav>
     </div> --}}
 
-    @if (Auth::user())
+    @if (Auth::check())
         <div class="wrapper">
             {{-- <div class="preloader" id="preloader">
                 <div class="progress-bar"></div>
@@ -113,14 +106,13 @@
             @include('admin.page-ribs.footer')
         </div>
     @else
-        @yield('content')
+        @yield('content-auth')
     @endif
 
     <script src="{{ asset('/Admin/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-    {{-- <script src="{{ asset('/Admin/plugins/sweetalert2/sweetalert2.js') }}"></script> --}}
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('/Admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -135,18 +127,11 @@
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-    <!-- ChartJS -->
-    {{-- <script src="{{ asset('/Admin/plugins/chart.js/Chart.min.js') }}"></script> --}}
     <!-- Select2 -->
     <script src="{{ asset('/Admin/plugins/select2/js/select2.full.min.js') }}"></script>
 
-    {{-- <script src="{{ asset('/Admin/js/sweetalert.min.js') }}"></script> --}}
     <script src="{{ asset('/Admin/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('/Admin/js/adminlte.js') }}"></script>
-    {{-- <script src="{{ asset('/Admin/js/pages/dashboard.js') }}"></script>
-    <script src="{{ asset('/Admin/js/morris.js') }}"></script>
-    <script src="{{ asset('/Admin/js/morris.min.js') }}"></script>
-    <script src="{{ asset('/Admin/js/raphael-min.js') }}"></script> --}}
     <script src="{{ asset('/Admin/js/jquery-ui.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

@@ -103,7 +103,8 @@
                 </li>
                 <li class="nav-header">Phim</li>
                 <li class="nav-item">
-                    <a href="{{ route('series.index') }}" class="nav-link">
+                    <a href="{{ route('series.index') }}"
+                        class="nav-link {{ Request::is('series*') ? 'active' : '' }}">
                         <i class="nav-icon fa-brands fa-microsoft"></i>
                         <p>Series phim</p>
                     </a>
