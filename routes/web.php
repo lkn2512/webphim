@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\MovieController as Admin_MovieController;
 use App\Http\Controllers\Admin\CategoryController as Admin_CategoryController;
 use App\Http\Controllers\Admin\SeriesController as Admin_SeriesController;
 use App\Http\Controllers\Admin\InformationController as Admin_InformationController;
-
+use App\Http\Controllers\Admin\DashboardController as Admin_DashboardController;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
@@ -47,7 +47,7 @@ Route::get('/loc-phim/ket-qua', [IndexControler::class, 'filter_movie']);
 Auth::routes();
 
 //ADMIN MANAGER
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [Admin_DashboardController::class, 'dashboard'])->name('home');
 
 /*Category - danh mục phim*/
 Route::resource('category', Admin_CategoryController::class);

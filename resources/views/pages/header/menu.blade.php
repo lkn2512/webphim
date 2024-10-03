@@ -52,7 +52,7 @@
                 <a href="#" class="nav__logo"></a>
                 <div class="nav__actions">
                     <i class="fa-solid fa-magnifying-glass nav__search" id="search-btn"></i>
-                    <i class="fa-regular fa-user nav__login" id="login-btn"></i>
+                    {{-- <i class="fa-regular fa-user nav__login" id="login-btn"></i> --}}
                 </div>
             </nav>
         </div>
@@ -146,7 +146,7 @@
 
 
 <!--==================== LOGIN ====================-->
-<div class="login" id="login">
+{{-- <div class="login" id="login">
     <form action="" class="login__form">
         <h2 class="login__title">Log In</h2>
         <div class="login__group">
@@ -170,4 +170,4 @@
         </div>
     </form>
     <i class="fa-regular fa-circle-xmark login__close" id="login-close"></i>
-</div>
+</div> --}}

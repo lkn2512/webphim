@@ -137,10 +137,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
     {{-- iziToast Notification --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-
     {{-- froala-editor --}}
     <script src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
 
@@ -179,7 +177,6 @@
             });
         @endif
     </script>
-
     {{-- Setting iziToastSettings.js --}}
     <script>
         $(function() {
@@ -210,8 +207,6 @@
             });
         });
     </script>
-    {{-- sử dụng data table --}}
-
     {{-- status button --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -252,8 +247,6 @@
             });
         });
     </script>
-    {{-- status button --}}
-
     {{-- Xoá dữ liệu trong table (dùng chung cho tất cả table) --}}
     <script>
         function deleteItem(element) {
@@ -290,8 +283,6 @@
             }
         }
     </script>
-    {{-- Xoá dữ liệu trong table --}}
-
     {{-- tự động đưa con trỏ chuột vào ô nhập liệu chứa class auto-focus khi trang được tải --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -301,8 +292,6 @@
             }
         });
     </script>
-    {{-- tự động đưa con trỏ chuột vào ô nhập liệu chứa class auto-focus khi trang được tải --}}
-
     {{-- Tự động tạo slug --}}
     <script>
         function removeVietnameseDiacritics(str) {
@@ -349,7 +338,10 @@
             });
         });
     </script>
-    {{-- Tự động tạo slug --}}
+    {{-- khởi tạo FroalaEditor --}}
+    <script>
+        new FroalaEditor('.froala-editor');
+    </script>
 
     @stack('edit-category-JS')
     @stack('edit-genre-JS')
@@ -358,12 +350,6 @@
     @stack('create-episode-JS')
     @stack('movie-episode-JS')
     @stack('view-movie-episode-JS')
-    {{-- khởi tạo FroalaEditor --}}
-    <script>
-        new FroalaEditor('.froala-editor');
-    </script>
-    {{-- khởi tạo FroalaEditor --}}
-
 
 </body>
 
