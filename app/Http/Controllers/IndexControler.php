@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Genre;
 use App\Models\Information_web;
 use App\Models\Movie;
+use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,9 @@ class IndexControler extends Controller
 
         //phim mới
         $new_movie = Movie::with(['latestEpisode', 'categories'])->where('status', 1)->orderBy('updated_at', 'DESC')->limit(16)->get();
+
+        //slider
+        $slider = Slider::with('movie')->orderBy('updated_at', 'desc')->get();
 
         //phim bộ
         $series_movie = Movie::whereHas('categories', function ($query) {
@@ -78,7 +82,7 @@ class IndexControler extends Controller
         // Top lượt xem
         $top_view = Movie::withSum('views', 'view_count')->orderBy('views_sum_view_count', 'desc')->take(10)->get();
 
-        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'series_movie', 'single_movie', 'view_movie', 'rankings_day', 'rankings_week', 'rankings_month', 'top_view', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
+        return view('pages.home', compact('category', 'genre', 'country', 'new_movie', 'slider', 'series_movie', 'single_movie', 'view_movie', 'rankings_day', 'rankings_week', 'rankings_month', 'top_view', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
     }
 
 
