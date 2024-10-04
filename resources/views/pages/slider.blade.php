@@ -5,7 +5,7 @@
                 @foreach ($slider as $value)
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="{{ URL::to('phim/' . $value->movie->slug) }}">
+                            <a href="{{ URL::to('phim/' . $value->movie->slug) }}" title="{{ $value->title }}">
                                 <img src="{{ asset('uploads/slider/' . $value->image) }}"
                                     alt="{{ $value->movie->title }}">
                             </a>
