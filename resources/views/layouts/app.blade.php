@@ -350,7 +350,7 @@
     @stack('create-episode-JS')
     @stack('movie-episode-JS')
     @stack('view-movie-episode-JS')
-
+    @stack('edit-slider-JS')
 </body>
 
 </html>

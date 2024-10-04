@@ -132,6 +132,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('slider.index') }}"
+                        class="nav-link {{ Request::is('slider*') ? 'active' : '' }}">
+                        <i class="nav-icon fa-regular fa-font-awesome"></i>
+                        <p>
+                            Slider
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
