@@ -194,7 +194,7 @@
 
                     if (content.length > 1000) {
                         $('.comment-error-message').text('Bình luận dài vậy, chắc chuyên văn đúng hông!')
-                    .show();
+                            .show();
                         isValid = false;
                     } else {
                         $('.comment-error-message').hide();

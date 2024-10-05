@@ -888,7 +888,7 @@ a {
 .comment-line {
     position: relative;
     border: none;
-    border-top: 1px solid gray;
+    border-top: 2px solid white !important;
     margin-top: 20px;
     margin-left: 120px;
 
