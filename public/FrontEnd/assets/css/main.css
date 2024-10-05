@@ -854,7 +854,7 @@ a {
 .comment-text {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     border: 1px solid rgb(58, 58, 58);
     border-radius: 5px;
     background-color: #161616;
@@ -865,6 +865,13 @@ a {
 .input-name::placeholder,
 .comment-text::placeholder {
     color: #bbb;
+}
+
+.name-error-message,
+.comment-error-message {
+    color: rgb(255, 53, 53);
+    display: none;
+
 }
 
 .comment-submit {

@@ -109,13 +109,14 @@
                             <input type="hidden" class="selected-avatar" name="avatar"
                                 value="{{ asset('Frontend/image/avatar1.png') }}">
                         </div>
-                        <input type="text" class="input-name" placeholder="Họ và tên" required> <br>
-                        <textarea class="comment-text" cols="30" rows="5" placeholder="Nhập bình luận của bạn..." required></textarea>
+                        <input type="text" class="input-name mb-1" placeholder="Họ và tên" required>
+                        <span class="name-error-message"></span>
+                        <textarea class="comment-text mt-2" cols="30" rows="5" placeholder="Nhập bình luận của bạn..." required></textarea>
+                        <span class="comment-error-message"></span>
                     </div>
                 </div>
-                <button class="comment-submit send-comment" type="button">Đăng bình luận</button>
+                <button class="comment-submit send-comment mt-2" type="button">Đăng bình luận</button>
             </form>
-
         </div>
         <div class="col-lg-12">
             <div class="comment-section">
@@ -133,17 +134,12 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const avatars = document.querySelectorAll('.avatar-option');
                 const selectedAvatarInput = document.querySelector('.selected-avatar');
-                // Đặt giá trị mặc định cho input ẩn là null
                 selectedAvatarInput.value = null;
                 avatars.forEach(avatar => {
                     avatar.addEventListener('click', function() {
-                        // Xóa lớp 'selected' khỏi các avatar khác
                         avatars.forEach(avatar => avatar.classList.remove('selected'));
-                        // Thêm lớp 'selected' cho avatar được chọn
                         this.classList.add('selected');
-                        // Lấy tên tệp từ src (chỉ lấy tên ảnh, bỏ phần đường dẫn)
                         const avatarFileName = this.src.split('/').pop();
-                        // Cập nhật giá trị của input ẩn với tên tệp
                         selectedAvatarInput.value = avatarFileName;
                     });
                 });
@@ -163,7 +159,7 @@
                         method: 'POST',
                         data: {
                             movie_id: movie_id,
-                            page: page, // Gửi số trang hiện tại
+                            page: page,
                             _token: _token
                         },
                         success: function(data) {
@@ -174,42 +170,65 @@
 
                 // Xử lý sự kiện khi nhấn vào các liên kết phân trang
                 $(document).on('click', '.pagination a', function(event) {
-                    event.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
-                    var page = $(this).attr('href').split('page=')[1]; // Lấy số trang từ URL
-                    load_comment(page); // Tải bình luận cho trang mới
+                    event.preventDefault();
+                    var page = $(this).attr('href').split('page=')[1];
+                    load_comment(page);
                 });
-
 
                 $('.send-comment').click(function() {
                     var movie_id = $('.movie_id').val();
-                    var avatar = $('.selected-avatar').val(); // Lấy avatar đã chọn
+                    var avatar = $('.selected-avatar').val();
                     var author = $('.input-name').val();
                     var content = $('.comment-text').val();
                     var _token = $('input[name="_token"]').val();
-                    $.ajax({
-                        url: "{{ url('/send-comment') }}",
-                        method: 'POST',
-                        data: {
-                            movie_id: movie_id,
-                            avatar: avatar,
-                            author: author,
-                            content: content,
-                            _token: _token
-                        },
-                        success: function(data) {
-                            if (data.error) {
-                                $('.comment-error-message').text(data.error).show();
-                            } else {
-                                load_comment();
-                                $('.comment-text').val('');
-                                $('.comment-error-message').hide();
+
+                    // Kiểm tra độ dài Họ và Tên và Bình luận
+                    var isValid = true;
+                    $('.comment-error-message').hide();
+                    if (author.length > 50) {
+                        $('.name-error-message').text('Tên hơi bị dài rồi đó bạn ê!').show();
+                        isValid = false;
+                    } else {
+                        $('.name-error-message').hide();
+                    }
+
+                    if (content.length > 1000) {
+                        $('.comment-error-message').text('Bình luận dài vậy, chắc chuyên văn đúng hông!')
+                    .show();
+                        isValid = false;
+                    } else {
+                        $('.comment-error-message').hide();
+                    }
+
+                    // Nếu tất cả hợp lệ, tiến hành gọi AJAX
+                    if (isValid) {
+                        $.ajax({
+                            url: "{{ url('/send-comment') }}",
+                            method: 'POST',
+                            data: {
+                                movie_id: movie_id,
+                                avatar: avatar,
+                                author: author,
+                                content: content,
+                                _token: _token
+                            },
+                            success: function(data) {
+                                if (data.error) {
+                                    $('.comment-error-message').text(data.error).show();
+                                } else {
+                                    load_comment(); // Gọi hàm load lại danh sách bình luận
+                                    $('.comment-text').val(
+                                        ''); // Xóa nội dung bình luận sau khi gửi thành công
+                                    $('.name-error-message, .comment-error-message').hide();
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error(xhr.responseText);
                             }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(xhr.responseText);
-                        }
-                    });
+                        });
+                    }
                 });
+
 
                 $(document).on('click', '.recall-comment', function() {
                     var comment_id = $(this).data('comment_id');

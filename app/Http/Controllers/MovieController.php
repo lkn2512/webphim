@@ -127,7 +127,7 @@ class MovieController extends Controller
                     $output .= '<img class="img-comment" src="' . asset('Frontend/image/avatar.png') . '" alt="Avatar">';
                 }
                 $output .= '</div>
-                    <div class="col-lg-11 col-md-10 col-sm-9 col-11 mb-1 mt-1">
+                    <div class="col-lg-11 col-md-10 col-sm-9 col-12 mb-1 mt-1">
                         <div class="comment-author">
                             <span class="comment-name">' . htmlspecialchars($comment->author) . '</span> 
                             <span class="time"><i class="fa-regular fa-clock"></i> ' . $comment->created_at->diffForHumans() . '</span>
