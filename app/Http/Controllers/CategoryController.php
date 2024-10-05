@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Movie;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -32,6 +33,10 @@ class CategoryController extends Controller
         $meta_image = '';
         $meta_url = url('danh-muc/' . $slug);
 
-        return view('pages.category', compact('slugCategory', 'titleCategory', 'categoryAllMovie', 'bxh_movie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
+        $slider = Slider::whereHas('movie.categories', function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->orderByDesc('updated_at')->get();
+
+        return view('pages.category', compact('slugCategory', 'titleCategory', 'categoryAllMovie', 'bxh_movie', 'meta_title', 'meta_description', 'meta_image', 'meta_url', 'slider'));
     }
 }

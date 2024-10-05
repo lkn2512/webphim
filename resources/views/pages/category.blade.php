@@ -12,17 +12,13 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                 <div class="category-slider">
                     <div class="multiple-items">
-                        <div class=" item">
-                            <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
-                        </div>
-                        <div class=" item"> <img src="{{ asset('Frontend/image/s2.jpg') }}" alt="">
-                        </div>
-                        <div class=" item">
-                            <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
-                        </div>
-                        <div class=" item">
-                            <img src="{{ asset('Frontend/image/s1.jpg') }}" alt="">
-                        </div>
+                        @foreach ($slider as $sli)
+                            <div class="item">
+                                <a href="{{ URL::to('phim/' . $sli->movie->slug) }}">
+                                    <img src="{{ asset('uploads/slider/' . $sli->image) }}" alt="{{ $sli->movie->title }}">
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="row mt-4">
