@@ -65,9 +65,8 @@ class EpisodeController extends Controller
                     'message' => 'Phim lẻ chỉ có thể có 1 tập. Bạn không thể thêm tập mới!'
                 ], 409);
             }
-
             // Nếu chưa có tập nào, thêm tập với số tập là "1" (hoặc 'Full' nếu muốn)
-            $episodeNumber = 1; // Hoặc gán 'Full' nếu muốn hiển thị khác
+            $episodeNumber = 'Full';
         } else {
             // Kiểm tra nếu số tập đã tồn tại cho phim bộ
             $existingEpisode = Episode::where('movie_id', $movie->id)

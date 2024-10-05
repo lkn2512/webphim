@@ -22,7 +22,7 @@ class MovieController extends Controller
             $movie_detail = Movie::with(['categories', 'genres', 'countries', 'episodes'])->where('id', $IdMovie)->where('status', 1)->withCount('episodes')->firstOrFail();
 
             //Các phần liên quan
-            $series_movie = Movie::with('series')->where('series_id', $movie_detail->series_id)->where('id', '!=', $movie_detail->id)->Where('series_id', '>', 0)->orderBy('title')->get();
+            $series_movie = Movie::with('series')->where('series_id', $movie_detail->series_id)->where('id', '!=', $movie_detail->id)->Where('series_id', '>', 0)->orderBy('id', 'desc')->get();
 
             //Các tập phim
             $episode_movie = Episode::where('movie_id', $IdMovie)
@@ -84,7 +84,7 @@ class MovieController extends Controller
             ->get();
 
         //Các phần liên quan
-        $series_movie = Movie::with('series')->where('series_id', $movie->series_id)->where('id', '!=', $movie->id)->Where('series_id', '>', 0)->orderBy('title')->get();
+        $series_movie = Movie::with('series')->where('series_id', $movie->series_id)->where('id', '!=', $movie->id)->Where('series_id', '>', 0)->orderBy('id', 'desc')->get();
 
         //tăng view
         $today = Carbon::today();

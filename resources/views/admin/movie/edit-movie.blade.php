@@ -201,7 +201,7 @@
                                     </div>
                                     <select id="inputSeries" class="form-control custom-select select2"
                                         name="movieSeries">
-                                        <option value="0">Không có</option>
+                                        <option value="{{ null }}">Không có</option>
                                         @foreach ($series as $ser)
                                             <option value="{{ $ser->id }}"
                                                 {{ isset($editMovie->series) && $editMovie->series->id == $ser->id ? 'selected' : '' }}>

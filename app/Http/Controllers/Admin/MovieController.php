@@ -71,6 +71,11 @@ class MovieController extends Controller
             $movie->description = $data['movieDescription'];
             $movie->translation = $data['movieTranslation'];
             $movie->release_year = $data['movieYear'];
+            if ($data['movieSeries'] != null) {
+                $movie->series_id = $data['movieSeries'];
+            } else {
+                $movie->series_id = null;
+            }
             $movie->status = $data['movieStatus'];
             $movie->save();
 
@@ -131,7 +136,12 @@ class MovieController extends Controller
             $movie->description = $request->movieDescription;
             $movie->translation = $request->movieTranslation;
             $movie->release_year = $request->movieYear;
-            $movie->series_id = $request->movieSeries;
+
+            if ($request->movieSeries != null) {
+                $movie->series_id = $request->movieSeries;
+            } else {
+                $movie->series_id = null;
+            }
             $movie->status = $request->movieStatus;
 
             $get_image = $request->file('movieImage');

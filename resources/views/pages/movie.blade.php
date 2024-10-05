@@ -46,7 +46,7 @@
                             <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
                             <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
                                 @if ($latestEpisode)
-                                    {{ $latestEpisode->episode_display }} - {{ $latestEpisode->duration }}
+                                    {{ $latestEpisode->episode_display }}, {{ $latestEpisode->duration }}
                                 @else
                                     Phim này hiện đang được cập nhật
                                 @endif

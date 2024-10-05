@@ -179,7 +179,7 @@
                                     </div>
                                     <select id="inputSeries" class="form-control custom-select select2"
                                         name="movieSeries">
-                                        <option value="0" selected>Không có</option>
+                                        <option value="{{ null }}" selected>Không có</option>
                                         @foreach ($series as $ser)
                                             <option value="{{ $ser->id }}">{{ $ser->title }}</option>
                                         @endforeach
