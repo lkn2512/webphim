@@ -25,7 +25,9 @@ class MovieController extends Controller
             $series_movie = Movie::with('series')->where('series_id', $movie_detail->series_id)->where('id', '!=', $movie_detail->id)->Where('series_id', '>', 0)->orderBy('title')->get();
 
             //Các tập phim
-            $episode_movie = Episode::where('movie_id', $IdMovie)->where('status', 1)->orderBy('episode_number', 'desc')->get();
+            $episode_movie = Episode::where('movie_id', $IdMovie)
+                ->where('status', 1)->orderBy('id', 'desc')
+                ->get();
 
             // Lấy danh mục của phim hiện tại
             $getCategory = $movie_detail->categories->pluck('id');
@@ -72,9 +74,13 @@ class MovieController extends Controller
         $episode = $movie->episodes()->where('episode_number', $tap)->firstOrFail();
 
         //Các tập phim
+        // $episode_movie = Episode::where('movie_id', $movie_id)
+        //     ->where('status', 1)
+        //     ->orderByRaw('REGEXP_REPLACE(episode_number, "[^0-9]", "") + 0 DESC')
+        //     ->get();
         $episode_movie = Episode::where('movie_id', $movie_id)
             ->where('status', 1)
-            ->orderByRaw('REGEXP_REPLACE(episode_number, "[^0-9]", "") + 0 DESC')
+            ->orderByDesc('id')
             ->get();
 
         //Các phần liên quan

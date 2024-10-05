@@ -23,7 +23,7 @@
                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 text-center mb-3">
                     @php
                         // Lấy tập mới nhất của phim
-                        $latestEpisode = $movie_detail->episodes->sortByDesc('episode_number')->first();
+                        $latestEpisode = $movie_detail->episodes->sortByDesc('id')->first();
                     @endphp
                     <div class="img-container">
                         <img class="img-fluid" src="{{ asset('uploads/movies/' . $movie_detail->image) }}"
@@ -119,22 +119,20 @@
                             {!! $movie_detail->description !!}
                         </li>
                         <li class="tab-content tab-content-2 typography">
-                            <div class="row">
-                                @if ($episode_movie->count() > 0)
-                                    @foreach ($episode_movie as $epi)
-                                        <div class="col-lg-1 col-md-2 col-sm-2 col-2 mb-3">
-                                            <a
-                                                href="{{ URL::to('xem-phim/' . $movie_detail->slug . '/' . $epi->episode_display) }}">
-                                                <button class="btn-episode ">
-                                                    {{ $epi->episode_display }}
-                                                </button>
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <span class="note-null">Hiện chưa phim này chưa có tập nào</span>
-                                @endif
-                            </div>
+                            @if ($episode_movie->count() > 0)
+                                @foreach ($episode_movie as $epi)
+                                    <div class="episode-container">
+                                        <a
+                                            href="{{ URL::to('xem-phim/' . $movie_detail->slug . '/' . $epi->episode_display) }}">
+                                            <button class="btn-episode ">
+                                                {{ $epi->episode_display }}
+                                            </button>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @else
+                                <span class="note-null">Hiện chưa phim này chưa có tập nào</span>
+                            @endif
                         </li>
                         <li class="tab-content tab-content-last typography">
                             <div class="typography row">
