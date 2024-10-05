@@ -10,13 +10,13 @@
                                     alt="{{ $value->movie->title }}">
                             </a>
                         </div>
-                        <div class="tranding-slide-content">
+                        {{-- <div class="tranding-slide-content">
                             <div class="tranding-slide-content-bottom">
                                 <h2 class="slider-name">
                                     {{ $value->movie->title }}
                                 </h2>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 @endforeach
             </div>
