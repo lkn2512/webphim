@@ -70,18 +70,9 @@
             </div>
         </form>
     </div>
-    <div class="row mt-3">
-        <div class="title-section">
-            <div class="title-left col-lg-2 col-md-3 col-sm-4 col-2 col-md-4 col-sm-4 col-5">
-                <span class="title-text">Kết quả lọc phim</span>
-            </div>
-            <div class="title-right col-lg-10 col-md-8 col-sm-8 col-7">
-                <span class="view-all"></span>
-            </div>
-        </div>
-    </div>
+
     @if ($movies->count() > 0)
-        <div class="row">
+        <div class="row mt-3">
             @foreach ($movies as $value)
                 <div class="col-6 col-lg-2 col-md-3 col-sm-4 col-2 col-md-4 col-sm-6 mb-3">
                     <div class="card-film">

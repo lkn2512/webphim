@@ -34,6 +34,10 @@ class Movie extends Model
     {
         return $this->hasMany(Episode::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     //phim mới nhất
     public function latestEpisode()

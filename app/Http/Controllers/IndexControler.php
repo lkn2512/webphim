@@ -35,7 +35,7 @@ class IndexControler extends Controller
         $new_movie = Movie::with(['latestEpisode', 'categories'])->where('status', 1)->orderBy('updated_at', 'DESC')->limit(16)->get();
 
         //slider
-        $slider = Slider::with('movie')->orderBy('updated_at', 'desc')->get();
+        $slider = Slider::with('movie')->orderBy('updated_at', 'desc')->where('status', 1)->get();
 
         //phim bộ
         $series_movie = Movie::whereHas('categories', function ($query) {
@@ -106,7 +106,7 @@ class IndexControler extends Controller
 
     public function loc_phim_page()
     {
-        $movies = Movie::where('status', 1)->paginate(30);
+        $movies = Movie::where('status', 1)->orderBy('updated_at', 'desc')->paginate(30);
 
         $meta_title = 'Lọc phim';
         $meta_description = 'Lọc phim';

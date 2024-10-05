@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Episode;
 use App\Models\Movie;
 use App\Models\MovieView;
@@ -98,5 +99,119 @@ class MovieController extends Controller
         $meta_url = url('phim/' . $slug);
 
         return view('pages.watch', compact('movie', 'episode', 'episode_movie', 'series_movie', 'meta_title', 'meta_description', 'meta_image', 'meta_url'));
+    }
+
+    public function load_comment(Request $request)
+    {
+        $movie_id = $request->movie_id;
+        $ipAddress = request()->ip();
+
+        // Lấy danh sách bình luận của phim dựa trên movie_id với phân trang
+        $comments = Comment::with('movie')
+            ->where('movie_id', $movie_id)
+            ->orderBy('id', 'DESC')
+            ->paginate(6); // Số bình luận hiển thị trên mỗi trang (có thể thay đổi)
+
+        // Tạo chuỗi output chứa HTML hiển thị bình luận
+        $output = '';
+        if ($comments->isEmpty()) {
+            $output .= '<div class="no-comments">Hiện không có bình luận nào!</div>';
+        } else {
+            foreach ($comments as $comment) {
+                $output .= '<div class="comment-item">
+                <div class="row">
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-2 mb-1 mt-1">
+                        <img class="img-comment" src="' . asset('Frontend/image/avatar.png') . '" alt="Avatar">
+                    </div>
+                    <div class="col-lg-11 col-md-10 col-sm-9 col-11 mb-1 mt-1">
+                        <div class="comment-author">
+                            <span class="comment-name">' . htmlspecialchars($comment->author) . '</span> 
+                            <span class="time"><i class="fa-regular fa-clock"></i> ' . $comment->created_at->diffForHumans() . '</span>
+                        </div>
+                        <div class="comment-content">
+                            ' . nl2br(htmlspecialchars($comment->content)) . '</br>';
+
+                // Chỉ hiển thị thẻ <a> xoá bình luận nếu địa chỉ IP trùng khớp
+                if ($ipAddress == $comment->ip_address) {
+                    $output .= '<a type="button" class="recall-comment" data-comment_id="' . htmlspecialchars($comment->id) . '">Xoá bình luận</a>';
+                }
+                $output .= '</div>
+                        </div>
+                    </div>
+                </div>';
+            }
+
+
+            // Thêm phân trang
+            $output .= '<div class="pagination">';
+
+            // Trang trước
+            if ($comments->currentPage() > 1) {
+                $output .= '<a href="?page=' . ($comments->currentPage() - 1) . '">Trước</a>';
+            }
+            // Số trang hiển thị trước và sau trang hiện tại
+            $range = 2; // Số trang trước và sau trang hiện tại
+            // Hiển thị trang đầu tiên
+            if ($comments->currentPage() > $range + 1) {
+                $output .= '<a href="?page=1">1</a>';
+                if ($comments->currentPage() > $range + 2) {
+                    $output .= '<span class="page-disable">...</span>'; // Hiển thị dấu ba chấm
+                }
+            }
+            // Hiển thị các trang xung quanh trang hiện tại
+            for ($i = max(1, $comments->currentPage() - $range); $i <= min($comments->lastPage(), $comments->currentPage() + $range); $i++) {
+                if ($i == $comments->currentPage()) {
+                    $output .= '<span class="page-now">' . $i . '</span>'; // Trang hiện tại
+                } else {
+                    $output .= '<a href="?page=' . $i . '">' . $i . '</a>'; // Các trang khác
+                }
+            }
+            // Hiển thị trang cuối cùng
+            if ($comments->currentPage() < $comments->lastPage() - $range) {
+                if ($comments->currentPage() < $comments->lastPage() - $range - 1) {
+                    $output .= '<span class="page-disable">...</span>'; // Hiển thị dấu ba chấm
+                }
+                $output .= '<a href="?page=' . $comments->lastPage() . '">' . $comments->lastPage() . '</a>'; // Trang cuối cùng
+            }
+            // Trang tiếp theo
+            if ($comments->hasMorePages()) {
+                $output .= '<a href="?page=' . ($comments->currentPage() + 1) . '">Sau</a>';
+            }
+
+            $output .= '</div>'; // Kết thúc phân trang
+
+        }
+
+        // Trả về kết quả là HTML đã được render
+        return response()->json(['output' => $output]);
+    }
+
+
+
+
+    public function send_comment(Request $request)
+    {
+        // Lưu bình luận vào bảng Comment
+        $comment = new Comment();
+        $ipAddress = request()->ip();
+        $comment->ip_address = $ipAddress;
+        $comment->movie_id = $request->movie_id;
+        $comment->author = $request->author;
+        $comment->content = $request->content;
+
+        $comment->save();
+
+        return response()->json(['success' => true]);
+    }
+    public function recall_comment(Request $request)
+    {
+        $comment = Comment::where('id', $request->comment_id)->first();
+        if ($comment) {
+            // $comment_replies = Comment::where('comment_parent_comment', $request->comment_id)->get();
+            // foreach ($comment_replies as $com_rep) {
+            //     $com_rep->delete();
+            // }
+            $comment->delete();
+        }
     }
 }

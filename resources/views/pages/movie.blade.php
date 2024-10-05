@@ -46,11 +46,6 @@
                             <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
                             <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
                                 @if ($latestEpisode)
-                                    {{-- @if ($movie_detail->categories->where('slug', 'phim-le')->isEmpty())
-                                        Tập {{ $latestEpisode->episode_number }} - {{ $latestEpisode->duration }}
-                                    @else
-                                        Full - {{ $latestEpisode->duration }}
-                                    @endif --}}
                                     {{ $latestEpisode->episode_display }} - {{ $latestEpisode->duration }}
                                 @else
                                     Phim này hiện đang được cập nhật

@@ -10,7 +10,7 @@
                     <span class="title-text">Phim mới cập nhật</span>
                 </div>
                 <div class="title-right col-lg-9 col-md-6 col-sm-7 col-6">
-                    <span class="view-all"><a class="text" href="">Xem thêm</a></span>
+                    <span class="view-all"><a class="text" href="{{ URL::to('loc-phim') }}">Xem thêm</a></span>
                 </div>
             </div>
             <div class="row">

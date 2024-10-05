@@ -102,9 +102,6 @@
             });
         });
     </script>
-
-    @stack('Slider-JS')
-
     {{-- slick control --}}
     <script>
         $(document).ready(function() {
@@ -118,7 +115,10 @@
             });
         });
     </script>
+
+    @stack('Slider-JS')
     @stack('search-JS')
+    @stack('comment-JS')
 
 </body>
 

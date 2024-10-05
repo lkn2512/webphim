@@ -76,4 +76,108 @@
             </div>
         </div>
     </div>
+    <div class="row mt-4">
+        <div class="col-lg-12 position-relative mb-4">
+            <hr class="comment-line">
+            <h5 class="comment-title">Bình luận</h5>
+        </div>
+        <div class="col-lg-12 mb-4">
+            <form>
+                @csrf
+                <input type="text" class="input-name" placeholder="Họ và tên" required> <br>
+                <textarea class="comment-text" cols="30" rows="5" placeholder="Nhập bình luận của bạn..." required></textarea>
+                <button class="comment-submit send-comment" type="button">Đăng bình luận</button>
+            </form>
+        </div>
+        <div class="col-lg-12">
+            <div class="comment-section">
+                <form>
+                    @csrf
+                    <input class="movie_id" type="hidden" name="movie_id" value="{{ $movie->id }}">
+                    <div id="comment_show">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @push('comment-JS')
+        <script>
+            $(document).ready(function() {
+                load_comment();
+
+                function load_comment(page = 1) {
+                    var movie_id = $('.movie_id').val();
+                    var _token = $('input[name="_token"]').val();
+
+                    $.ajax({
+                        url: "{{ url('/load-comment') }}",
+                        method: 'POST',
+                        data: {
+                            movie_id: movie_id,
+                            page: page, // Gửi số trang hiện tại
+                            _token: _token
+                        },
+                        success: function(data) {
+                            $('#comment_show').html(data.output); // Thay thế bình luận mới vào danh sách
+                        }
+                    });
+                }
+
+                // Xử lý sự kiện khi nhấn vào các liên kết phân trang
+                $(document).on('click', '.pagination a', function(event) {
+                    event.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
+                    var page = $(this).attr('href').split('page=')[1]; // Lấy số trang từ URL
+                    load_comment(page); // Tải bình luận cho trang mới
+                });
+
+
+                $('.send-comment').click(function() {
+                    var movie_id = $('.movie_id').val();
+                    var author = $('.input-name').val();
+                    var content = $('.comment-text').val();
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ url('/send-comment') }}",
+                        method: 'POST',
+                        data: {
+                            movie_id: movie_id,
+                            author: author,
+                            content: content,
+                            _token: _token
+                        },
+                        success: function(data) {
+                            if (data.error) {
+                                $('.comment-error-message').text(data.error).show();
+                            } else {
+                                load_comment();
+                                $('.comment-text').val('');
+                                $('.comment-error-message').hide();
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
+                    });
+                });
+
+                $(document).on('click', '.recall-comment', function() {
+                    var comment_id = $(this).data('comment_id');
+                    var _token = $('input[name="_token"]').val();
+                    if (confirm('Bạn có chắc là muốn xóa bình luận này?')) {
+                        $.ajax({
+                            url: "{{ url('/recall-comment') }}",
+                            method: 'POST',
+                            data: {
+                                comment_id: comment_id,
+                                _token: _token
+                            },
+                            success: function(data) {
+                                load_comment();
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+    @endpush
 @endsection

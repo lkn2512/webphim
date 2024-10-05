@@ -847,3 +847,125 @@ a {
         float: left;
     }
 }
+
+
+/*COMMENT*/
+.input-name,
+.comment-text {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(58, 58, 58);
+    border-radius: 5px;
+    background-color: #161616;
+    color: #fff;
+    font-size: 16px;
+}
+
+.input-name::placeholder,
+.comment-text::placeholder {
+    color: #bbb;
+}
+
+.comment-submit {
+    padding: 8px 20px;
+    background-color: #184785;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.comment-line {
+    position: relative;
+    border: none;
+    border-top: 1px solid gray;
+    margin-top: 20px;
+    margin-left: 100px;
+
+}
+
+.comment-title {
+    background: #101014;
+    position: absolute;
+    bottom: -15px;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+}
+
+.comment-section {
+    padding: 10px;
+    background-color: #101014;
+    border: 1px solid rgb(58, 58, 58);
+    border-radius: 5px;
+}
+
+.img-comment {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.comment-item {
+    padding: 10px;
+    border-bottom: 1px solid rgb(39, 39, 39);
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-author .comment-name {
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+}
+
+.comment-author .time {
+    font-weight: 300;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-left: 10px;
+}
+
+
+.comment-content {
+    margin-top: 5px;
+}
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa phân trang */
+    margin: 20px 0;
+    /* Khoảng cách trên và dưới */
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    color: #ffffff;
+    background-color: rgb(50, 50, 50);
+    border: 1px solid rgb(50, 50, 50);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover,
+.pagination .page-now {
+    border: 1px solid #184785;
+    background-color: #184785;
+}
+
+.pagination .page-disable {
+    background: #101014;
+    cursor: not-allowed;
+}

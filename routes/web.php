@@ -36,6 +36,12 @@ Route::get('/tap-phim', [IndexControler::class, 'episode']);
 Route::get('/tim-kiem', [IndexControler::class, 'search'])->name('tim-kiem');
 Route::get('/loc-phim', [IndexControler::class, 'loc_phim_page']);
 Route::get('/loc-phim/ket-qua', [IndexControler::class, 'filter_movie']);
+
+/*comment*/
+Route::post('/load-comment', [MovieController::class, 'load_comment'])->name('load.comment');
+
+Route::post('/send-comment', [MovieController::class, 'send_comment']);
+Route::post('/recall-comment', [MovieController::class, 'recall_comment']);
 Auth::routes();
 
 
