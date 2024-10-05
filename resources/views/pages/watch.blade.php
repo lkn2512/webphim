@@ -84,10 +84,38 @@
         <div class="col-lg-12 mb-4">
             <form>
                 @csrf
-                <input type="text" class="input-name" placeholder="Họ và tên" required> <br>
-                <textarea class="comment-text" cols="30" rows="5" placeholder="Nhập bình luận của bạn..." required></textarea>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="avatar-selection">
+                            <p>Chọn một avatar:</p>
+                            <div class="avatars">
+                                <img src="{{ asset('Frontend/image/avatar.png') }}" class="avatar-option" alt="Avatar 2">
+                                <img src="{{ asset('Frontend/image/avatar1.png') }}" class="avatar-option" alt="Avatar 1">
+                                <img src="{{ asset('Frontend/image/avatar2.png') }}" class="avatar-option" alt="Avatar 3">
+                                <img src="{{ asset('Frontend/image/avatar4.png') }}" class="avatar-option" alt="Avatar 4">
+                                <img src="{{ asset('Frontend/image/avatar5.jpg') }}" class="avatar-option" alt="Avatar 5">
+                                <img src="{{ asset('Frontend/image/avatar6.jpg') }}" class="avatar-option" alt="Avatar 6">
+                                <img src="{{ asset('Frontend/image/avatar7.jpg') }}" class="avatar-option" alt="Avatar 7">
+                                <img src="{{ asset('Frontend/image/avatar8.jpg') }}" class="avatar-option" alt="Avatar 8">
+                                <img src="{{ asset('Frontend/image/avatar9.jpg') }}" class="avatar-option" alt="Avatar 9">
+                                <img src="{{ asset('Frontend/image/avatar10.png') }}" class="avatar-option"
+                                    alt="Avatar 10">
+                                <img src="{{ asset('Frontend/image/avatar11.png') }}" class="avatar-option"
+                                    alt="Avatar 11">
+                                <img src="{{ asset('Frontend/image/avatar12.png') }}" class="avatar-option"
+                                    alt="Avatar 12">
+                            </div>
+                            <!-- Ẩn input để lưu giá trị avatar được chọn -->
+                            <input type="hidden" class="selected-avatar" name="avatar"
+                                value="{{ asset('Frontend/image/avatar1.png') }}">
+                        </div>
+                        <input type="text" class="input-name" placeholder="Họ và tên" required> <br>
+                        <textarea class="comment-text" cols="30" rows="5" placeholder="Nhập bình luận của bạn..." required></textarea>
+                    </div>
+                </div>
                 <button class="comment-submit send-comment" type="button">Đăng bình luận</button>
             </form>
+
         </div>
         <div class="col-lg-12">
             <div class="comment-section">
@@ -101,6 +129,27 @@
         </div>
     </div>
     @push('comment-JS')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const avatars = document.querySelectorAll('.avatar-option');
+                const selectedAvatarInput = document.querySelector('.selected-avatar');
+                // Đặt giá trị mặc định cho input ẩn là null
+                selectedAvatarInput.value = null;
+                avatars.forEach(avatar => {
+                    avatar.addEventListener('click', function() {
+                        // Xóa lớp 'selected' khỏi các avatar khác
+                        avatars.forEach(avatar => avatar.classList.remove('selected'));
+                        // Thêm lớp 'selected' cho avatar được chọn
+                        this.classList.add('selected');
+                        // Lấy tên tệp từ src (chỉ lấy tên ảnh, bỏ phần đường dẫn)
+                        const avatarFileName = this.src.split('/').pop();
+                        // Cập nhật giá trị của input ẩn với tên tệp
+                        selectedAvatarInput.value = avatarFileName;
+                    });
+                });
+            });
+        </script>
+
         <script>
             $(document).ready(function() {
                 load_comment();
@@ -118,7 +167,7 @@
                             _token: _token
                         },
                         success: function(data) {
-                            $('#comment_show').html(data.output); // Thay thế bình luận mới vào danh sách
+                            $('#comment_show').html(data.output);
                         }
                     });
                 }
@@ -133,6 +182,7 @@
 
                 $('.send-comment').click(function() {
                     var movie_id = $('.movie_id').val();
+                    var avatar = $('.selected-avatar').val(); // Lấy avatar đã chọn
                     var author = $('.input-name').val();
                     var content = $('.comment-text').val();
                     var _token = $('input[name="_token"]').val();
@@ -141,6 +191,7 @@
                         method: 'POST',
                         data: {
                             movie_id: movie_id,
+                            avatar: avatar,
                             author: author,
                             content: content,
                             _token: _token

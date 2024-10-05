@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
     protected $table = 'comments';
-    protected $fillable = ['movie_id', 'ip_address', 'content', 'parent_id', 'status'];
+    protected $fillable = ['movie_id', 'ip_address', 'author', 'avatar', 'content', 'parent_id', 'status'];
 
     public function movie()
     {
