@@ -88,7 +88,7 @@
             @if ($episodes->isEmpty())
                 <span>Hiện không có tập phim nào.</span>
             @else
-                <table class="table table-hover align-middle table-bordered" id=example1>
+                <table class="table table-hover align-middle table-bordered">
                     <thead>
                         <tr>
                             <th>Tập</th>
