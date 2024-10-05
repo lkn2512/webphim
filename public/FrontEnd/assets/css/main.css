@@ -765,15 +765,23 @@ hr {
     margin-inline: 0px;
 }
 
+.episode-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+    display: inline-block;
+    padding: 5px;
+}
+
+
 .btn-episode {
-    background: #0a2344;
+    background: #222427;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     padding-block: 10px;
-    width: 60px;
-    max-width: 100px;
     font-size: 1rem;
+    width: 70px;
 }
 
 .btn-episode.active {
@@ -926,10 +934,24 @@ a {
 }
 
 .comment-author .comment-name {
-    font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: capitalize;
+    border: 1px solid #006241;
+    padding: 1px 5px;
+    border-radius: 5px;
+    background: #006241;
+    color: whitesmoke;
 }
+
+.recall-comment {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.recall-comment:hover {
+    text-decoration: underline !important;
+}
+
 
 .comment-author .time {
     font-weight: 300;
@@ -937,7 +959,6 @@ a {
     opacity: 0.6;
     margin-left: 10px;
 }
-
 
 .comment-content {
     margin-top: 5px;

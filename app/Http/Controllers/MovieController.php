@@ -72,7 +72,10 @@ class MovieController extends Controller
         $episode = $movie->episodes()->where('episode_number', $tap)->firstOrFail();
 
         //Các tập phim
-        $episode_movie = Episode::where('movie_id', $movie_id)->where('status', 1)->orderBy('episode_number', 'desc')->get();
+        $episode_movie = Episode::where('movie_id', $movie_id)
+            ->where('status', 1)
+            ->orderByRaw('REGEXP_REPLACE(episode_number, "[^0-9]", "") + 0 DESC')
+            ->get();
 
         //Các phần liên quan
         $series_movie = Movie::with('series')->where('series_id', $movie->series_id)->where('id', '!=', $movie->id)->Where('series_id', '>', 0)->orderBy('title')->get();
@@ -106,13 +109,11 @@ class MovieController extends Controller
         $movie_id = $request->movie_id;
         $ipAddress = request()->ip();
 
-        // Lấy danh sách bình luận của phim dựa trên movie_id với phân trang
         $comments = Comment::with('movie')
             ->where('movie_id', $movie_id)
             ->orderBy('id', 'DESC')
-            ->paginate(6); // Số bình luận hiển thị trên mỗi trang (có thể thay đổi)
+            ->paginate(6);
 
-        // Tạo chuỗi output chứa HTML hiển thị bình luận
         $output = '';
         if ($comments->isEmpty()) {
             $output .= '<div class="no-comments">Hiện không có bình luận nào!</div>';
@@ -148,7 +149,6 @@ class MovieController extends Controller
 
             // Thêm phân trang
             $output .= '<div class="pagination">';
-
             // Trang trước
             if ($comments->currentPage() > 1) {
                 $output .= '<a href="?page=' . ($comments->currentPage() - 1) . '">Trước</a>';
@@ -181,17 +181,10 @@ class MovieController extends Controller
             if ($comments->hasMorePages()) {
                 $output .= '<a href="?page=' . ($comments->currentPage() + 1) . '">Sau</a>';
             }
-
-            $output .= '</div>'; // Kết thúc phân trang
-
+            $output .= '</div>';
         }
-
-        // Trả về kết quả là HTML đã được render
         return response()->json(['output' => $output]);
     }
-
-
-
 
     public function send_comment(Request $request)
     {
