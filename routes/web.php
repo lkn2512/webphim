@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SeriesController as Admin_SeriesController;
 use App\Http\Controllers\Admin\InformationController as Admin_InformationController;
 use App\Http\Controllers\Admin\DashboardController as Admin_DashboardController;
 use App\Http\Controllers\Admin\SliderController as Admin_SliderController;
+use App\Http\Controllers\Admin\CommentController as Admin_CommentController;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
@@ -84,3 +85,9 @@ Route::resource('information', Admin_InformationController::class);
 Route::resource('slider', Admin_SliderController::class);
 Route::get('slider/active/{id}', [Admin_SliderController::class, 'activeSlider']);
 Route::get('slider/unactive/{id}', [Admin_SliderController::class, 'unactiveSlider']);
+
+
+/*Comment - bình luận*/
+Route::resource('comment', Admin_CommentController::class);
+Route::get('comment/active/{id}', [Admin_CommentController::class, 'activeComment']);
+Route::get('comment/unactive/{id}', [Admin_CommentController::class, 'unactiveComment']);

@@ -122,6 +122,15 @@
                         <p>Tập phim</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('comment.index') }}"
+                        class="nav-link {{ Request::is('comment*') ? 'active' : '' }}">
+                        <i class="nav-icon fa-regular fa-comments"></i>
+                        <p>
+                            Bình luận
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">Website</li>
                 <li class="nav-item">
                     <a href="{{ route('information.index') }}"

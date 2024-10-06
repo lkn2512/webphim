@@ -117,6 +117,7 @@ class MovieController extends Controller
 
         $comments = Comment::with('movie')
             ->where('movie_id', $movie_id)
+            ->where('status', 1)
             ->orderBy('id', 'DESC')
             ->paginate(6);
 
