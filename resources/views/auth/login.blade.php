@@ -81,7 +81,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="row mb-2">
+                        <div class="row mb-3">
                             <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
                             <div>
                                 <input id="email" type="email" class="custom-form-control" name="email"
@@ -93,7 +93,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mb-3">
                             <label for="password" class="col-form-label">{{ __('Password') }}</label>
                             <div>
                                 <input id="password" type="password" class="custom-form-control" name="password" required>
@@ -104,7 +104,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row m-2 mb-0 mt-3">
+                        <div class="row m-2 mt-3 mb-4">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                     {{ old('remember') ? 'checked' : '' }}>
