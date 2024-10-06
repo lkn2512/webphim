@@ -351,6 +351,7 @@
     @stack('movie-episode-JS')
     @stack('view-movie-episode-JS')
     @stack('edit-slider-JS')
+    @stack('delete-select-comment-JS')
 </body>
 
 </html>

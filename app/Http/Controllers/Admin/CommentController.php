@@ -73,10 +73,23 @@ class CommentController extends Controller
         } else {
             return response()->json([
                 'status' => 'error',
-                'message' => 'bình luận tồn tại!'
+                'message' => 'bình luận không tồn tại!'
             ]);
         }
     }
+    public function deleteMultiple(Request $request)
+    {
+        $ids = $request->input('ids');
+
+        // Kiểm tra xem có bình luận nào không
+        if (empty($ids)) {
+            return response()->json(['status' => 'error', 'message' => 'Không có bình luận nào được chọn.']);
+        }
+        // Xoá bình luận
+        Comment::destroy($ids);
+        return response()->json(['status' => 'success', 'message' => 'Đã xoá các bình luận được chọn.']);
+    }
+
     public function activeComment($id)
     {
         try {

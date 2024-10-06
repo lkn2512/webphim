@@ -77,11 +77,20 @@
             </form>
             <!-- Hình ảnh phim sau khi nhấn "Chọn" -->
             <div class="card">
-                <div class="card-body text-center">
+                <div class="card-body" style="max-height:350px">
                     @if (!empty($selectedMovieData))
-                        <img id="movieImage" class="img-fluid"
-                            src="{{ asset('uploads/movies/' . $selectedMovieData->image) }}"
-                            alt="{{ $selectedMovieData->title }}">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-4 col-sm-4 col-6">
+                                <img id="movieImage" class="img-fluid"
+                                    src="{{ asset('uploads/movies/' . $selectedMovieData->image) }}"
+                                    alt="{{ $selectedMovieData->title }}">
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-8 col-6">
+                                <h5 style="text-transform: capitalize">{{ $selectedMovieData->title }}</h5>
+                                <hr>
+                                <h5> {{ $episodes->count() }} tập</h5>
+                            </div>
+                        </div>
                     @else
                         <img id="movieImage" class="img-fluid" src="" alt="Chọn phim để xem hình ảnh">
                     @endif
@@ -91,15 +100,15 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Các Tập Phim</h3>
+                    <h3 class="card-title fw-bold">Các Tập Phim</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="note-container">
+                <div class="card-body" style="max-height:460px; overflow-y: auto;">
+                    <div class="note-container m-0 mb-3">
                         <h2 class="note-title">Ghi Chú</h2>
                         <li>- Nếu là phim lẻ, ghi là "Full"</li>
                         <li>- Nếu là phim bộ, ghi là "Tập + số". Ví dụ: Tập 2</li>
@@ -142,7 +151,8 @@
                                         </td>
                                         <td>
                                             <a href="javascript:void(0);" class="btn-remove" data-id="{{ $value->id }}"
-                                                data-type="episode" data-confirm-message="Bạn có chắc là muốn xoá tập này?"
+                                                data-type="episode"
+                                                data-confirm-message="Bạn có chắc là muốn xoá tập này?"
                                                 onclick="deleteItem(this)" title="Xoá">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </a>

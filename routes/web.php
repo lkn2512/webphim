@@ -91,3 +91,4 @@ Route::get('slider/unactive/{id}', [Admin_SliderController::class, 'unactiveSlid
 Route::resource('comment', Admin_CommentController::class);
 Route::get('comment/active/{id}', [Admin_CommentController::class, 'activeComment']);
 Route::get('comment/unactive/{id}', [Admin_CommentController::class, 'unactiveComment']);
+Route::post('/comment/delete-multiple', [Admin_CommentController::class, 'deleteMultiple'])->name('comment.deleteMultiple');
