@@ -26,7 +26,19 @@
                             <div class="card-film">
                                 <a href="{{ URL::to('phim/' . $value->slug) }}">
                                     @if ($value->latestEpisode)
-                                        <span class="episode">{{ $value->latestEpisode->episode_display }}</span>
+                                        @if ($value->isPhimle())
+                                            <span class="episode">{{ $value->latestEpisode->episode_display }}</span>
+                                        @elseif($value->isPhimbo())
+                                            @if ($value->completion_status == 1)
+                                                <span class="episode">{{ $value->latestEpisode->episode_display }},
+                                                    END</span>
+                                            @elseif($value->completion_status == 2)
+                                                <span class="episode">{{ $value->latestEpisode->episode_display }},
+                                                    Tạm dừng</span>
+                                            @else
+                                                <span class="episode">{{ $value->latestEpisode->episode_display }}</span>
+                                            @endif
+                                        @endif
                                     @else
                                         <span class="episode">Đang cập nhật</span>
                                     @endif

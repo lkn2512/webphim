@@ -38,13 +38,13 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-7 col-sm-6 col-12  mb-3">
+                <div class="col-lg-8 col-md-7 col-sm-6 col-12 mb-3">
                     <div class="detailMovie-container">
                         <h5 class="name">{{ $movie_detail->title }}</h5>
                         <span class="sub-name">{{ $movie_detail->sub_title }}</span>
                         <div class="row new-episode mt-2">
-                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Mới nhất:</span>
-                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-5">Mới nhất:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-7">
                                 @if ($latestEpisode)
                                     {{ $latestEpisode->episode_display }}, {{ $latestEpisode->duration }}
                                 @else
@@ -62,14 +62,14 @@
                                     3 => 'Lồng tiếng',
                                 ];
                             @endphp
-                            <span class="col-lg-4 col-md-6 col-sm-6 col-6 title-left">Phiên dịch nội dung: </span>
+                            <span class="col-lg-4 col-md-6 col-sm-6 col-5 title-left">Phiên dịch nội dung: </span>
                             <span
-                                class="col-lg-8 col-md-6 col-sm-6 col-6 text">{{ $translations[$movie_detail->translation] ?? 'Không có' }}</span>
+                                class="col-lg-8 col-md-6 col-sm-6 col-7 text">{{ $translations[$movie_detail->translation] ?? 'Không có' }}</span>
                         </div>
                         <hr>
                         <div class="row movie-category">
-                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Danh mục phim:</span>
-                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-5">Danh mục phim:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-7">
                                 @foreach ($movie_detail->categories as $category)
                                     {{ $category->title }}{{ !$loop->last ? ', ' : ' ' }}
                                 @endforeach
@@ -77,8 +77,8 @@
                         </div>
                         <hr>
                         <div class="row movie-country">
-                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Thể loại phim:</span>
-                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-5">Thể loại phim:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-7">
                                 @foreach ($movie_detail->genres as $gen)
                                     {{ $gen->title }}{{ !$loop->last ? ', ' : '' }}
                                 @endforeach
@@ -86,8 +86,8 @@
                         </div>
                         <hr>
                         <div class="row movie-genre">
-                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Quốc gia sản xuất:</span>
-                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-5">Quốc gia sản xuất:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-7">
                                 @foreach ($movie_detail->countries as $coun)
                                     {{ $coun->title }}{{ !$loop->last ? ', ' : '' }}
                                 @endforeach
@@ -95,10 +95,22 @@
                         </div>
                         <hr>
                         <div class="row info-different">
-                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-6">Thông tin khác:</span>
-                            <span class="text col-lg-8 col-md-6 col-sm-6 col-6">
+                            <span class="title-left col-lg-4 col-md-6 col-sm-6 col-5">Thông tin khác:</span>
+                            <span class="text col-lg-8 col-md-6 col-sm-6 col-7">
                                 <i class="fa-regular fa-calendar"></i>{{ $movie_detail->release_year }},
                                 {{ $movie_detail->episodes_count }} tập
+                                @if ($movie_detail->latestEpisode)
+                                    @if ($movie_detail->completion_status == 1)
+                                        <span class="text-success" style="float: right"><i
+                                                class="fa-regular fa-circle-check"></i>Hoàn
+                                            thành</span>
+                                    @elseif($movie_detail->completion_status == 2)
+                                        <span class="text-danger"style="float: right"><i class="fa-solid fa-pause"></i>Tạm
+                                            dừng</span>
+                                    @endif
+                                @else
+                                    <span class="text-secondary" style="float: right">Đang cập nhật...</span>
+                                @endif
                             </span>
                         </div>
                     </div>

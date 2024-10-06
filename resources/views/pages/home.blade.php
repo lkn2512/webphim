@@ -19,7 +19,19 @@
                         <a href="{{ URL::to('phim/' . $new->slug) }}">
                             <div class="card-film">
                                 @if ($new->latestEpisode)
-                                    <span class="episode">{{ $new->latestEpisode->episode_display }}</span>
+                                    @if ($new->isPhimle())
+                                        <span class="episode">{{ $new->latestEpisode->episode_display }}</span>
+                                    @elseif($new->isPhimbo())
+                                        @if ($new->completion_status == 1)
+                                            <span class="episode">{{ $new->latestEpisode->episode_display }},
+                                                END</span>
+                                        @elseif($new->completion_status == 2)
+                                            <span class="episode">{{ $new->latestEpisode->episode_display }},
+                                                Tạm dừng</span>
+                                        @else
+                                            <span class="episode">{{ $new->latestEpisode->episode_display }}</span>
+                                        @endif
+                                    @endif
                                 @else
                                     <span class="episode">Đang cập nhật</span>
                                 @endif
@@ -49,7 +61,15 @@
                         <a href="{{ URL::to('phim/' . $ser->slug) }}">
                             <div class="card-film">
                                 @if ($ser->latestEpisode)
-                                    <span class="episode">{{ $ser->latestEpisode->episode_display }}</span>
+                                    @if ($ser->completion_status == 1)
+                                        <span class="episode">{{ $ser->latestEpisode->episode_display }},
+                                            END</span>
+                                    @elseif($ser->completion_status == 2)
+                                        <span class="episode">{{ $ser->latestEpisode->episode_display }},
+                                            Tạm dừng</span>
+                                    @else
+                                        <span class="episode">{{ $ser->latestEpisode->episode_display }}</span>
+                                    @endif
                                 @else
                                     <span class="episode">Đang cập nhật</span>
                                 @endif
@@ -64,7 +84,6 @@
                     </div>
                 @endforeach
             </div>
-
             <div class="title-section mt-4">
                 <div class="title-left col-lg-3 col-md-6 col-sm-5 col-6">
                     <span class="title-text">Phim lẻ</span>

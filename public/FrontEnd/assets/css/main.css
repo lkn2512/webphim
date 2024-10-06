@@ -501,7 +501,7 @@ hr {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: orangered;
+    background: linear-gradient(to right, rgb(11, 0, 105) 0%, rgb(174, 93, 255) 100%);
     color: #fff;
     padding: 2px 5px;
     font-size: 0.9rem;
@@ -736,7 +736,7 @@ hr {
 .detailMovie-container .movie-genre .text i,
 .detailMovie-container .movie-country .text i,
 .detailMovie-container .movie-category .text i {
-    margin-right: 8px;
+    margin-right: 5px;
 }
 
 .detailMovie-container .info-different .title-left,
