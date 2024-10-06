@@ -77,6 +77,8 @@ class MovieController extends Controller
                 $movie->series_id = null;
             }
             $movie->status = $data['movieStatus'];
+            $movie->completion_status = $data['movieCompletionStatus'];
+
             $movie->save();
 
             // Xử lý các phân loại, thể loại, và quốc gia
@@ -136,6 +138,7 @@ class MovieController extends Controller
             $movie->description = $request->movieDescription;
             $movie->translation = $request->movieTranslation;
             $movie->release_year = $request->movieYear;
+            $movie->completion_status = $request->movieCompletionStatus;
 
             if ($request->movieSeries != null) {
                 $movie->series_id = $request->movieSeries;

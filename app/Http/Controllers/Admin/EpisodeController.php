@@ -191,10 +191,14 @@ class EpisodeController extends Controller
         // Lấy danh sách các tập liên quan đến phim
         $episodes = Episode::where('movie_id', $movieId)->orderByDesc('id')->get();
 
+        // Lấy thông tin phim đã chọn để hiển thị hình ảnh
+        $selectedMovieData = Movie::find($movieId);
+
         // Trả về view cùng với danh sách tập phim và phim đã chọn
         return view('admin.episode.show-movie-episode', [
             'episodes' => $episodes,
             'selectedMovie' => $movieId, // Truyền phim đã chọn
+            'selectedMovieData' => $selectedMovieData, // Truyền thông tin phim để hiển thị hình ảnh
             'listMovie' => Movie::orderBy('title')->get() // Danh sách phim để hiển thị lại
         ]);
     }

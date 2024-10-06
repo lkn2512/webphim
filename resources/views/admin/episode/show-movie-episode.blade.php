@@ -38,104 +38,122 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ route('episode.showEpisodes') }}">
-        @csrf
-        <div class="card">
-            <div class="card-header bg-dnb">
-                <h3 class="card-title">Danh sách phim</h3>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
+    <div class="row">
+        <div class="col-lg-4">
+            <form method="POST" action="{{ route('episode.showEpisodes') }}">
+                @csrf
+                <div class="card">
+                    <div class="card-header bg-dnb">
+                        <h3 class="card-title">Danh sách phim</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-sm-8 col-8">
+                                <div class="form-group">
+                                    <select id="inputMovie" class="form-control select2" name="selectedMovie" required>
+                                        <option selected disabled>-- Chọn phim --</option>
+                                        @foreach ($listMovie as $listM)
+                                            <option value="{{ $listM->id }}"
+                                                {{ old('selectedMovie', $selectedMovie ?? '') == $listM->id ? 'selected' : '' }}>
+                                                {{ $listM->title }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-4 col-4">
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary">Chọn</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-10 col-md-10 col-sm-8 col-8">
-                        <div class="form-group">
-                            <select id="inputMovie" class="form-control  select2" name="selectedMovie" required>
-                                <option selected disabled>-- Chọn phim --</option>
-                                @foreach ($listMovie as $listM)
-                                    <option value="{{ $listM->id }}"
-                                        {{ old('selectedMovie', $selectedMovie ?? '') == $listM->id ? 'selected' : '' }}>
-                                        {{ $listM->title }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-4">
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">Chọn</button>
-                        </div>
-                    </div>
+            </form>
+            <!-- Hình ảnh phim sau khi nhấn "Chọn" -->
+            <div class="card">
+                <div class="card-body text-center">
+                    @if (!empty($selectedMovieData))
+                        <img id="movieImage" class="img-fluid"
+                            src="{{ asset('uploads/movies/' . $selectedMovieData->image) }}"
+                            alt="{{ $selectedMovieData->title }}">
+                    @else
+                        <img id="movieImage" class="img-fluid" src="" alt="Chọn phim để xem hình ảnh">
+                    @endif
                 </div>
             </div>
         </div>
-    </form>
-
-    <div class="card">
-        <div class="card-body">
-            <div class="flex-center-between">
-                <h5 class="fw-bold">Danh sách tập phim</h5>
-                <span class="note">Có thể chỉnh sửa trực tiếp</span>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Các Tập Phim</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="note-container">
+                        <h2 class="note-title">Ghi Chú</h2>
+                        <li>- Nếu là phim lẻ, ghi là "Full"</li>
+                        <li>- Nếu là phim bộ, ghi là "Tập + số". Ví dụ: Tập 2</li>
+                        <li>- Có thể chỉnh sửa trực tiếp</li>
+                    </div>
+                    @if ($episodes->isEmpty())
+                        <span>Hiện không có tập phim nào.</span>
+                    @else
+                        <table class="table table-hover align-middle table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Tập</th>
+                                    <th>Link</th>
+                                    <th>Thời lượng</th>
+                                    <th>Trạng thái</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($episodes as $value)
+                                    <tr id="episode-row-{{ $value->id }}">
+                                        <td class="editable" data-field="episode_number" data-id="{{ $value->id }}">
+                                            {{ $value->episode_number }}
+                                        </td>
+                                        <td class="editable" data-field="link" data-id="{{ $value->id }}">
+                                            {{ $value->link }}
+                                        </td>
+                                        <td class="editable" data-field="duration" data-id="{{ $value->id }}">
+                                            {{ $value->duration }}
+                                        </td>
+                                        <td>
+                                            <button type="button"
+                                                class="toggle-status btn {{ $value->status == 1 ? 'active' : '' }}"
+                                                data-id="{{ $value->id }}"
+                                                data-active-url="{{ URL::to('episode/active/' . $value->id) }}"
+                                                data-inactive-url="{{ URL::to('episode/unactive/' . $value->id) }}"
+                                                data-toggle="tooltip" data-placement="top"
+                                                title="{{ $value->status == 1 ? 'Hiển thị' : 'Ẩn' }}">
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);" class="btn-remove" data-id="{{ $value->id }}"
+                                                data-type="episode" data-confirm-message="Bạn có chắc là muốn xoá tập này?"
+                                                onclick="deleteItem(this)" title="Xoá">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
             </div>
-            <div class="note-container">
-                <h2 class="note-title">Ghi Chú</h2>
-                <li>- Nếu là phim lẻ, ghi là "Full"</li>
-                <li>- Nếu là phim bộ, ghi là "Tập + số". Ví dụ: Tập 2</li>
-            </div>
-            @if ($episodes->isEmpty())
-                <span>Hiện không có tập phim nào.</span>
-            @else
-                <table class="table table-hover align-middle table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Tập</th>
-                            <th>Link</th>
-                            <th>Thời lượng</th>
-                            <th>Mô tả</th>
-                            <th>Trạng thái</th>
-                            <th>Tác vụ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($episodes as $value)
-                            <tr id="episode-row-{{ $value->id }}">
-                                <td class="editable" data-field="episode_number" data-id="{{ $value->id }}">
-                                    {{ $value->episode_number }}
-                                </td>
-                                <td class="editable" data-field="link" data-id="{{ $value->id }}">
-                                    {{ $value->link }}
-                                </td>
-                                <td class="editable" data-field="duration" data-id="{{ $value->id }}">
-                                    {{ $value->duration }}
-                                </td>
-                                <td class="editable" data-field="description" data-id="{{ $value->id }}">
-                                    {{ $value->description }}
-                                </td>
-                                <td>
-                                    <button type="button"
-                                        class="toggle-status btn {{ $value->status == 1 ? 'active' : '' }}"
-                                        data-id="{{ $value->id }}"
-                                        data-active-url="{{ URL::to('episode/active/' . $value->id) }}"
-                                        data-inactive-url="{{ URL::to('episode/unactive/' . $value->id) }}"
-                                        data-toggle="tooltip" data-placement="top"
-                                        title="{{ $value->status == 1 ? 'Hiển thị' : 'Ẩn' }}">
-                                    </button>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0);" class="btn-remove" data-id="{{ $value->id }}"
-                                        data-type="episode" data-confirm-message="Bạn có chắc là muốn xoá tập này?"
-                                        onclick="deleteItem(this)" title="Xoá">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            @endif
         </div>
     </div>
     @push('movie-episode-JS')

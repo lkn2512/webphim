@@ -186,6 +186,17 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group">
+                                    <label for="inputCompletionStatus">Tình trạng</label>
+                                    <select id="inputCompletionStatus" class="form-control custom-select"
+                                        name="movieCompletionStatus">
+                                        <option value="0" selected>Đang cập nhật</option>
+                                        <option value="1">Hoàn thành</option>
+                                        <option value="2">Tạm dừng</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="inputStatus">Trạng thái</label>

@@ -213,6 +213,21 @@
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="form-group">
+                                    <label for="inputCompletionStatus">Tình trạng</label>
+                                    <select id="inputCompletionStatus" class="form-control custom-select"
+                                        name="movieCompletionStatus">
+                                        <option value="0" {{ $editMovie->completion_status == 0 ? 'selected' : '' }}>
+                                            Đang cập nhật
+                                        </option>
+                                        <option value="1" {{ $editMovie->completion_status == 1 ? 'selected' : '' }}>
+                                            Hoàn thành</option>
+                                        <option value="2" {{ $editMovie->completion_status == 2 ? 'selected' : '' }}>
+                                            Tạm dừng</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group">
                                     <label for="inputStatus">Trạng thái</label>
                                     <select id="inputStatus" class="form-control custom-select" name="movieStatus">
                                         <option value="1" {{ $editMovie->status == 1 ? 'selected' : '' }}>Hiển thị
@@ -223,6 +238,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="flex-center-between text-secondary">
+                    <p>Thời gian thêm: {{ $editMovie->created_at->format('H:i, d/m/Y') }}</p>
+                    <p>Cập nhật lần cuối: {{ $editMovie->updated_at->format('H:i, d/m/Y') }}</p>
                 </div>
             </div>
         </div>

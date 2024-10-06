@@ -47,8 +47,7 @@
                 <th>Quốc gia</th>
                 <th>Năm phát hành</th>
                 <th>Phiên dịch</th>
-                <th>Ngày thêm</th>
-                <th>Ngày cập nhật</th>
+                <th>Tình trạng</th>
                 <th>Trạng thái</th>
                 <th>Tác vụ</th>
             </tr>
@@ -106,8 +105,16 @@
                         @endphp
                         {{ $translations[$value->translation] ?? 'Không có' }}
                     </td>
-                    <td>{{ $value->created_at->format('H:i, d/m/Y') }}</td>
-                    <td>{{ $value->updated_at->format('H:i, d/m/Y') }}</td>
+
+                    <td>
+                        @if ($value->completion_status == 0)
+                            <span class="text-secondary">Đang cập nhật</span>
+                        @elseif($value->completion_status == 1)
+                            <span class="text-success">Hoàn thành</span>
+                        @else
+                            <span class="text-danger">Tạm dừng</span>
+                        @endif
+                    </td>
                     <td>
                         <button type="button" class="toggle-status btn {{ $value->status == 1 ? 'active' : '' }}"
                             data-id="{{ $value->id }}" data-active-url="{{ URL::to('movie/active/' . $value->id) }}"
