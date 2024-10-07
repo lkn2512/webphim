@@ -682,6 +682,7 @@ hr {
     border: 5px solid black;
 }
 
+
 .view-movie {
     position: absolute;
     background: linear-gradient(90deg, rgba(255, 140, 0, 0.6), rgba(255, 140, 0, 1));
@@ -702,6 +703,62 @@ hr {
 .view-movie:hover {
     transform: translateX(-50%) translateY(-5px);
 }
+
+
+.img-container .status-movie {
+    position: absolute;
+    border-radius: 8px;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    z-index: 2;
+    top: 10px;
+    left: 0px;
+
+}
+
+.img-container .status-movie .success {
+    background: linear-gradient(90deg, #006241, #008c5d, #006241);
+    background-size: 200% 200%;
+    color: white;
+    border-radius: 5px;
+    padding: 4px 8px;
+    animation: sparkle 5s infinite linear;
+}
+
+.img-container .status-movie .pause {
+    background: linear-gradient(90deg, #FF4040, #FF6A6A, #FF4040);
+    background-size: 200% 200%;
+    color: white;
+    border-radius: 5px;
+    padding: 4px 8px;
+    animation: sparkle-pause 5s infinite linear;
+}
+
+.img-container .status-movie .updating {
+    background: linear-gradient(90deg, #205AA7, #4C78C5, #205AA7);
+    background-size: 200% 200%;
+    color: white;
+    border-radius: 5px;
+    padding: 4px 8px;
+    animation: sparkle-pause 5s infinite linear;
+}
+
+@keyframes sparkle {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 
 .detailMovie-container .name {
     font-size: 1.5rem;

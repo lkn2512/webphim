@@ -36,6 +36,17 @@
                                 </a>
                             @endif
                         @endif
+                        <div class="status-movie">
+                            @if ($movie_detail->latestEpisode)
+                                @if ($movie_detail->completion_status == 1)
+                                    <span class="success">Hoàn thành</span>
+                                @elseif($movie_detail->completion_status == 2)
+                                    <span class="pause">Tạm dừng</span>
+                                @endif
+                            @else
+                                <span class="updating">Đang cập nhật...</span>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-7 col-sm-6 col-12 mb-3">
@@ -99,7 +110,7 @@
                             <span class="text col-lg-8 col-md-6 col-sm-6 col-7">
                                 <i class="fa-regular fa-calendar"></i>{{ $movie_detail->release_year }},
                                 {{ $movie_detail->episodes_count }} tập
-                                @if ($movie_detail->latestEpisode)
+                                {{-- @if ($movie_detail->latestEpisode)
                                     @if ($movie_detail->completion_status == 1)
                                         <span class="text-success" style="float: right"><i
                                                 class="fa-regular fa-circle-check"></i>Hoàn
@@ -110,7 +121,7 @@
                                     @endif
                                 @else
                                     <span class="text-secondary" style="float: right">Đang cập nhật...</span>
-                                @endif
+                                @endif --}}
                             </span>
                         </div>
                     </div>

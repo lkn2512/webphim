@@ -6,267 +6,812 @@
             </url>
     <url>
         <loc>http://127.0.0.1:8000/danh-muc/phim-bo</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/danh-muc/phim-chieu-rap</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/danh-muc/phim-hoat-hinh</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/danh-muc/phim-le</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/3d</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/anime</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/bi-an</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/chinh-kich</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/co-trang</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/gia-dinh</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/the-loai/hai-huoc</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/hanh-dong</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/hien-dai</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/the-loai/huyen-huyen</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/khoa-hoc-vien-tuong</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/kinh-di</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/lang-man</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/ngon-tinh</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/phieu-luu</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/tam-ly</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/tien-hiep</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/the-loai/tu-tien</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/quoc-gia/anh</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/quoc-gia/au-my</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/quoc-gia/han-quoc</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/quoc-gia/nhat-ban</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/quoc-gia/trung-quoc</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/phim/thon-phe-tinh-khong</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/phim/chuyen-tau-sinh-tu</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/phim/harry-potter-va-hon-da-phu-thuy-phan-1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/phim/pham-nhan-tu-tien-phan-2</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/phim/khi-anh-chay-ve-phia-em</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/phim/cat-roi-ky-uc-phan-1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/phim/cua-hang-sat-thu</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/phim/alienoid-da-chieu-hon-chien-phan-1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/phim/tien-nghich</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/phim/pham-nhan-tu-tien-phan-1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/phim/pham-nhan-tu-tien-phan-3</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/phim/wistoria-truong-va-kiem-phan-1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/phim/harry-potter-va-phong-chua-bi-mat-phan-2</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/harry-potter-va-ten-tu-nhan-nguc-azkaban-phan-3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/harry-potter-va-chiec-coc-lua-phan-4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/harry-potter-va-hoang-tu-lai-phan-6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/harry-potter-va-bao-boi-tu-than-phan-7a</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/harry-potter-va-bao-boi-tu-than-phan-7b</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/tro-choi-nghin-ty</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/wistoria-truong-va-kiem</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/avatar</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/ve-binh-dai-ngan-ha</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/ve-binh-dai-ngan-ha-2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/silo</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/thung-lung-silicon-phan-1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/thung-lung-silicon-phan-2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/thung-lung-silicon-phan-3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/thung-lung-silicon-phan-4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/phim/thung-lung-silicon-phan-5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thon-phe-tinh-khong/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/xem-phim/chuyen-tau-sinh-tu/Full</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-hon-da-phu-thuy-phan-1/Full</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/alienoid-da-chieu-hon-chien-phan-1/Full</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-1/Tập 1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/Tập 1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/Tập 2</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/Tập 3</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/Tập 4</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/pham-nhan-tu-tien-phan-3/Tập 5</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/Tập 1</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 9</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/Tập 2</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 10</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/Tập 3</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 11</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem-phan-1/Tập 4</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 12</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 13</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 14</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 15</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 16</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 17</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 18</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 19</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 20</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 21</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 22</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 23</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/khi-anh-chay-ve-phia-em/Tập 24</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-phong-chua-bi-mat-phan-2/Full</loc>
-        <lastmod>2024-10-03T20:27:49+07:00</lastmod>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-ten-tu-nhan-nguc-azkaban-phan-3/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-chiec-coc-lua-phan-4/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-hoang-tu-lai-phan-6/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-bao-boi-tu-than-phan-7a/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/harry-potter-va-bao-boi-tu-than-phan-7b/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 9</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/tro-choi-nghin-ty/Tập 10</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 9</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 10</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 11</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/wistoria-truong-va-kiem/Tập 12</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/avatar/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/ve-binh-dai-ngan-ha/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/ve-binh-dai-ngan-ha-2/Full</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 9</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/silo/Tập 10</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-1/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 9</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-2/Tập 10</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 9</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-3/Tập 10</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 9</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-4/Tập 10</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 1</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 2</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 3</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 4</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 5</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 6</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 7</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/xem-phim/thung-lung-silicon-phan-5/Tập 8</loc>
+        <lastmod>2024-10-07T18:26:22+07:00</lastmod>
 
             </url>
     <url>

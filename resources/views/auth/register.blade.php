@@ -85,3 +85,7 @@
         </div>
     </div>
 @endsection --}}
+
+@php
+    abort(404);
+@endphp
