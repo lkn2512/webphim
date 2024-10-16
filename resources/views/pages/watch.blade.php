@@ -87,25 +87,25 @@
                         <div class="avatar-selection">
                             <p>Chọn một avatar:</p>
                             <div class="avatars">
-                                <img src="{{ asset('Frontend/image/avatar.png') }}" class="avatar-option" alt="Avatar 2">
-                                <img src="{{ asset('Frontend/image/avatar1.png') }}" class="avatar-option" alt="Avatar 1">
-                                <img src="{{ asset('Frontend/image/avatar2.png') }}" class="avatar-option" alt="Avatar 3">
-                                <img src="{{ asset('Frontend/image/avatar4.png') }}" class="avatar-option" alt="Avatar 4">
-                                <img src="{{ asset('Frontend/image/avatar5.jpg') }}" class="avatar-option" alt="Avatar 5">
-                                <img src="{{ asset('Frontend/image/avatar6.jpg') }}" class="avatar-option" alt="Avatar 6">
-                                <img src="{{ asset('Frontend/image/avatar7.jpg') }}" class="avatar-option" alt="Avatar 7">
-                                <img src="{{ asset('Frontend/image/avatar8.jpg') }}" class="avatar-option" alt="Avatar 8">
-                                <img src="{{ asset('Frontend/image/avatar9.jpg') }}" class="avatar-option" alt="Avatar 9">
-                                <img src="{{ asset('Frontend/image/avatar10.png') }}" class="avatar-option"
+                                <img src="{{ asset('FrontEnd/Image/avatar.png') }}" class="avatar-option" alt="Avatar 2">
+                                <img src="{{ asset('FrontEnd/Image/avatar1.png') }}" class="avatar-option" alt="Avatar 1">
+                                <img src="{{ asset('FrontEnd/Image/avatar2.png') }}" class="avatar-option" alt="Avatar 3">
+                                <img src="{{ asset('FrontEnd/Image/avatar4.png') }}" class="avatar-option" alt="Avatar 4">
+                                <img src="{{ asset('FrontEnd/Image/avatar5.jpg') }}" class="avatar-option" alt="Avatar 5">
+                                <img src="{{ asset('FrontEnd/Image/avatar6.jpg') }}" class="avatar-option" alt="Avatar 6">
+                                <img src="{{ asset('FrontEnd/Image/avatar7.jpg') }}" class="avatar-option" alt="Avatar 7">
+                                <img src="{{ asset('FrontEnd/Image/avatar8.jpg') }}" class="avatar-option" alt="Avatar 8">
+                                <img src="{{ asset('FrontEnd/Image/avatar9.jpg') }}" class="avatar-option" alt="Avatar 9">
+                                <img src="{{ asset('FrontEnd/Image/avatar10.png') }}" class="avatar-option"
                                     alt="Avatar 10">
-                                <img src="{{ asset('Frontend/image/avatar11.png') }}" class="avatar-option"
+                                <img src="{{ asset('FrontEnd/Image/avatar11.png') }}" class="avatar-option"
                                     alt="Avatar 11">
-                                <img src="{{ asset('Frontend/image/avatar12.png') }}" class="avatar-option"
+                                <img src="{{ asset('FrontEnd/Image/avatar12.png') }}" class="avatar-option"
                                     alt="Avatar 12">
                             </div>
                             <!-- Ẩn input để lưu giá trị avatar được chọn -->
                             <input type="hidden" class="selected-avatar" name="avatar"
-                                value="{{ asset('Frontend/image/avatar1.png') }}">
+                                value="{{ asset('FrontEnd/Image/avatar1.png') }}">
                         </div>
                         <input type="text" class="input-name mb-1" placeholder="Họ và tên" required>
                         <span class="name-error-message"></span>
