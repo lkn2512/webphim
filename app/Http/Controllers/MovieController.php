@@ -130,9 +130,9 @@ class MovieController extends Controller
                 <div class="row">
                     <div class="col-lg-1 col-md-2 col-sm-3 col-2 mb-1 mt-1">';
                 if (!is_null($comment->avatar)) {
-                    $output .= '<img class="img-comment" src="' . asset('Frontend/image/' . $comment->avatar) . '" alt="Avatar">';
+                    $output .= '<img class="img-comment" src="' . asset('FrontEnd/Image/' . $comment->avatar) . '" alt="Avatar">';
                 } else {
-                    $output .= '<img class="img-comment" src="' . asset('Frontend/image/avatar.png') . '" alt="Avatar">';
+                    $output .= '<img class="img-comment" src="' . asset('FrontEnd/Image/avatar.png') . '" alt="Avatar">';
                 }
                 $output .= '</div>
                     <div class="col-lg-11 col-md-10 col-sm-9 col-12 mb-1 mt-1">
